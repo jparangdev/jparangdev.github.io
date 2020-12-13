@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        About Kafka - 1 ::
+        Jparangdev — simple is best, record is power
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="1. What is Kafka ? https://www.confluent.io/blog/kafka-fastest-messaging-systemApache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼입니다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종입니다. Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었습니다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용하고 있습니다.
+2. Kafka Process Kafka의 기본 구조Kafka는 기본적으로 Publish/Subscribe 구조를 사용합니다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비합니다."
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/kafka/about-kafka-1/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css" />
+
+<link rel="stylesheet" href="/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="/img/favicon.png" />
+
+
+<link href="/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="About Kafka - 1"/>
+<meta name="twitter:description" content="1. What is Kafka ? https://www.confluent.io/blog/kafka-fastest-messaging-systemApache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼입니다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종입니다. Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었습니다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용하고 있습니다.
+2. Kafka Process Kafka의 기본 구조Kafka는 기본적으로 Publish/Subscribe 구조를 사용합니다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비합니다."/>
+
+
+
+<meta property="og:title" content="About Kafka - 1" />
+<meta property="og:description" content="1. What is Kafka ? https://www.confluent.io/blog/kafka-fastest-messaging-systemApache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼입니다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종입니다. Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었습니다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용하고 있습니다.
+2. Kafka Process Kafka의 기본 구조Kafka는 기본적으로 Publish/Subscribe 구조를 사용합니다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비합니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/kafka/about-kafka-1/" />
+<meta property="article:published_time" content="2020-12-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-12-13T00:00:00+00:00" /><meta property="og:site_name" content="Jparangdev" />
+
+
+
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >jparangdev</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">About Kafka - 1</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-12-13
+        </span>
+
+        
+          
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by jparangdev</span
+        >
+
+
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+      <h2 id="1-what-is-kafka-">1. What is Kafka ?</h2>
+
+  <figure class="center" >
+    <img src="/images/kafka/about-kafka-fastest.png"  alt="kafka process - 1"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" ><a href="https://www.confluent.io/blog/kafka-fastest-messaging-system">https://www.confluent.io/blog/kafka-fastest-messaging-system</a></figcaption>
+    
+  </figure>
+
+
+<h4 id="apache-kafka-is-an-evnet-streaming-platform">Apache Kafka is an evnet streaming platform</h4>
+<p>Kafka는 오픈소스 분산메세지 플랫폼입니다. 
+실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종입니다.
+Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었습니다.
+다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용하고 있습니다.</p>
+<h2 id="2-kafka-process">2. Kafka Process</h2>
+
+  <figure class="center" >
+    <img src="/images/kafka/about-kafka-process.png"  alt="kafka process - 1"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" >Kafka의 기본 구조</figcaption>
+    
+  </figure>
+
+
+<p>Kafka는 기본적으로 Publish/Subscribe 구조를 사용합니다.
+Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비합니다.
+거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 합니다.
+이러한 구성을 느슨한 결합(Loosely Coupled)이라 합니다.</p>
+<p>다수의 Producer가 데이터를 메세지화 하여 전송하면 Kafka가 Event-Driven 방식으로 대량의 메세지를 병렬적으로 처리하며
+해당 Topic을 구독하고있는 Consumer에게 전송하게 되죠</p>
+<h2 id="3-kafka-component">3. Kafka Component</h2>
+
+  <figure class="center" >
+    <img src="/images/kafka/about-kafka-component.png"  alt="kafka Component - 1"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" ><em>Kafka의 구성요소</em></figcaption>
+    
+  </figure>
+
+
+<p>Kafak의 기본적인 구성요소들을 하나씩 살펴보도록 하겠습니다.</p>
+<ul>
+<li>
+<p><strong>Topic</strong>
+메세지의 종류 또는 카테고리라고 할 수 있습니다. Producer가 특정 Topic으로 메세지를 생성하면, 이 Topic을 구독하고 있는 Consumer는 메세지를 소비 할 수 있습니다.</p>
+</li>
+<li>
+<p><strong>Partition</strong>
+Topic 내에서 메세지가 분산되어 저장되는 Queue입니다. 하나의 Topic에 단일 Partition인 경우 순서가 보장 될 수 있으나, 다중 Partition인 경우 각 Partition의 끝에서 Round-Robin 방식으로 쓰여지기 때문에 읽어 올 때 그 순서를 보장 할 수 없습니다.  Topic내 Partition 수는 설정이 가능하며은 한번 늘리면 다시 줄일 수 없습니다.</p>
+</li>
+<li>
+<p><strong>Log</strong>
+Partition의 한 메세지 부분을 담당합니다.</p>
+</li>
+<li>
+<p><strong>Broker</strong>
+Kafka의 서버를 의미합니다. Broker 여러개가 Cluster를 구성하며, Zookeeper를 통해 메타데이터를 공유합니다.</p>
+</li>
+<li>
+<p><strong>Zookeeper</strong>
+Kafka의 메타정보를 관리하는 프로그램 Zookeeper가 실행되어야 Kafka가 실행 될 수 있습니다.</p>
+</li>
+</ul>
+
+    </div>
+    
+      
+    
+
+    
+      
+        
+
+      
+    
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >jparangdev</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2020 Powered by
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
+        >
+        <span
+          >Theme created by
+          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
