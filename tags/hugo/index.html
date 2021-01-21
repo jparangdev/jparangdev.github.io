@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        hugo ::
+        Jparagdev&#39;s blog — develop and record
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content=""
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/tags/hugo/" />
+
+
+
+
+
+<link rel="stylesheet" href="assets/style.css" />
+
+<link rel="stylesheet" href="style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="img/favicon.png" />
+
+
+<link href="assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content=""/>
+
+<meta name="twitter:title" content="hugo"/>
+<meta name="twitter:description" content=""/>
+
+
+
+<meta property="og:title" content="hugo" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/tags/hugo/" />
+<meta property="og:image" content=""/>
+<meta property="og:updated_time" content="2021-01-21T21:00:00+09:00" /><meta property="og:site_name" content="Jparagdev&#39;s blog" />
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/tags/hugo/index.xml" title="Jparagdev's blog" />
+
+
+
+  </head>
+  <body class="dark-theme">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >Jparagdev </span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/posts">Posts</a></li>
+        
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/posts">Posts</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="posts">
+    
+      <div class="post on-list">
+        <h1 class="post-title"><a href="/posts/blog/hugo-2/">github.io 블로그 만들기 - 2</a></h1>
+        <div class="post-meta">
+          
+            <span class="post-date">
+              2021-01-21
+            </span>
+
+            
+          
+          
+            <span class="post-author"
+              >— Written by jparangdev</span
+            >
+
+
+          
+        </div>
+
+        
+          <span class="post-tags">
+            
+              <a href="tags/hugo/">#hugo</a>&nbsp;
+            
+              <a href="tags/markdown/">#markdown</a>&nbsp;
+            
+              <a href="tags/git/">#git</a>&nbsp;
+            
+          </span>
+        
+
+        
+
+        <div class="post-content">
+          
+            
+              이전 블로그에 이어 이번엔 테마를 설정해보도록 하겠다.
+https://themes.gohugo.io/tags/blog/
+위 페이지에 접속하여 원하는 테마를 골라보도록 하자. 일반적으로 모든 테마에서는 설치법과 기본적인 사용법이 개발자분들이 적어 놓은 경우가 많아 이를 참고하는것이 좋긴하다.
+일단 내가 적용했던 방법을 기록해본다.
+간편하게 생성했던 프로젝트 파일 themes 아래 서브모듈로 추가하거나 (테마제작자의 업데이트가 상관없는경우 가능)
+$ git clone &lt;테마 Git주소&gt; themes/&lt;테마이름&gt; $ git submodule add &lt;테마 Git주소&gt; themes/&lt;테마이름&gt; 아니면 직접 다운받아 themes폴더 아래에 위치시켜주면 된다.
+이후 config.toml파일을 각 테마에 맞게 수정해줘야한다.
+            
+          
+        </div>
+        
+          <div>
+            <a class="read-more button" href="/posts/blog/hugo-2/"
+              >Read more →</a
+            >
+          </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title"><a href="/posts/blog/hugo-1/">github.io 블로그 만들기 - 1</a></h1>
+        <div class="post-meta">
+          
+            <span class="post-date">
+              2021-01-17
+            </span>
+
+            
+          
+          
+            <span class="post-author"
+              >— Written by jparangdev</span
+            >
+
+
+          
+        </div>
+
+        
+          <span class="post-tags">
+            
+              <a href="tags/hugo/">#hugo</a>&nbsp;
+            
+              <a href="tags/markdown/">#markdown</a>&nbsp;
+            
+              <a href="tags/git/">#git</a>&nbsp;
+            
+          </span>
+        
+
+        
+
+        <div class="post-content">
+          
+            
+              기록은 힘이다 말이 있듯이 자신만의 지식 아카이브를 만들어 두는 것은 큰 도움이 된다. 다른사람에게 정보 전달의 목적도 있지만 나 자신의 생각을 정리하기 위해 블로그를 기록하기로 한다.
+github는 간편하면서 무료로 호스팅을 한다. 다만, 정적인 페이지로만 생성이 가능
+내가 만들 블로그의 경우는 방문자에게 정보 전달만이 목적이기에 Static Website로 구성 현재는 많은 개발자분들이 Github를 통해 블로그를 구축하는듯 하다
+먼저 블로그를 구축하기전에 Git에 대한 기본적이 지식이 필요하다. Git에 대한 정보는 이미 웹에 많은 좋은 기록이 많기 때문에 따로 다루진 않는다.
+            
+          
+        </div>
+        
+          <div>
+            <a class="read-more button" href="/posts/blog/hugo-1/"
+              >Read more →</a
+            >
+          </div>
+        
+      </div>
+    
+    <div class="pagination">
+  <div class="pagination__buttons">
+    
+    
+  </div>
+</div>
+
+  </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >Jparagdev </span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2021 Powered by
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
+        >
+        <span
+          >Theme created by
+          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+<script src="assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
