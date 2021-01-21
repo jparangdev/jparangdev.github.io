@@ -1,23 +1,49 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Jparangdev</title>
+    <title>Jparagdev&#39;s blog</title>
     
     
     
     <link>/</link>
-    <description>Recent content on Jparangdev</description>
+    <description>Recent content on Jparagdev&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 21 Jan 2021 21:00:00 +0900</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>github.io 블로그 만들기 - 2</title>
+      <link>/posts/blog/hugo-2/</link>
+      <pubDate>Thu, 21 Jan 2021 21:00:00 +0900</pubDate>
+      
+      <guid>/posts/blog/hugo-2/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          이전 블로그에 이어 이번엔 테마를 설정해보도록 하겠다.
+https://themes.gohugo.io/tags/blog/
+위 페이지에 접속하여 원하는 테마를 골라보도록 하자. 일반적으로 모든 테마에서는 설치법과 기본적인 사용법이 개발자분들이 적어 놓은 경우가 많아 이를 참고하는것이 좋긴하다.
+일단 내가 적용했던 방법을 기록해본다.
+간편하게 생성했던 프로젝트 파일 themes 아래 서브모듈로 추가하거나 (테마제작자의 업데이트가 상관없는경우 가능)
+$ git clone &amp;lt;테마 Git주소&amp;gt; themes/&amp;lt;테마이름&amp;gt; $ git submodule add &amp;lt;테마 Git주소&amp;gt; themes/&amp;lt;테마이름&amp;gt; 아니면 직접 다운받아 themes폴더 아래에 위치시켜주면 된다.
+이후 config.toml파일을 각 테마에 맞게 수정해줘야한다.
+          
+        
+        </description>
+    </item>
+    
+    <item>
       <title>github.io 블로그 만들기 - 1</title>
       <link>/posts/blog/hugo-1/</link>
-      <pubDate>Sun, 03 Jan 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 17 Jan 2021 20:45:00 +0900</pubDate>
       
       <guid>/posts/blog/hugo-1/</guid>
       <description>
