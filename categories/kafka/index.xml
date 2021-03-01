@@ -6,7 +6,21 @@
     <description>Recent content in kafka on Jparagdev&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Jan 2021 21:43:00 +0900</lastBuildDate><atom:link href="/categories/kafka/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Jan 2021 14:22:00 +0900</lastBuildDate><atom:link href="/categories/kafka/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kafka 알아보기 - 2</title>
+      <link>/posts/kafka/about-kafka-2/</link>
+      <pubDate>Sun, 10 Jan 2021 14:22:00 +0900</pubDate>
+      
+      <guid>/posts/kafka/about-kafka-2/</guid>
+      <description>그럼 이제 실제로 카프카를 한번 설치해보자
+Kafka Download URL : https://kafka.apache.org/downloads
+$ mkdir kafka $ cd kafka $ wget https://downloads.apache.org/kafka/2.6.0/kafka_2.12-2.6.0.tgz $ tar -zxvf kafka_2.12-2.6.0.tgz Kafka를 다운로드 받고 압축을 해제.
+압축을 해제한 폴더의 Config폴더로 들어가면 zookeeper.properties 파일이 있다.
+Kafka의 메타데이터 관리는 zookeeper가 관리하기 때문에 해당 파일을 통해 설정을 변경 할 수 있다.
+$ cd kafka_2.12-2.6.0 $ mkdir data $ echo 1 &amp;gt; myid $ vi myid 미리 zookeeper의 데이터(각 ID)가 저장될 폴더를 생성하자</description>
+    </item>
+    
     <item>
       <title>Kafka 알아보기 - 1</title>
       <link>/posts/kafka/about-kafka-1/</link>

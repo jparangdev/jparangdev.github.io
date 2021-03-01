@@ -67,6 +67,99 @@ Event-Driven Programming 도 동일하게 하나의 이벤트 리스너를 두�
         </item>
         
         <item>
+            <title>Kafka 알아보기 - 2</title>
+            <link>/posts/kafka/about-kafka-2/</link>
+            <pubDate>Sun, 10 Jan 2021 14:22:00 +0900</pubDate>
+            
+            <guid>/posts/kafka/about-kafka-2/</guid>
+            <description>그럼 이제 실제로 카프카를 한번 설치해보자
+Kafka Download URL : https://kafka.apache.org/downloads
+$ mkdir kafka $ cd kafka $ wget https://downloads.apache.org/kafka/2.6.0/kafka_2.12-2.6.0.tgz $ tar -zxvf kafka_2.12-2.6.0.tgz Kafka를 다운로드 받고 압축을 해제.
+압축을 해제한 폴더의 Config폴더로 들어가면 zookeeper.properties 파일이 있다.
+Kafka의 메타데이터 관리는 zookeeper가 관리하기 때문에 해당 파일을 통해 설정을 변경 할 수 있다.
+$ cd kafka_2.12-2.6.0 $ mkdir data $ echo 1 &amp;gt; myid $ vi myid 미리 zookeeper의 데이터(각 ID)가 저장될 폴더를 생성하자</description>
+            <content type="html"><![CDATA[<p>그럼 이제 실제로 카프카를 한번 설치해보자</p>
+<p>Kafka Download URL : <a href="https://kafka.apache.org/downloads">https://kafka.apache.org/downloads</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mkdir kafka
+$ cd kafka
+$ wget https://downloads.apache.org/kafka/2.6.0/kafka_2.12-2.6.0.tgz
+$ tar -zxvf kafka_2.12-2.6.0.tgz
+</code></pre></div><p>Kafka를 다운로드 받고 압축을 해제.<br>
+압축을 해제한 폴더의 Config폴더로 들어가면 zookeeper.properties 파일이 있다.<br>
+Kafka의 메타데이터 관리는 zookeeper가 관리하기 때문에 해당 파일을 통해 설정을 변경 할 수 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cd kafka_2.12-2.6.0
+$ mkdir data
+$ echo <span style="color:#ae81ff">1</span> &gt; myid
+$ vi myid
+</code></pre></div><p>미리 zookeeper의 데이터(각 ID)가 저장될 폴더를 생성하자<br>
+/app/kafka/kafka-2.6.0-src/data 에 생성</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># Licensed to the Apache Software Foundation (ASF) under one or more</span>
+<span style="color:#75715e"># contributor license agreements.  See the NOTICE file distributed with</span>
+<span style="color:#75715e"># this work for additional information regarding copyright ownership.</span>
+<span style="color:#75715e"># The ASF licenses this file to You under the Apache License, Version 2.0</span>
+<span style="color:#75715e"># (the &#34;License&#34;); you may not use this file except in compliance with</span>
+<span style="color:#75715e"># the License.  You may obtain a copy of the License at</span>
+<span style="color:#75715e">#</span>
+<span style="color:#75715e">#    http://www.apache.org/licenses/LICENSE-2.0</span>
+<span style="color:#75715e">#</span>
+<span style="color:#75715e"># Unless required by applicable law or agreed to in writing, software</span>
+<span style="color:#75715e"># distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span>
+<span style="color:#75715e"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span style="color:#75715e"># See the License for the specific language governing permissions and</span>
+<span style="color:#75715e"># limitations under the License.</span>
+<span style="color:#75715e"># the directory where the snapshot is stored.</span>
+<span style="color:#75715e"># 각 서버별 아이디가 저장될 위치를 지정해줍니다.</span>
+dataDir<span style="color:#f92672">=</span>/app/kafka/kafka_2.12-2.6.0/data 
+<span style="color:#75715e"># the port at which the clients will connect</span>
+clientPort<span style="color:#f92672">=</span><span style="color:#ae81ff">2181</span>
+<span style="color:#75715e"># disable the per-ip limit on the number of connections since this is a non-production config</span>
+maxClientCnxns<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+<span style="color:#75715e"># Disable the adminserver by default to avoid port conflicts.</span>
+<span style="color:#75715e"># Set the port to something non-conflicting if choosing to enable this</span>
+admin.enableServer<span style="color:#f92672">=</span>false
+<span style="color:#75715e"># admin.serverPort=808</span>
+
+<span style="color:#75715e"># 팔로워 파티션과 리더 파티션이 초기 연결되는 시간제한 설정 </span>
+initLimit<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span> 
+
+<span style="color:#75715e"># 팔로워 파티션과 리더 파티션이 동기화 되는 시간의 타임아웃</span>
+<span style="color:#75715e"># 해당시간내에 동기화 되지 않으면 해제된다.</span>
+syncLimmit<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>
+
+<span style="color:#75715e"># 각각의 Kafka Broker 서버정보</span>
+juvis-kafka.1<span style="color:#f92672">=(</span>첫번째서버 IP<span style="color:#f92672">)</span>:2888:3888
+juvis-kafka.2<span style="color:#f92672">=(</span>두번째서버 IP<span style="color:#f92672">)</span>:2888:3888
+</code></pre></div><p>dataDir에 생성한 폴더 주소를 입력하고 initLimit,syncLimmit를 입력한 뒤 각 서버 정보를 입력<br>
+자세한 내용은 <a href="https://zookeeper.apache.org/">https://zookeeper.apache.org/</a> 페이지를 참고하자.</p>
+<p>각각의 서버에서 아까 만들었던 Data폴더 위치에 myid 파일을 만들고 여기에는 각각 아이디의 번호인 1, 2를 입력하자<br>
+myid 파일에 쓰인 번호는 <a href="http://zookeeper.properties">zookeeper.properties</a> 파일에 쓰인 .1 .2의 아이디와 연결되는 역할을 한다</p>
+<p>이번엔 server.properties 파일을 설정해보자.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">listeners<span style="color:#f92672">=</span>PLAINTEXT://:9092
+
+advertised.listeners<span style="color:#f92672">=</span>PLAINTEXT://192.168.137.101:9092
+
+zookeeper.connect<span style="color:#f92672">=(</span>첫번째 서버 IP<span style="color:#f92672">)</span>:2181, <span style="color:#f92672">(</span>두번째 서버 IP<span style="color:#f92672">)</span>:2181, 
+</code></pre></div><p>방화벽도 해재한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">## 주키퍼 포트 </span>
+firewall-cmd --permanent --zone<span style="color:#f92672">=</span>public --add-port<span style="color:#f92672">=</span>2181/tcp
+firewall-cmd --permanent --zone<span style="color:#f92672">=</span>public --add-port<span style="color:#f92672">=</span>2888/tcp
+firewall-cmd --permanent --zone<span style="color:#f92672">=</span>public --add-port<span style="color:#f92672">=</span>3888/tcp
+
+<span style="color:#75715e">## 카프카 포트</span>
+firewall-cmd --permanent --zone<span style="color:#f92672">=</span>public --add-port<span style="color:#f92672">=</span>9092/tcp
+</code></pre></div><p>앞서 진행한 작업들은 각 서버마다 연동을 해주기 위한 기본적인 작업이다.
+이제 Zookeeper를 먼저 구동후 Kafka를 구동해보자</p>
+<p>기동하려는데 에러 발생.. 원인은 소스파일이아니라 바이너리 파일을 받았어야함..ㅠ
+다시 수정해서 위에 진행사항과 동일하게 진행했다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Classpath is empty. Please build the project first e.g. by running <span style="color:#e6db74">&#39;./gradlew jar -PscalaVersion=2.13.2&#39;</span>
+</code></pre></div><p>이런 오류가 뜬다&hellip;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ bin/zookeeper-server-start.sh config/zookeeper.properties
+$ bin/kafka-server-start.sh config/server.properties
+</code></pre></div><p>zookeeper를 먼저 기동하고 kafka를 기동해야 한다.</p>
+]]></content>
+        </item>
+        
+        <item>
             <title>Kafka 알아보기 - 1</title>
             <link>/posts/kafka/about-kafka-1/</link>
             <pubDate>Sat, 02 Jan 2021 21:43:00 +0900</pubDate>
@@ -172,7 +265,7 @@ Consumer가 더 많은 경우 남은 Consumer는 Partition이 늘어날 때까�
          alt="kafka consumer group - 2"/> 
 </figure>
 
-<p>참고
+<p>참고<br>
 <a href="https://kafka.apache.org/intro">https://kafka.apache.org/intro</a><br>
 <a href="https://victorydntmd.tistory.com/344">https://victorydntmd.tistory.com/344</a><br>
 <a href="https://taetaetae.github.io/2017/11/02/what-is-kafka/">https://taetaetae.github.io/2017/11/02/what-is-kafka/</a><br>
