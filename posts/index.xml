@@ -34,7 +34,7 @@ In computer programming, event-driven programming is a programming paradigm in w
 프로그래밍에서 말하는 이벤트는</p>
 <ol>
 <li>
-<p>사용자의 액션, 즉 작게는 마우스의 클릭이나 키보드의 입력부터 주문결wp나 회원가입 등등 사용자가 서비스에 하는 행위</p>
+<p>사용자의 액션, 즉 작게는 마우스의 클릭이나 키보드의 입력부터 주문결제나 회원가입 등등 사용자가 서비스에 하는 행위</p>
 </li>
 <li>
 <p>프로그램과 프로그램 사이 또는 프로세서 사이에서 일어나는 메세지 교환</p>
@@ -133,6 +133,51 @@ Kafka의 서버를 의미한다. Broker 여러개가 Cluster를 구성하며, Zo
 Kafka의 메타정보를 관리하는 프로그램 Zookeeper가 실행되어야 Kafka가 실행 될 수 있다.</p>
 </li>
 </ul>
+<h2 id="4-topic--partition">4. Topic &amp; Partition</h2>
+<figure>
+    <img src="/images/kafka/about-kafka-partition.png"
+         alt="kafka partiton"/> <figcaption>
+            <p><em>이미치 출처 : <a href="https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2">https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2</a></em></p>
+        </figcaption>
+</figure>
+
+<p>Producer와 Consumer는 하나의 Topic으로 메세지를 주고 받게 된다.
+Topic은 하나 이상의 Partition으로 이루어지게 되는데 이는 많은 메세지를 처리하기 위해 비동기적으로 작동한다.
+다수의 Producer는 각각의 Partition에 순차적으로 데이터를 쌓게 되며 Consumer (ConsumerGroup)은 각각의 partition의 offset에 따라 데이터를 구독한다.</p>
+<figure>
+    <img src="/images/kafka/about-kafka-partition-2.png"
+         alt="kafka partiton-2"/> <figcaption>
+            <p><em>이미치 출처 : <a href="https://engkimbs.tistory.com/691">https://engkimbs.tistory.com/691</a></em></p>
+        </figcaption>
+</figure>
+
+<h2 id="5-consumergroup">5. ConsumerGroup</h2>
+<p>Consumer Group은 Consumer서버의 모임이라 할 수 있다.
+각 ConsumerGroup은 하나의 Topic만 구독한다.
+Topic은 여러개의 Consumer Group과 연결되며 Consumer Group은 Consumer 끼리 Topic의 최종 offset을 공유하는 그룹이다.
+하나의 Consumer가 이상이 생겼을 경우 나머지 Consumer가 동일하게 메세지를 소비한다.</p>
+<p>Consumer Group의 각 Consumer의 숫자에 따라 Partition에 접근하는 방법도 다르다.
+Consumer Group안의 Consumer수와 Partition 수가 같은 경우 1:1로 매칭되어 각 Partition의 데이터를 가져오지만 
+Consumer가 더 많은 경우 남은 Consumer는 Partition이 늘어날 때까지 대기하게 되며 Partition 숫자가 더 많아지는 경우는 Consumer가 여러개의 partition의 Message를 소비하게 된다.</p>
+<figure>
+    <img src="/images/kafka/kafak-counsumer-group.png"
+         alt="kafka consumer group"/> <figcaption>
+            <p><em>이미치 출처 : <a href="https://www.popit.kr/kafka-consumer-group">https://www.popit.kr/kafka-consumer-group</a></em></p>
+        </figcaption>
+</figure>
+
+<p>하나의 서버가 장애가 생긴경우 ConsumerGroup 에 포함된 다른서버에서는 메세지를 동일 하게 소모 할 수 있다.</p>
+<figure>
+    <img src="/images/kafka/kafak-counsumer-group-2.png"
+         alt="kafka consumer group - 2"/> 
+</figure>
+
+<p>참고
+<a href="https://kafka.apache.org/intro">https://kafka.apache.org/intro</a><br>
+<a href="https://victorydntmd.tistory.com/344">https://victorydntmd.tistory.com/344</a><br>
+<a href="https://taetaetae.github.io/2017/11/02/what-is-kafka/">https://taetaetae.github.io/2017/11/02/what-is-kafka/</a><br>
+<a href="https://epicdevs.com/17">https://epicdevs.com/17</a><br>
+<a href="https://engkimbs.tistory.com/691">https://engkimbs.tistory.com/691</a></p>
 ]]></content>
         </item>
         
