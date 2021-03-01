@@ -1,292 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    
-      <title>
-        About Kafka - 1 ::
-        Jparangdev — simple is best, record is power
-      </title>
-    
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta
-  name="description"
-  content="1. What is Kafka ? https://www.confluent.io/blog/kafka-fastest-messaging-systemApache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼입니다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종입니다. Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었습니다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용하고 있습니다.
-2. Kafka Process Kafka의 기본 구조Kafka는 기본적으로 Publish/Subscribe 구조를 사용합니다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비합니다."
-/>
-<meta
-  name="keywords"
-  content=""
-/>
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="jparangdev">
+<meta name="description" content="1. What is Kafka ?   https://www.confluent.io/blog/kafka-fastest-messaging-system
+  Apache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
+2. Kafka Process   Kafka의 기본 구조
+  Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다." />
+<meta name="keywords" content=", kafka" />
 <meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<meta name="google-site-verification" content="WkBcplbdedOjhXiEHjuqFfid29F2BpM8pumnbWc3pkI" />
 <link rel="canonical" href="/posts/kafka/about-kafka-1/" />
 
 
+    <title>
+        
+            Kafka 알아보기 - 1 :: Jparagdev&#39;s blog  — develop and record
+        
+    </title>
 
 
 
-<link rel="stylesheet" href="/assets/style.css" />
-
-<link rel="stylesheet" href="/style.css" />
-
-
-<link
-  rel="apple-touch-icon-precomposed"
-  sizes="144x144"
-  href="/img/apple-touch-icon-144-precomposed.png"
-/>
-<link rel="shortcut icon" href="/img/favicon.png" />
-
-
-<link href="/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="About Kafka - 1"/>
-<meta name="twitter:description" content="1. What is Kafka ? https://www.confluent.io/blog/kafka-fastest-messaging-systemApache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼입니다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종입니다. Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었습니다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용하고 있습니다.
-2. Kafka Process Kafka의 기본 구조Kafka는 기본적으로 Publish/Subscribe 구조를 사용합니다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비합니다."/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
 
 
 
-<meta property="og:title" content="About Kafka - 1" />
-<meta property="og:description" content="1. What is Kafka ? https://www.confluent.io/blog/kafka-fastest-messaging-systemApache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼입니다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종입니다. Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었습니다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용하고 있습니다.
-2. Kafka Process Kafka의 기본 구조Kafka는 기본적으로 Publish/Subscribe 구조를 사용합니다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비합니다." />
+<link rel="stylesheet" href="/main.393856bf2c430bb6c01d7af07c6fe966e7cce8073435cfbbc46e590bab7405ef.css">
+
+
+
+
+
+
+<meta itemprop="name" content="Kafka 알아보기 - 1">
+<meta itemprop="description" content="1. What is Kafka ?   https://www.confluent.io/blog/kafka-fastest-messaging-system
+  Apache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
+2. Kafka Process   Kafka의 기본 구조
+  Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다.">
+<meta itemprop="datePublished" content="2020-12-16T21:43:00+09:00" />
+<meta itemprop="dateModified" content="2020-12-16T21:43:00+09:00" />
+<meta itemprop="wordCount" content="216">
+<meta itemprop="image" content=""/>
+
+
+
+<meta itemprop="keywords" content="kafka," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content=""/>
+
+<meta name="twitter:title" content="Kafka 알아보기 - 1"/>
+<meta name="twitter:description" content="1. What is Kafka ?   https://www.confluent.io/blog/kafka-fastest-messaging-system
+  Apache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
+2. Kafka Process   Kafka의 기본 구조
+  Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다."/>
+
+
+
+    <meta property="og:title" content="Kafka 알아보기 - 1" />
+<meta property="og:description" content="1. What is Kafka ?   https://www.confluent.io/blog/kafka-fastest-messaging-system
+  Apache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
+2. Kafka Process   Kafka의 기본 구조
+  Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/kafka/about-kafka-1/" />
-<meta property="article:published_time" content="2021-01-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-01-01T00:00:00+00:00" /><meta property="og:site_name" content="Jparangdev" />
+<meta property="og:image" content=""/>
+<meta property="article:published_time" content="2020-12-16T21:43:00+09:00" />
+<meta property="article:modified_time" content="2020-12-16T21:43:00+09:00" /><meta property="og:site_name" content="Jparagdev&#39;s blog" />
+
+
+
+
+
+    <meta property="article:section" content="kafka" />
+
+
+
+    <meta property="article:published_time" content="2020-12-16 21:43:00 &#43;0900 KST" />
 
 
 
 
 
 
-  </head>
-  <body class="dark-theme">
-    <div class="container">
-      <header class="header">
-  <span class="header__inner">
-    <a
-  href="/"
-  class="logo"
-  style="text-decoration: none;"
->
-  
-    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
-  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
-</svg>
-</span>
-    <span class="logo__text"
-      >jparangdev</span
-    >
-    <span class="logo__cursor"></span>
-  
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">Jparagdev </span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
 </a>
 
-    <span class="header__right">
-      
-      <span class="theme-toggle">
-        <svg
-  class="theme-toggler"
-  width="24"
-  height="24"
-  viewBox="0 0 48 48"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path
-    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
-  />
-</svg>
 
-      </span>
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/posts">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
     </span>
-  </span>
 </header>
 
 
-      <div class="content">
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        2 minutes
+
         
-  
-  
-
-  <div class="post">
-    <h1 class="post-title">About Kafka - 1</h1>
-    <div class="post-meta">
-      
-        <span class="post-date">
-          2021-01-01
-        </span>
-
-        
-          
-        
-      
-
-      
-        <span class="post-author"
-          >— Written by jparangdev</span
-        >
-
-
-      
+      </p>
     </div>
 
-    
+    <article>
+      <h1 class="post-title">
+        <a href="/posts/kafka/about-kafka-1/">Kafka 알아보기 - 1</a>
+      </h1>
 
-    
-
-    <div class="post-content">
       
-      <h2 id="1-what-is-kafka-">1. What is Kafka ?</h2>
 
-  <figure class="center" >
-    <img src="/images/kafka/about-kafka-fastest.png"  alt="kafka process - 1"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" ><a href="https://www.confluent.io/blog/kafka-fastest-messaging-system">https://www.confluent.io/blog/kafka-fastest-messaging-system</a></figcaption>
-    
-  </figure>
-
+      <div class="post-content">
+        <h2 id="1-what-is-kafka-">1. What is Kafka ?</h2>
+<figure>
+    <img src="/images/kafka/about-kafka-fastest.png"
+         alt="kafka process - 1"/> <figcaption>
+            <p><a href="https://www.confluent.io/blog/kafka-fastest-messaging-system">https://www.confluent.io/blog/kafka-fastest-messaging-system</a></p>
+        </figcaption>
+</figure>
 
 <h4 id="apache-kafka-is-an-evnet-streaming-platform">Apache Kafka is an evnet streaming platform</h4>
-<p>Kafka는 오픈소스 분산메세지 플랫폼입니다. 
-실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종입니다.
-Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었습니다.
-다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용하고 있습니다.</p>
+<p>Kafka는 오픈소스 분산메세지 플랫폼이다.
+실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종
+Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다.
+다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.</p>
 <h2 id="2-kafka-process">2. Kafka Process</h2>
+<figure>
+    <img src="/images/kafka/about-kafka-process.png"
+         alt="kafka process - 1"/> <figcaption>
+            <p>Kafka의 기본 구조</p>
+        </figcaption>
+</figure>
 
-  <figure class="center" >
-    <img src="/images/kafka/about-kafka-process.png"  alt="kafka process - 1"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" >Kafka의 기본 구조</figcaption>
-    
-  </figure>
-
-
-<p>Kafka는 기본적으로 Publish/Subscribe 구조를 사용합니다.
-Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비합니다.
-거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 합니다.
-이러한 구성을 느슨한 결합(Loosely Coupled)이라 합니다.</p>
-<p>다수의 Producer가 데이터를 메세지화 하여 전송하면 Kafka가 Event-Driven 방식으로 대량의 메세지를 병렬적으로 처리하며
-해당 Topic을 구독하고있는 Consumer에게 전송하게 되죠</p>
+<p>Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다.
+Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조
+거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다.
+이렇게 각각 독립적으로 기능을 수행하며 서로 연결되어 있는 구성을 느슨한 결합(Loosely Coupled)이라 한다.</p>
+<p>다수의 Producer가 데이터를 메세지화 하여 전송하면 Kafka가 <a href="/posts/programming/event-driven/">Event-Driven</a> 방식으로 대량의 메세지를 병렬적으로 처리하며 해당 Topic을 구독하고있는 Consumer에게 전송하게 된다.</p>
 <h2 id="3-kafka-component">3. Kafka Component</h2>
+<figure>
+    <img src="/images/kafka/about-kafka-component.png"
+         alt="kafka Component - 1"/> <figcaption>
+            <p><em>Kafka의 구성요소</em></p>
+        </figcaption>
+</figure>
 
-  <figure class="center" >
-    <img src="/images/kafka/about-kafka-component.png"  alt="kafka Component - 1"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" ><em>Kafka의 구성요소</em></figcaption>
-    
-  </figure>
-
-
-<p>Kafak의 기본적인 구성요소들을 하나씩 살펴보도록 하겠습니다.</p>
+<p>Kafak의 기본적인 구성요소들을 하나씩 살펴보면</p>
 <ul>
 <li>
 <p><strong>Topic</strong>
-메세지의 종류 또는 카테고리라고 할 수 있습니다. Producer가 특정 Topic으로 메세지를 생성하면, 이 Topic을 구독하고 있는 Consumer는 메세지를 소비 할 수 있습니다.</p>
+메세지의 종류 또는 카테고리이다. Producer가 특정 Topic으로 메세지를 생성하면, 이 Topic을 구독하고 있는 Consumer는 메세지를 소비한다.</p>
 </li>
 <li>
-<p><strong>Partition</strong>
-Topic 내에서 메세지가 분산되어 저장되는 Queue입니다. 하나의 Topic에 단일 Partition인 경우 순서가 보장 될 수 있으나, 다중 Partition인 경우 각 Partition의 끝에서 Round-Robin 방식으로 쓰여지기 때문에 읽어 올 때 그 순서를 보장 할 수 없습니다.  Topic내 Partition 수는 설정이 가능하며은 한번 늘리면 다시 줄일 수 없습니다.</p>
+<p><strong>Partition</strong><br>
+Topic 내에서 메세지가 분산되어 저장되는 Queue. 하나의 Topic에 단일 Partition인 경우 순서가 보장 될 수 있으나, 다중 Partition인 경우 각 Partition의 끝에서 Round-Robin 방식으로 쓰여지기 때문에 읽어 올 때 그 순서를 보장 할 수 없다.  Topic내 Partition 수는 설정이 가능하며은 한번 늘리면 다시 줄일 수 없음.</p>
 </li>
 <li>
-<p><strong>Log</strong>
-Partition의 한 메세지 부분을 담당합니다.</p>
+<p><strong>Log</strong><br>
+Partition의 한 메세지 부분</p>
 </li>
 <li>
-<p><strong>Broker</strong>
-Kafka의 서버를 의미합니다. Broker 여러개가 Cluster를 구성하며, Zookeeper를 통해 메타데이터를 공유합니다.</p>
+<p><strong>Broker</strong><br>
+Kafka의 서버를 의미한다. Broker 여러개가 Cluster를 구성하며, Zookeeper를 통해 메타데이터를 공유</p>
 </li>
 <li>
-<p><strong>Zookeeper</strong>
-Kafka의 메타정보를 관리하는 프로그램 Zookeeper가 실행되어야 Kafka가 실행 될 수 있습니다.</p>
+<p><strong>Zookeeper</strong><br>
+Kafka의 메타정보를 관리하는 프로그램 Zookeeper가 실행되어야 Kafka가 실행 될 수 있다.</p>
 </li>
 </ul>
 
-    </div>
-    
-      
-        <div class="pagination">
-          <div class="pagination__title">
-            <span class="pagination__title-h"
-              >Read other posts</span
-            >
-            <hr />
-          </div>
-          <div class="pagination__buttons">
-            
-              <span class="button previous">
-                <a href="/posts/blog/hugo-1/">
-                  <span class="button__icon">←</span>
-                  <span class="button__text">github.io 블로그 만들기 - 1</span>
-                </a>
-              </span>
-            
-            
-          </div>
-        </div>
-      
-    
+      </div>
+    </article>
 
-    
+    <hr />
+
+    <div class="post-info">
       
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="tags/kafka/">kafka</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="categories/kafka/">kafka</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        216 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2020-12-16 21:43
         
 
-      
-    
-  </div>
-
-      </div>
-
-      
-        <footer class="footer">
-  <div class="footer__inner">
-    
-      <a
-  href="/"
-  class="logo"
-  style="text-decoration: none;"
->
-  
-    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
-  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
-</svg>
-</span>
-    <span class="logo__text"
-      >jparangdev</span
-    >
-    <span class="logo__cursor"></span>
-  
-</a>
-
-      <div class="copyright">
-        <span
-          >© 2021 Powered by
-          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
-        >
-        <span
-          >Theme created by
-          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
-        >
-      </div>
-    
-  </div>
-</footer>
-
-<script src="/assets/main.js"></script>
-<script src="/assets/prism.js"></script>
-
-
-      
+         
+          
+        
+      </p>
     </div>
 
     
-  </body>
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h">Read other posts</span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="/posts/blog/hugo-1/">
+                <span class="button__icon">←</span>
+                <span class="button__text">github.io 블로그 만들기 - 1</span>
+              </a>
+            </span>
+          
+
+          
+        </div>
+      </div>
+    
+
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            
+            <span><a href="posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+          </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+
+
+
+    </body>
 </html>
