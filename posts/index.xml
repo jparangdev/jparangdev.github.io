@@ -9,7 +9,7 @@
         <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
-            <title>Event-driven이 뭐지</title>
+            <title>Event-driven이 뭐지?</title>
             <link>/posts/programming/event-driven/</link>
             <pubDate>Mon, 01 Feb 2021 21:23:00 +0900</pubDate>
             
@@ -67,9 +67,79 @@ Event-Driven Programming 도 동일하게 하나의 이벤트 리스너를 두�
         </item>
         
         <item>
+            <title>Kafka 알아보기 - 1</title>
+            <link>/posts/kafka/about-kafka-1/</link>
+            <pubDate>Sat, 02 Jan 2021 21:43:00 +0900</pubDate>
+            
+            <guid>/posts/kafka/about-kafka-1/</guid>
+            <description>1. What is Kafka ?   https://www.confluent.io/blog/kafka-fastest-messaging-system
+  Apache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
+2. Kafka Process   Kafka의 기본 구조
+  Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다.</description>
+            <content type="html"><![CDATA[<h2 id="1-what-is-kafka-">1. What is Kafka ?</h2>
+<figure>
+    <img src="/images/kafka/about-kafka-fastest.png"
+         alt="kafka process - 1"/> <figcaption>
+            <p><a href="https://www.confluent.io/blog/kafka-fastest-messaging-system">https://www.confluent.io/blog/kafka-fastest-messaging-system</a></p>
+        </figcaption>
+</figure>
+
+<h4 id="apache-kafka-is-an-evnet-streaming-platform">Apache Kafka is an evnet streaming platform</h4>
+<p>Kafka는 오픈소스 분산메세지 플랫폼이다.
+실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종
+Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다.
+다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.</p>
+<h2 id="2-kafka-process">2. Kafka Process</h2>
+<figure>
+    <img src="/images/kafka/about-kafka-process.png"
+         alt="kafka process - 1"/> <figcaption>
+            <p>Kafka의 기본 구조</p>
+        </figcaption>
+</figure>
+
+<p>Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다.
+Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조
+거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다.
+이렇게 각각 독립적으로 기능을 수행하며 서로 연결되어 있는 구성을 느슨한 결합(Loosely Coupled)이라 한다.</p>
+<p>다수의 Producer가 데이터를 메세지화 하여 전송하면 Kafka가 <a href="/posts/programming/event-driven/">Event-Driven</a> 방식으로 대량의 메세지를 병렬적으로 처리하며 해당 Topic을 구독하고있는 Consumer에게 전송하게 된다.</p>
+<h2 id="3-kafka-component">3. Kafka Component</h2>
+<figure>
+    <img src="/images/kafka/about-kafka-component.png"
+         alt="kafka Component - 1"/> <figcaption>
+            <p><em>Kafka의 구성요소</em></p>
+        </figcaption>
+</figure>
+
+<p>Kafak의 기본적인 구성요소들을 하나씩 살펴보면</p>
+<ul>
+<li>
+<p><strong>Topic</strong>
+메세지의 종류 또는 카테고리이다. Producer가 특정 Topic으로 메세지를 생성하면, 이 Topic을 구독하고 있는 Consumer는 메세지를 소비한다.</p>
+</li>
+<li>
+<p><strong>Partition</strong><br>
+Topic 내에서 메세지가 분산되어 저장되는 Queue. 하나의 Topic에 단일 Partition인 경우 순서가 보장 될 수 있으나, 다중 Partition인 경우 각 Partition의 끝에서 Round-Robin 방식으로 쓰여지기 때문에 읽어 올 때 그 순서를 보장 할 수 없다.  Topic내 Partition 수는 설정이 가능하며은 한번 늘리면 다시 줄일 수 없음.</p>
+</li>
+<li>
+<p><strong>Log</strong><br>
+Partition의 한 메세지 부분</p>
+</li>
+<li>
+<p><strong>Broker</strong><br>
+Kafka의 서버를 의미한다. Broker 여러개가 Cluster를 구성하며, Zookeeper를 통해 메타데이터를 공유</p>
+</li>
+<li>
+<p><strong>Zookeeper</strong><br>
+Kafka의 메타정보를 관리하는 프로그램 Zookeeper가 실행되어야 Kafka가 실행 될 수 있다.</p>
+</li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
             <title>github.io 블로그 만들기 - 2</title>
             <link>/posts/blog/hugo-2/</link>
-            <pubDate>Thu, 21 Jan 2021 21:00:00 +0900</pubDate>
+            <pubDate>Tue, 22 Dec 2020 21:00:00 +0900</pubDate>
             
             <guid>/posts/blog/hugo-2/</guid>
             <description>이전 블로그에 이어 이번엔 테마를 설정해보도록 하겠다.
@@ -110,7 +180,7 @@ Intellij같은 툴을 쓰는경우 환경 설정을 통해 쉽게 본인 PC에 �
         <item>
             <title>github.io 블로그 만들기 - 1</title>
             <link>/posts/blog/hugo-1/</link>
-            <pubDate>Sun, 17 Jan 2021 20:45:00 +0900</pubDate>
+            <pubDate>Thu, 17 Dec 2020 20:45:00 +0900</pubDate>
             
             <guid>/posts/blog/hugo-1/</guid>
             <description>기록은 힘이다 말이 있듯이 자신만의 지식 아카이브를 만들어 두는 것은 큰 도움이 된다. 다른사람에게 정보 전달의 목적도 있지만 나 자신의 생각을 정리하기 위해 블로그를 기록하기로 한다.
@@ -177,76 +247,6 @@ Git (<a href="https://github.com/gohugoio/hugo">https://github.com/gohugoio/hugo
     $ git push -u origin main
 </code></pre></div><p>github에 접속해 해당 소스가 제대로 푸쉬가 되었는지 확인</p>
 <p>여기까지 글을 마치고 다음에 테마를 연결해보자~~~~</p>
-]]></content>
-        </item>
-        
-        <item>
-            <title>Kafka 알아보기 - 1</title>
-            <link>/posts/kafka/about-kafka-1/</link>
-            <pubDate>Wed, 16 Dec 2020 21:43:00 +0900</pubDate>
-            
-            <guid>/posts/kafka/about-kafka-1/</guid>
-            <description>1. What is Kafka ?   https://www.confluent.io/blog/kafka-fastest-messaging-system
-  Apache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
-2. Kafka Process   Kafka의 기본 구조
-  Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다.</description>
-            <content type="html"><![CDATA[<h2 id="1-what-is-kafka-">1. What is Kafka ?</h2>
-<figure>
-    <img src="/images/kafka/about-kafka-fastest.png"
-         alt="kafka process - 1"/> <figcaption>
-            <p><a href="https://www.confluent.io/blog/kafka-fastest-messaging-system">https://www.confluent.io/blog/kafka-fastest-messaging-system</a></p>
-        </figcaption>
-</figure>
-
-<h4 id="apache-kafka-is-an-evnet-streaming-platform">Apache Kafka is an evnet streaming platform</h4>
-<p>Kafka는 오픈소스 분산메세지 플랫폼이다.
-실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종
-Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다.
-다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.</p>
-<h2 id="2-kafka-process">2. Kafka Process</h2>
-<figure>
-    <img src="/images/kafka/about-kafka-process.png"
-         alt="kafka process - 1"/> <figcaption>
-            <p>Kafka의 기본 구조</p>
-        </figcaption>
-</figure>
-
-<p>Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다.
-Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조
-거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다.
-이렇게 각각 독립적으로 기능을 수행하며 서로 연결되어 있는 구성을 느슨한 결합(Loosely Coupled)이라 한다.</p>
-<p>다수의 Producer가 데이터를 메세지화 하여 전송하면 Kafka가 <a href="/posts/programming/event-driven/">Event-Driven</a> 방식으로 대량의 메세지를 병렬적으로 처리하며 해당 Topic을 구독하고있는 Consumer에게 전송하게 된다.</p>
-<h2 id="3-kafka-component">3. Kafka Component</h2>
-<figure>
-    <img src="/images/kafka/about-kafka-component.png"
-         alt="kafka Component - 1"/> <figcaption>
-            <p><em>Kafka의 구성요소</em></p>
-        </figcaption>
-</figure>
-
-<p>Kafak의 기본적인 구성요소들을 하나씩 살펴보면</p>
-<ul>
-<li>
-<p><strong>Topic</strong>
-메세지의 종류 또는 카테고리이다. Producer가 특정 Topic으로 메세지를 생성하면, 이 Topic을 구독하고 있는 Consumer는 메세지를 소비한다.</p>
-</li>
-<li>
-<p><strong>Partition</strong><br>
-Topic 내에서 메세지가 분산되어 저장되는 Queue. 하나의 Topic에 단일 Partition인 경우 순서가 보장 될 수 있으나, 다중 Partition인 경우 각 Partition의 끝에서 Round-Robin 방식으로 쓰여지기 때문에 읽어 올 때 그 순서를 보장 할 수 없다.  Topic내 Partition 수는 설정이 가능하며은 한번 늘리면 다시 줄일 수 없음.</p>
-</li>
-<li>
-<p><strong>Log</strong><br>
-Partition의 한 메세지 부분</p>
-</li>
-<li>
-<p><strong>Broker</strong><br>
-Kafka의 서버를 의미한다. Broker 여러개가 Cluster를 구성하며, Zookeeper를 통해 메타데이터를 공유</p>
-</li>
-<li>
-<p><strong>Zookeeper</strong><br>
-Kafka의 메타정보를 관리하는 프로그램 Zookeeper가 실행되어야 Kafka가 실행 될 수 있다.</p>
-</li>
-</ul>
 ]]></content>
         </item>
         

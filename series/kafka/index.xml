@@ -6,11 +6,11 @@
     <description>Recent content in kafka on Jparagdev&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Dec 2020 21:43:00 +0900</lastBuildDate><atom:link href="/series/kafka/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Jan 2021 21:43:00 +0900</lastBuildDate><atom:link href="/series/kafka/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kafka 알아보기 - 1</title>
       <link>/posts/kafka/about-kafka-1/</link>
-      <pubDate>Wed, 16 Dec 2020 21:43:00 +0900</pubDate>
+      <pubDate>Sat, 02 Jan 2021 21:43:00 +0900</pubDate>
       
       <guid>/posts/kafka/about-kafka-1/</guid>
       <description>1. What is Kafka ?   https://www.confluent.io/blog/kafka-fastest-messaging-system

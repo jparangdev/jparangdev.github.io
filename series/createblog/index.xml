@@ -6,11 +6,11 @@
     <description>Recent content in createBlog on Jparagdev&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 21 Jan 2021 21:00:00 +0900</lastBuildDate><atom:link href="/series/createblog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Dec 2020 21:00:00 +0900</lastBuildDate><atom:link href="/series/createblog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>github.io 블로그 만들기 - 2</title>
       <link>/posts/blog/hugo-2/</link>
-      <pubDate>Thu, 21 Jan 2021 21:00:00 +0900</pubDate>
+      <pubDate>Tue, 22 Dec 2020 21:00:00 +0900</pubDate>
       
       <guid>/posts/blog/hugo-2/</guid>
       <description>이전 블로그에 이어 이번엔 테마를 설정해보도록 하겠다.
@@ -25,7 +25,7 @@ $ git clone &amp;lt;테마 Git주소&amp;gt; themes/&amp;lt;테마이름&amp;gt;
     <item>
       <title>github.io 블로그 만들기 - 1</title>
       <link>/posts/blog/hugo-1/</link>
-      <pubDate>Sun, 17 Jan 2021 20:45:00 +0900</pubDate>
+      <pubDate>Thu, 17 Dec 2020 20:45:00 +0900</pubDate>
       
       <guid>/posts/blog/hugo-1/</guid>
       <description>기록은 힘이다 말이 있듯이 자신만의 지식 아카이브를 만들어 두는 것은 큰 도움이 된다. 다른사람에게 정보 전달의 목적도 있지만 나 자신의 생각을 정리하기 위해 블로그를 기록하기로 한다.

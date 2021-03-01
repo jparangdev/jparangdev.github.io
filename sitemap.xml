@@ -43,63 +43,63 @@
   </url>
   
   <url>
-    <loc>/categories/blog/</loc>
-    <lastmod>2021-01-21T21:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/series/createblog/</loc>
-    <lastmod>2021-01-21T21:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/git/</loc>
-    <lastmod>2021-01-21T21:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/blog/hugo-2/</loc>
-    <lastmod>2021-01-21T21:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/hugo/</loc>
-    <lastmod>2021-01-21T21:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/markdown/</loc>
-    <lastmod>2021-01-21T21:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/series/</loc>
-    <lastmod>2021-01-21T21:00:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/blog/hugo-1/</loc>
-    <lastmod>2021-01-17T20:45:00+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/kafka/</loc>
-    <lastmod>2020-12-16T21:43:00+09:00</lastmod>
+    <lastmod>2021-01-02T21:43:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>/series/kafka/</loc>
-    <lastmod>2020-12-16T21:43:00+09:00</lastmod>
+    <lastmod>2021-01-02T21:43:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/kafka/</loc>
-    <lastmod>2020-12-16T21:43:00+09:00</lastmod>
+    <lastmod>2021-01-02T21:43:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>/posts/kafka/about-kafka-1/</loc>
-    <lastmod>2020-12-16T21:43:00+09:00</lastmod>
+    <lastmod>2021-01-02T21:43:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/series/</loc>
+    <lastmod>2021-01-02T21:43:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/blog/</loc>
+    <lastmod>2020-12-22T21:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/series/createblog/</loc>
+    <lastmod>2020-12-22T21:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/git/</loc>
+    <lastmod>2020-12-22T21:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/blog/hugo-2/</loc>
+    <lastmod>2020-12-22T21:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/hugo/</loc>
+    <lastmod>2020-12-22T21:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/markdown/</loc>
+    <lastmod>2020-12-22T21:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/blog/hugo-1/</loc>
+    <lastmod>2020-12-17T20:45:00+09:00</lastmod>
   </url>
   
 </urlset>
