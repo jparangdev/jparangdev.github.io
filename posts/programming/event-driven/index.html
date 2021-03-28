@@ -13,7 +13,6 @@ Event-driven architecture (EDA) is a software architecture paradigm promoting th
 <meta name="keywords" content=", event-driven, paradigm" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<meta name="google-site-verification" content="WkBcplbdedOjhXiEHjuqFfid29F2BpM8pumnbWc3pkI" />
 <link rel="canonical" href="/posts/programming/event-driven/" />
 
 
@@ -30,7 +29,7 @@ Event-driven architecture (EDA) is a software architecture paradigm promoting th
 
 
 
-<link rel="stylesheet" href="/main.393856bf2c430bb6c01d7af07c6fe966e7cce8073435cfbbc46e590bab7405ef.css">
+<link rel="stylesheet" href="/main.d7bdd8ee18bfbf4c605488a7e5b1b92cd980dfeed2bdaeab4dd5e931a7a78bc0.css">
 
 
 
@@ -64,6 +63,7 @@ Event-driven architecture (EDA) is a software architecture paradigm promoting th
 
 
 
+
     <meta property="og:title" content="Event-driven이 뭐지?" />
 <meta property="og:description" content="간간이 기술 블로그나 유튜브를 보다 보면 Event-Driven Programming , Event-Driven Architecture 등등 Event-Driven이라는 단어가 많이 보인다. 대충 어림짐작으로 생각했을 때는 비동기적으로 처리되는 이벤트들을 실시간으로 잘 처리 해주는 것이 이벤트 드리븐이 아닐까? 라는 생각을 했다.
 이번 포스팅으로 스스로 정리하는 시간을 가지려 한다. 먼저 wikipedia 를 찾아봤다.
@@ -94,7 +94,10 @@ Event-driven architecture (EDA) is a software architecture paradigm promoting th
 
     </head>
 
-    <body class="dark-theme">
+    
+        <body>
+    
+    
         <div class="container">
             <header class="header">
     <span class="header__inner">
@@ -127,13 +130,6 @@ Event-driven architecture (EDA) is a software architecture paradigm promoting th
                     </svg>
                 </span>
             
-
-            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
-</svg>
-</span>
         </span>
     </span>
 </header>
@@ -159,6 +155,8 @@ Event-driven architecture (EDA) is a software architecture paradigm promoting th
       <h1 class="post-title">
         <a href="/posts/programming/event-driven/">Event-driven이 뭐지?</a>
       </h1>
+
+      
 
       
 
@@ -192,12 +190,14 @@ In computer programming, event-driven programming is a programming paradigm in w
 아마 통신환경과 컴퓨팅기술의 발전에 따라 다양하고 복잡한 이벤트가 동시에 일어나는 경우가 많아지고 트래픽이 증가하여 이에 대응하는 방법으로 비동기 처리에 유리한 이벤트 드리븐 방식이 주목받지 않았나 싶다.</p>
 <p>그럼 이러한 이벤트 드리븐 방식이 어떻게 구현되어 사용되고 있는지 알아보자
 먼저 이벤트 드리븐 아키텍쳐의 예로 NodeJs가 대표적이다.</p>
-<figure>
-    <img src="/images/programming/event-driven.png"
-         alt="hugo complete"/> <figcaption>
-            <p><a href="https://diophant.com/blog/mitigating-node-js-event-loop-saturation">https://diophant.com/blog/mitigating-node-js-event-loop-saturation</a></p>
-        </figcaption>
-</figure>
+
+  <figure class="center" >
+    <img src="/images/programming/event-driven.png"  alt="hugo complete"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" ><a href="https://diophant.com/blog/mitigating-node-js-event-loop-saturation">https://diophant.com/blog/mitigating-node-js-event-loop-saturation</a></figcaption>
+    
+  </figure>
+
 
 <p>Node Js는 위와 같이 발생하는 이벤트들을 이벤트 루프를 돌며 스레드에 각각 분배하여 이벤트를 처리하는 방식으로 구성되어 있다. (I/O 등 커널을 사용해야하는 이벤트는 제외)<br>
 Event-Driven Programming 도 동일하게 하나의 이벤트 리스너를 두고 멀티스레드에 분배하는 방식인 듯하나 나중에 자신이 코딩하게 되거나 좋은 코드를 보게 되면 이 글에 추가하도록 하겠다</p>
@@ -261,27 +261,28 @@ Event-Driven Programming 도 동일하게 하나의 이벤트 리스너를 두�
     </div>
 
     
-      <div class="pagination">
+    <div class="pagination">
         <div class="pagination__title">
-          <span class="pagination__title-h">Read other posts</span>
-          <hr />
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
         </div>
 
         <div class="pagination__buttons">
-          
+            
 
-          
+            
             <span class="button next">
-              <a href="/posts/kafka/about-kafka-2/">
-                <span class="button__text">Kafka 알아보기 - 2</span>
-                <span class="button__icon">→</span>
-              </a>
+                <a href="/posts/spring/bean/">
+                    <span class="button__text">콩(Bean) 이야기</span>
+                    <span class="button__icon">→</span>
+                </a>
             </span>
-          
+            
         </div>
-      </div>
-    
+    </div>
 
+
+    
 
     
 
@@ -313,8 +314,7 @@ Event-Driven Programming 도 동일하게 하나의 이벤트 리스너를 두�
 
 
 
-
-<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+<script type="text/javascript" src="/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
 
 
 

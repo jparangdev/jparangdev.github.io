@@ -15,7 +15,6 @@ $ git clone &amp;lt;테마 Git주소&amp;gt; themes/&amp;lt;테마이름&amp;gt;
 <meta name="keywords" content=", hugo, markdown, git" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<meta name="google-site-verification" content="WkBcplbdedOjhXiEHjuqFfid29F2BpM8pumnbWc3pkI" />
 <link rel="canonical" href="/posts/blog/hugo-2/" />
 
 
@@ -32,7 +31,7 @@ $ git clone &amp;lt;테마 Git주소&amp;gt; themes/&amp;lt;테마이름&amp;gt;
 
 
 
-<link rel="stylesheet" href="/main.393856bf2c430bb6c01d7af07c6fe966e7cce8073435cfbbc46e590bab7405ef.css">
+<link rel="stylesheet" href="/main.d7bdd8ee18bfbf4c605488a7e5b1b92cd980dfeed2bdaeab4dd5e931a7a78bc0.css">
 
 
 
@@ -70,6 +69,7 @@ $ git clone &lt;테마 Git주소&gt; themes/&lt;테마이름&gt; $ git submodule
 
 
 
+
     <meta property="og:title" content="github.io 블로그 만들기 - 2" />
 <meta property="og:description" content="이전 블로그에 이어 이번엔 테마를 설정해보도록 하겠다.
 https://themes.gohugo.io/tags/blog/
@@ -103,7 +103,10 @@ $ git clone &lt;테마 Git주소&gt; themes/&lt;테마이름&gt; $ git submodule
 
     </head>
 
-    <body class="dark-theme">
+    
+        <body>
+    
+    
         <div class="container">
             <header class="header">
     <span class="header__inner">
@@ -136,13 +139,6 @@ $ git clone &lt;테마 Git주소&gt; themes/&lt;테마이름&gt; $ git submodule
                     </svg>
                 </span>
             
-
-            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
-</svg>
-</span>
         </span>
     </span>
 </header>
@@ -171,6 +167,8 @@ $ git clone &lt;테마 Git주소&gt; themes/&lt;테마이름&gt; $ git submodule
 
       
 
+      
+
       <div class="post-content">
         <p>이전 블로그에 이어 이번엔 테마를 설정해보도록 하겠다.</p>
 <p><a href="https://themes.gohugo.io/tags/blog/">https://themes.gohugo.io/tags/blog/</a></p>
@@ -189,12 +187,14 @@ $ git submodule add &lt;테마 Git주소&gt; themes/&lt;테마이름&gt;
 <p>테마도 적용되었는지 확인하고 글도 잘올라갔는지 확인하려면 먼저 내컴퓨터에서 홈페이지를 기동해봐야한다. 
 Intellij같은 툴을 쓰는경우 환경 설정을 통해 쉽게 본인 PC에 서버를 올릴 수 있고 shell을 통해 기동도 가능하다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ hugo server -D
-</code></pre></div><figure>
-    <img src="/images/hugo/hugo-4.png"
-         alt="hugo server"/> <figcaption>
-            <p>해당화면처럼 빌드가 되면 가능</p>
-        </figcaption>
-</figure>
+</code></pre></div>
+  <figure class="center" >
+    <img src="/images/hugo/hugo-4.png"  alt="hugo server"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" >해당화면처럼 빌드가 되면 가능</figcaption>
+    
+  </figure>
+
 
 <p>이제 localhost:1313번에 접속해서 자신의 블로그를 확인해보도록 하자</p>
 
@@ -252,34 +252,35 @@ Intellij같은 툴을 쓰는경우 환경 설정을 통해 쉽게 본인 PC에 �
     </div>
 
     
-      <div class="pagination">
+    <div class="pagination">
         <div class="pagination__title">
-          <span class="pagination__title-h">Read other posts</span>
-          <hr />
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
         </div>
 
         <div class="pagination__buttons">
-          
+            
             <span class="button previous">
-              <a href="/posts/kafka/about-kafka-1/">
-                <span class="button__icon">←</span>
-                <span class="button__text">Kafka 알아보기 - 1</span>
-              </a>
+                <a href="/posts/kafka/about-kafka-1/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Kafka 알아보기 - 1</span>
+                </a>
             </span>
-          
+            
 
-          
+            
             <span class="button next">
-              <a href="/posts/blog/hugo-1/">
-                <span class="button__text">github.io 블로그 만들기 - 1</span>
-                <span class="button__icon">→</span>
-              </a>
+                <a href="/posts/blog/hugo-1/">
+                    <span class="button__text">github.io 블로그 만들기 - 1</span>
+                    <span class="button__icon">→</span>
+                </a>
             </span>
-          
+            
         </div>
-      </div>
-    
+    </div>
 
+
+    
 
     
 
@@ -311,8 +312,7 @@ Intellij같은 툴을 쓰는경우 환경 설정을 통해 쉽게 본인 PC에 �
 
 
 
-
-<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+<script type="text/javascript" src="/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
 
 
 

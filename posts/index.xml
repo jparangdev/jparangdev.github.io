@@ -48,12 +48,14 @@ In computer programming, event-driven programming is a programming paradigm in w
 아마 통신환경과 컴퓨팅기술의 발전에 따라 다양하고 복잡한 이벤트가 동시에 일어나는 경우가 많아지고 트래픽이 증가하여 이에 대응하는 방법으로 비동기 처리에 유리한 이벤트 드리븐 방식이 주목받지 않았나 싶다.</p>
 <p>그럼 이러한 이벤트 드리븐 방식이 어떻게 구현되어 사용되고 있는지 알아보자
 먼저 이벤트 드리븐 아키텍쳐의 예로 NodeJs가 대표적이다.</p>
-<figure>
-    <img src="/images/programming/event-driven.png"
-         alt="hugo complete"/> <figcaption>
-            <p><a href="https://diophant.com/blog/mitigating-node-js-event-loop-saturation">https://diophant.com/blog/mitigating-node-js-event-loop-saturation</a></p>
-        </figcaption>
-</figure>
+
+  <figure class="center" >
+    <img src="/images/programming/event-driven.png"  alt="hugo complete"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" ><a href="https://diophant.com/blog/mitigating-node-js-event-loop-saturation">https://diophant.com/blog/mitigating-node-js-event-loop-saturation</a></figcaption>
+    
+  </figure>
+
 
 <p>Node Js는 위와 같이 발생하는 이벤트들을 이벤트 루프를 돌며 스레드에 각각 분배하여 이벤트를 처리하는 방식으로 구성되어 있다. (I/O 등 커널을 사용해야하는 이벤트는 제외)<br>
 Event-Driven Programming 도 동일하게 하나의 이벤트 리스너를 두고 멀티스레드에 분배하는 방식인 듯하나 나중에 자신이 코딩하게 되거나 좋은 코드를 보게 되면 이 글에 추가하도록 하겠다</p>
@@ -63,6 +65,370 @@ Event-Driven Programming 도 동일하게 하나의 이벤트 리스너를 두�
 <a href="https://news.samsung.com/kr/%EC%9A%94%EC%A6%98-%EC%A0%9C%EC%9D%BC-%ED%95%AB%ED%95%98%EB%8B%A4%EB%8A%94-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%93%9C%EB%A6%AC%EB%B8%90-%EB%88%84%EA%B5%AC%EB%83%90-%EB%84%8C">https://news.samsung.com/kr/요즘-제일-핫하다는-이벤트-드리븐-누구냐-넌</a><br>
 <a href="https://en.wikipedia.org/wiki/Event-driven_architecture">https://en.wikipedia.org/wiki/Event-driven_architecture</a><br>
 <a href="https://en.wikipedia.org/wiki/Event-driven_programming">https://en.wikipedia.org/wiki/Event-driven_programming</a></p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>콩(Bean) 이야기</title>
+            <link>/posts/spring/bean/</link>
+            <pubDate>Mon, 01 Feb 2021 21:23:00 +0900</pubDate>
+            
+            <guid>/posts/spring/bean/</guid>
+            <description>Spring의 콩(bean)에 대해 알아보자
+물론 이 콩이 아니다.그럼.. Bean이 뭔데? 간단히 말하면 스프링프레임워크에서 사용하는 자바의 객체를 Bean이라 할 수 있다. 다만 Spring IoC Container(컨테이너)에서 관리되기 때문에 자바객체와 다르게 Bean(빈)이라 말한다. Xml이나 어노테이션을 이용해 메타데이터를 설정하면 컨테이너는 이를 확인해서 빈을 생성하고 해당 빈의 라이프 사이클을 관리하며 필요한 부분에 주입하여 의존성을 관리한다.
+이 콩도 아니다 이 콩도 아니다그럼 왜 굳이 Bean을 사용하는가?
+스프링에서 개발자는 의존성 주입과 객채의 생성과 소멸은 컨테이너가 해줄테니 개발에 집중할 수 해주는 것이 목적이다.</description>
+            <content type="html"><![CDATA[<p>Spring의 콩(bean)에 대해 알아보자</p>
+
+  <figure class="center" >
+    <img src="https://drive.google.com/uc?export=view&amp;id=10PKsiqX5O0rXqSFMLokk-W5TkX3r_Lke"  alt="spring"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" >물론 이 콩이 아니다.</figcaption>
+    
+  </figure>
+
+
+<h2 id="그럼-bean이-뭔데">그럼.. Bean이 뭔데?</h2>
+<p>간단히 말하면 스프링프레임워크에서 사용하는 자바의 객체를 Bean이라 할 수 있다. 다만 Spring IoC Container(컨테이너)에서 관리되기 때문에
+자바객체와 다르게 Bean(빈)이라 말한다. Xml이나 어노테이션을 이용해 메타데이터를 설정하면 컨테이너는 이를 확인해서 빈을 생성하고 해당 빈의
+라이프 사이클을 관리하며 필요한 부분에 주입하여 의존성을 관리한다.</p>
+
+  <figure class="center" >
+    <img src="https://drive.google.com/uc?export=view&amp;id=1A9aOfWAN-6M0nBpsBJQThfWMylVVckTX"  alt="spring"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" >이 콩도 아니다 이 콩도 아니다</figcaption>
+    
+  </figure>
+
+
+<p>그럼 왜 굳이 Bean을 사용하는가?<br>
+스프링에서 개발자는 의존성 주입과 객채의 생성과 소멸은 컨테이너가 해줄테니 개발에 집중할 수 해주는 것이 목적이다.</p>
+
+  <figure class="center" >
+    <img src="https://drive.google.com/uc?export=view&amp;id=1QxKmTIKypqEqZWO7tiy1Y0gq764by_3z"  alt="spring"   style="border-radius: 8px;"  />
+    
+  </figure>
+
+
+<p>그럼 빈을 생성하는 예시를 보며 실제로 빈이 스프링상에서 어떻게 작용하는지 알아보자 (Spring Boot)<br>
+빈을 만드는 방법은 여러가지가 있지만 대표적으로 쓰이는 방법을 예시들어 본다.</p>
+<h2 id="빈-생성방법">빈 생성방법</h2>
+<p>소스상에서 자바 오브젝트를 생성한 뒤 각 방법으로 등록을 할 수 있다.</p>
+<ol>
+<li>
+<p><strong>XML로 지정</strong><br>
+application.xml에 빈을 등록하거나 resource 폴더아래 XML파일을 생성 후 지정한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+       <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+   
+    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;xmlBeanTest&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;co.kr.jparangdev.spring_test1.model.XmlBeanTest&#34;</span> <span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;/beans&gt;</span>
+</code></pre></div><p>여러 XML을 만든 경우 설정에서 BeanFactory에서 직접 Context를 불러와 Bean을 넣어주거나, application.xml파일에 Import해서 사용하는 방법이 있다.
+빈을 일일히 다 표기해야하며 Context관리가 어려워 불편한 점이 조금 있어보인다.</p>
+</li>
+<li>
+<p><strong>Component-Scan + Annotation</strong><br>
+application.xml 에서 Annotation으로 마킹된 객체를 빈으로 주입하는 방법이 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;context:component-scan</span> <span style="color:#a6e22e">base-package=</span><span style="color:#e6db74">&#34;co.kr.jparangdev.spring_test1&#34;</span><span style="color:#f92672">/&gt;</span>
+</code></pre></div><p>이후 base-package 아래 지정된 객체중 @Component, @Service, @Controller, @Repository으로 마킹한 객체는 빈에 등록된다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> co.kr.jparangdev.spring_test1.controller<span style="color:#f92672">;</span>
+   
+<span style="color:#f92672">import</span> org.springframework.stereotype.Controller<span style="color:#f92672">;</span>
+   
+<span style="color:#a6e22e">@Controller</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BeanTestController</span> <span style="color:#f92672">{</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p><strong>@Configuration + @Bean</strong><br>
+Spring boot의 경우 @Configuration을 지정한 객체 안에 @Bean으로 생성된 메소드를 생성해서 리턴해주면 빈을 주입 할 수 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#f92672">package</span> co.kr.jparangdev.spring_test1.config<span style="color:#f92672">;</span>
+       
+    <span style="color:#f92672">import</span> co.kr.jparangdev.spring_test1.model.AnnotationBeanTest<span style="color:#f92672">;</span>
+    <span style="color:#f92672">import</span> org.springframework.context.annotation.Bean<span style="color:#f92672">;</span>
+    <span style="color:#f92672">import</span> org.springframework.context.annotation.Configuration<span style="color:#f92672">;</span>
+       
+    <span style="color:#a6e22e">@Configuration</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestConfig</span> <span style="color:#f92672">{</span>
+        <span style="color:#a6e22e">@Bean</span>
+        <span style="color:#66d9ef">public</span> AnnotationBeanTest <span style="color:#a6e22e">annotationBeanTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> AnnotationBeanTest<span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div></li>
+</ol>
+<p>이제 이렇게 주입한 빈들이 제대로 들어갔는지 확인해보자</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@SpringBootApplication</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringTest1Application</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>SpringTest1Application<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+
+    <span style="color:#a6e22e">@Bean</span> <span style="color:#75715e">// Annotation으로 등록한 bean 확인
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> CommandLineRunner <span style="color:#a6e22e">outBeanName</span><span style="color:#f92672">(</span>ApplicationContext ctx<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> args <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;============= Bean Start =============&#34;</span><span style="color:#f92672">);</span>
+            String<span style="color:#f92672">[]</span> beanNames <span style="color:#f92672">=</span> ctx<span style="color:#f92672">.</span><span style="color:#a6e22e">getBeanDefinitionNames</span><span style="color:#f92672">();</span>
+            Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">(</span>beanNames<span style="color:#f92672">).</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>
+                    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println
+            <span style="color:#f92672">);</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;============= Bean End   =============&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">};</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Bean</span> <span style="color:#75715e">// xml로 등록한 bean 확인
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> CommandLineRunner <span style="color:#a6e22e">outXmlBeanName</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> args <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;============= XmlBean Start =============&#34;</span><span style="color:#f92672">);</span>
+            ApplicationContext ctx <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ClassPathXmlApplicationContext<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;beans.xml&#34;</span><span style="color:#f92672">);</span>
+            String<span style="color:#f92672">[]</span> beanNames <span style="color:#f92672">=</span> ctx<span style="color:#f92672">.</span><span style="color:#a6e22e">getBeanDefinitionNames</span><span style="color:#f92672">();</span>
+            Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">(</span>beanNames<span style="color:#f92672">).</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>
+                    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println
+            <span style="color:#f92672">);</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;============= XmlBean End   =============&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">};</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><p>결과 화면으로 등록된 Bean의 Name들을 확인 할 수 있다. 
+
+  <figure class="center" >
+    <img src="https://drive.google.com/uc?export=view&amp;id=1Axx6JbPZgFPwBSomfmtIjsQbOclslu0u"  alt="spring"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" >Test메소드도 Bean으로 등록되었다.</figcaption>
+    
+  </figure>
+
+</p>
+<p>이런 식으로 컨테이너에 등록된 빈들을 여러 방법으로 의존관계를 가지며 상호작용이 가능하다. 
+그럼 의존관계는 어떻게 설정 할 수 있을까?</p>
+<p>의존관계를 표기하는 방식은 여러가지가 있지만 대표적인 @Autowired 이용한 주입 표기 법이 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Service</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AutowiredTestService</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    AnnotationBeanTest annotationBeanTest<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>다른 주입방법과 빈생성시 DI의 원리에 대해선 좀더 뒤에 알아 보도록 하겠다.<br>
+또한 컨테이너에선 빈의 Scope를 관리하기도 한다.</p>
+
+  <figure class="center" >
+    <img src="https://drive.google.com/uc?export=view&amp;id=1lmHcVtsQU4tcNPDwUwxCUg2BVTK8jFGH"  alt="bean scope"   style="border-radius: 8px;"  />
+    
+  </figure>
+
+
+<p>여기서 web spring에서 사용하는 것은 제외하고 singleton과 prototype만 좀더 자세히 알아보자</p>
+<p><!-- raw HTML omitted -->Singleton Scope<!-- raw HTML omitted --><br>
+스프링 컨테이너는 빈에 관하여 하나의 인스턴스만 관리하며 빈에 대한 요청에 하나의 인스턴스만 반환하게 된다. 컨테이너는 빈을 생성하며 캐시에 저장하여 해당 빈을 참조하는 경우 캐시된 인스턴스를 반환한다.
+우리가 알고 있는 Singleton Disign Pattern 과는 조금 다르게 작용한다고 한다. 일반적인 싱글톤 패턴은 하나의 시스템 내부에서 하나의 클래스에 하나의 인스턴스만 존재하지만 빈의 싱글톤은 컨테이너내의 하나의 빈의 정의에 대해 하나의 인스턴스를 가지는 걸 말한다.
+
+  <figure class="center" >
+    <img src="https://drive.google.com/uc?export=view&amp;id=1EiFDxsYs_RNOPlt3AzFuuKn8F_rf5_cf"  alt="singleton"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" >출처 : <a href="https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/reference/html/core.html#beans-factory-scopes-singleton">https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/reference/html/core.html#beans-factory-scopes-singleton</a></figcaption>
+    
+  </figure>
+
+</p>
+<p><!-- raw HTML omitted -->Prototype Scope<!-- raw HTML omitted --> <br>
+프로토 타입은 싱글톤 패턴과 반대로 컨테이너는 모든 빈의 요청에 하나하나의 인스턴스를 만들어 준다.  일반적으로 상태값을 사용해야 하는 빈은 프로토타입을 사용하고 상태를 고려 안하는 경우는 싱글톤을 사용한다. 
+
+  <figure class="center" >
+    <img src="https://drive.google.com/uc?export=view&amp;id=1XUUTc_y2eKSc98nI19wa3W-xTxXfmiHN"  alt="protoType"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" >출처 : <a href="https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/reference/html/core.html#beans-factory-scopes-singleton">https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/reference/html/core.html#beans-factory-scopes-singleton</a></figcaption>
+    
+  </figure>
+
+</p>
+<p>빈의 Scope를 지정하는 방법은 빈의 생성방법과 맞물려 있다.</p>
+<ol>
+<li>xml에 Scope속성을 추가해준다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;xmlBeanTest&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;co.kr.jparangdev.spring_test1.model.XmlBeanTest&#34;</span> <span style="color:#a6e22e">scope=</span><span style="color:#e6db74">&#34;singleton&#34;</span><span style="color:#f92672">/&gt;</span>
+</code></pre></div><ol start="2">
+<li>@Scope를 이용한다.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestConfig</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Bean</span>
+    <span style="color:#a6e22e">@Scope</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;protoType&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> AnnotationBeanTest <span style="color:#a6e22e">annotationBeanTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> AnnotationBeanTest<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>그럼 실제로 Singleton과 Prototype의 차이를 알아보자</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">scopeTestClass</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Autowired</span>
+    AnnotationBeanTest anno1<span style="color:#f92672">;</span>
+    <span style="color:#a6e22e">@Autowired</span>
+    AnnotationBeanTest anno2<span style="color:#f92672">;</span>
+    
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">beanTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;first bean : &#34;</span><span style="color:#f92672">+</span>anno1<span style="color:#f92672">);</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;second bean : &#34;</span><span style="color:#f92672">+</span>anno2<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
+  <figure class="center" >
+    <img src="https://drive.google.com/uc?export=view&amp;id=1x-1-B00LCp-cBwOTrdKQae4jJvrV8cwv"  alt="singleton"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" >singleton</figcaption>
+    
+  </figure>
+
+
+
+  <figure class="center" >
+    <img src="https://drive.google.com/uc?export=view&amp;id=1z6qCXtUZxgoXX7YxU1O4BCs9OD38wCHr"  alt="protoType"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" >protoType</figcaption>
+    
+  </figure>
+
+
+<p>이렇게 오브젝트에 할당된 값이 바뀐걸 알 수 있다.</p>
+<h2 id="bean-life-cycle-callback">Bean Life Cycle Callback</h2>
+<p>기본적으로 빈의 라이프사이클은 컨테이너가 관리해주지만 스프링에서는 이를 개발자가 콜백함수를 통해 관여 할 수 있다. 콜백함수는 인터페이스로 이루어져 있어 이를 구현해주면 빈의 라이프 사이클 주기에서 내가 원하는 작용을 실행 시킬 수 있다.
+그럼 스프링에서 기본적으로 제공하는 라이프사이클의 콜백 방법들을 알아보자</p>
+<h3 id="1-생성단계">1. 생성단계</h3>
+<p>먼저 생성단계에서 관여하는 콜백함수 지정방법은 3가지가 있다.</p>
+<ol>
+<li>@PostConstruct</li>
+<li>InitializingBean 구현</li>
+<li>@Bean(initMethod = &ldquo;init&rdquo;) 지정 (XML로도 지정가능)</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> co.kr.jparangdev.spring_test1.model<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> org.springframework.beans.factory.InitializingBean<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> javax.annotation.PostConstruct<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AnnotationBeanTest</span> <span style="color:#66d9ef">implements</span> InitializingBean <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> value<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@PostConstruct</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">postContract</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Post Contract!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterPropertiesSet</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;InitializingBean&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> name<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getValue</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> value<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setValue</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> value<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> value<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Configuration</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestConfig</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Bean</span><span style="color:#f92672">(</span>initMethod <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;init&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> AnnotationBeanTest <span style="color:#a6e22e">annotationBeanTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> AnnotationBeanTest<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
+  <figure class="center" >
+    <img src="https://drive.google.com/uc?export=view&amp;id=1ZmNfukGenyghVL4knuX5Zh0AUeBEpwuw"  alt="protoType"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" >메소드가 적용되는 순서도 알 수 있다.</figcaption>
+    
+  </figure>
+
+
+<p>XML로는 이렇게 지정 할 수 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;xmlBeanTest&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;co.kr.jparangdev.spring_test1.model.XmlBeanTest&#34;</span> <span style="color:#a6e22e">init-method=</span><span style="color:#e6db74">&#34;init&#34;</span><span style="color:#f92672">/&gt;</span>
+</code></pre></div><h3 id="2-소멸단계">2. 소멸단계</h3>
+<p>소멸단계도 생성단계와 같이 3가지 방법을 제공한다.</p>
+<ol>
+<li>@PreDestroy</li>
+<li>DisposableBean 구현</li>
+<li>@Bean(destroyMethod=&ldquo;distroy&rdquo;) 지정 (XML로도 지정가능)</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> co.kr.jparangdev.spring_test1.model<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> org.springframework.beans.factory.DisposableBean<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> javax.annotation.PreDestroy<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AnnotationBeanTest</span> <span style="color:#66d9ef">implements</span>  DisposableBean <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> value<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">destroy</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;DisposableBean !!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">distroy</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;distroy !!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@PreDestroy</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">PreDestroy</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;PreDestroy !!&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> name<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getValue</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> value<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setValue</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> value<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> value<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> co.kr.jparangdev.spring_test1.config<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> co.kr.jparangdev.spring_test1.model.AnnotationBeanTest<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.context.annotation.Bean<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.context.annotation.Configuration<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Configuration</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestConfig</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Bean</span><span style="color:#f92672">(</span>destroyMethod<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;distroy&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> AnnotationBeanTest <span style="color:#a6e22e">annotationBeanTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> AnnotationBeanTest<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>빈 소멸과 동시에 프린트가 시작된다.
+
+  <figure class="center" >
+    <img src="https://drive.google.com/uc?export=view&amp;id=1_hDpZGBwfcqOscKZg_cw4NGOa7IWgszq"  alt="distroy bean"   style="border-radius: 8px;"  />
+    
+  </figure>
+
+</p>
+<h3 id="결론">결론</h3>
+<p>SpringFramwork를 이해하기 위해선 Bean자체의 이해도 필수적이라 생각된다. 스프링 컨테이너는 기동시 필요한 모든 싱글톤빈을 로드 한 후 지연없이 사용가능하도록 알아서해준다.<br>
+이로인해 개발자는 비즈니스로직에 좀더 집중이 가능하도록 해준다. 스프링에는 여러가지 장점이 있으나 이러한 내가 사용하고자 하는 객체를 관리해주는 기능도도 굉장히 유용하다 생각된다.</p>
 ]]></content>
         </item>
         
@@ -165,17 +531,17 @@ $ bin/kafka-server-start.sh config/server.properties
             <pubDate>Sat, 02 Jan 2021 21:43:00 +0900</pubDate>
             
             <guid>/posts/kafka/about-kafka-1/</guid>
-            <description>1. What is Kafka ?   https://www.confluent.io/blog/kafka-fastest-messaging-system
-  Apache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
-2. Kafka Process   Kafka의 기본 구조
-  Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다.</description>
+            <description>1. What is Kafka ? https://www.confluent.io/blog/kafka-fastest-messaging-systemApache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
+2. Kafka Process Kafka의 기본 구조Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다.</description>
             <content type="html"><![CDATA[<h2 id="1-what-is-kafka-">1. What is Kafka ?</h2>
-<figure>
-    <img src="/images/kafka/about-kafka-fastest.png"
-         alt="kafka process - 1"/> <figcaption>
-            <p><a href="https://www.confluent.io/blog/kafka-fastest-messaging-system">https://www.confluent.io/blog/kafka-fastest-messaging-system</a></p>
-        </figcaption>
-</figure>
+
+  <figure class="center" >
+    <img src="/images/kafka/about-kafka-fastest.png"  alt="kafka process - 1"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" ><a href="https://www.confluent.io/blog/kafka-fastest-messaging-system">https://www.confluent.io/blog/kafka-fastest-messaging-system</a></figcaption>
+    
+  </figure>
+
 
 <h4 id="apache-kafka-is-an-evnet-streaming-platform">Apache Kafka is an evnet streaming platform</h4>
 <p>Kafka는 오픈소스 분산메세지 플랫폼이다.
@@ -183,12 +549,14 @@ $ bin/kafka-server-start.sh config/server.properties
 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다.
 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.</p>
 <h2 id="2-kafka-process">2. Kafka Process</h2>
-<figure>
-    <img src="/images/kafka/about-kafka-process.png"
-         alt="kafka process - 1"/> <figcaption>
-            <p>Kafka의 기본 구조</p>
-        </figcaption>
-</figure>
+
+  <figure class="center" >
+    <img src="/images/kafka/about-kafka-process.png"  alt="kafka process - 1"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" >Kafka의 기본 구조</figcaption>
+    
+  </figure>
+
 
 <p>Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다.
 Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조
@@ -196,12 +564,14 @@ Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 
 이렇게 각각 독립적으로 기능을 수행하며 서로 연결되어 있는 구성을 느슨한 결합(Loosely Coupled)이라 한다.</p>
 <p>다수의 Producer가 데이터를 메세지화 하여 전송하면 Kafka가 <a href="/posts/programming/event-driven/">Event-Driven</a> 방식으로 대량의 메세지를 병렬적으로 처리하며 해당 Topic을 구독하고있는 Consumer에게 전송하게 된다.</p>
 <h2 id="3-kafka-component">3. Kafka Component</h2>
-<figure>
-    <img src="/images/kafka/about-kafka-component.png"
-         alt="kafka Component - 1"/> <figcaption>
-            <p><em>Kafka의 구성요소</em></p>
-        </figcaption>
-</figure>
+
+  <figure class="center" >
+    <img src="/images/kafka/about-kafka-component.png"  alt="kafka Component - 1"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" ><em>Kafka의 구성요소</em></figcaption>
+    
+  </figure>
+
 
 <p>Kafak의 기본적인 구성요소들을 하나씩 살펴보면</p>
 <ul>
@@ -227,22 +597,26 @@ Kafka의 메타정보를 관리하는 프로그램 Zookeeper가 실행되어야 
 </li>
 </ul>
 <h2 id="4-topic--partition">4. Topic &amp; Partition</h2>
-<figure>
-    <img src="/images/kafka/about-kafka-partition.png"
-         alt="kafka partiton"/> <figcaption>
-            <p><em>이미치 출처 : <a href="https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2">https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2</a></em></p>
-        </figcaption>
-</figure>
+
+  <figure class="center" >
+    <img src="/images/kafka/about-kafka-partition.png"  alt="kafka partiton"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" ><em>이미치 출처 : <a href="https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2">https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2</a></em></figcaption>
+    
+  </figure>
+
 
 <p>Producer와 Consumer는 하나의 Topic으로 메세지를 주고 받게 된다.
 Topic은 하나 이상의 Partition으로 이루어지게 되는데 이는 많은 메세지를 처리하기 위해 비동기적으로 작동한다.
 다수의 Producer는 각각의 Partition에 순차적으로 데이터를 쌓게 되며 Consumer (ConsumerGroup)은 각각의 partition의 offset에 따라 데이터를 구독한다.</p>
-<figure>
-    <img src="/images/kafka/about-kafka-partition-2.png"
-         alt="kafka partiton-2"/> <figcaption>
-            <p><em>이미치 출처 : <a href="https://engkimbs.tistory.com/691">https://engkimbs.tistory.com/691</a></em></p>
-        </figcaption>
-</figure>
+
+  <figure class="center" >
+    <img src="/images/kafka/about-kafka-partition-2.png"  alt="kafka partiton-2"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" ><em>이미치 출처 : <a href="https://engkimbs.tistory.com/691">https://engkimbs.tistory.com/691</a></em></figcaption>
+    
+  </figure>
+
 
 <h2 id="5-consumergroup">5. ConsumerGroup</h2>
 <p>Consumer Group은 Consumer서버의 모임이라 할 수 있다.
@@ -252,18 +626,22 @@ Topic은 여러개의 Consumer Group과 연결되며 Consumer Group은 Consumer 
 <p>Consumer Group의 각 Consumer의 숫자에 따라 Partition에 접근하는 방법도 다르다.
 Consumer Group안의 Consumer수와 Partition 수가 같은 경우 1:1로 매칭되어 각 Partition의 데이터를 가져오지만 
 Consumer가 더 많은 경우 남은 Consumer는 Partition이 늘어날 때까지 대기하게 되며 Partition 숫자가 더 많아지는 경우는 Consumer가 여러개의 partition의 Message를 소비하게 된다.</p>
-<figure>
-    <img src="/images/kafka/kafak-counsumer-group.png"
-         alt="kafka consumer group"/> <figcaption>
-            <p><em>이미치 출처 : <a href="https://www.popit.kr/kafka-consumer-group">https://www.popit.kr/kafka-consumer-group</a></em></p>
-        </figcaption>
-</figure>
+
+  <figure class="center" >
+    <img src="/images/kafka/kafak-counsumer-group.png"  alt="kafka consumer group"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" ><em>이미치 출처 : <a href="https://www.popit.kr/kafka-consumer-group">https://www.popit.kr/kafka-consumer-group</a></em></figcaption>
+    
+  </figure>
+
 
 <p>하나의 서버가 장애가 생긴경우 ConsumerGroup 에 포함된 다른서버에서는 메세지를 동일 하게 소모 할 수 있다.</p>
-<figure>
-    <img src="/images/kafka/kafak-counsumer-group-2.png"
-         alt="kafka consumer group - 2"/> 
-</figure>
+
+  <figure class="center" >
+    <img src="/images/kafka/kafak-counsumer-group-2.png"  alt="kafka consumer group - 2"   style="border-radius: 8px;"  />
+    
+  </figure>
+
 
 <p>참고<br>
 <a href="https://kafka.apache.org/intro">https://kafka.apache.org/intro</a><br>
@@ -304,12 +682,14 @@ $ git submodule add &lt;테마 Git주소&gt; themes/&lt;테마이름&gt;
 <p>테마도 적용되었는지 확인하고 글도 잘올라갔는지 확인하려면 먼저 내컴퓨터에서 홈페이지를 기동해봐야한다. 
 Intellij같은 툴을 쓰는경우 환경 설정을 통해 쉽게 본인 PC에 서버를 올릴 수 있고 shell을 통해 기동도 가능하다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ hugo server -D
-</code></pre></div><figure>
-    <img src="/images/hugo/hugo-4.png"
-         alt="hugo server"/> <figcaption>
-            <p>해당화면처럼 빌드가 되면 가능</p>
-        </figcaption>
-</figure>
+</code></pre></div>
+  <figure class="center" >
+    <img src="/images/hugo/hugo-4.png"  alt="hugo server"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" >해당화면처럼 빌드가 되면 가능</figcaption>
+    
+  </figure>
+
 
 <p>이제 localhost:1313번에 접속해서 자신의 블로그를 확인해보도록 하자</p>
 ]]></content>
@@ -342,32 +722,38 @@ Hugo에 마음에 드는 테마가 있던 것도 한 몫했다.</p>
 <p>먼저 Hugo는 <a href="https://gohugo.io/getting-started/installing/">https://gohugo.io/getting-started/installing/</a> 에서 OS별 설치 방법을 알 수 있고 
 Git (<a href="https://github.com/gohugoio/hugo">https://github.com/gohugoio/hugo</a>) 에서 최신 Hugo를 다운받아 사용이 가능하다. OS는 Window 10에서 진행하였다.</p>
 <p>Hugo를 다운받았다면 원하는 위치에서 압축을 풀고 bin폴더 안의 hugo.exe의 환경변수를 설정해주도록 한다.
-<figure>
-    <img src="/images/hugo/hugo-1.png"
-         alt="hugo setting path"/> <figcaption>
-            <p>윈도우의 시스템 환경설정</p>
-        </figcaption>
-</figure>
+
+  <figure class="center" >
+    <img src="/images/hugo/hugo-1.png"  alt="hugo setting path"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" >윈도우의 시스템 환경설정</figcaption>
+    
+  </figure>
+
 </p>
 <p>이후 cmd를 통해 Hugo가 제대로 작동하는 지 확인한다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">    $ hugo version
 </code></pre></div><p>다음과 같은 화면이 나온다면 정상적으로 작동 된 것
-<figure>
-    <img src="/images/hugo/hugo-2.png"
-         alt="hugo install"/> <figcaption>
-            <p>Hugo 버전확인</p>
-        </figcaption>
-</figure>
+
+  <figure class="center" >
+    <img src="/images/hugo/hugo-2.png"  alt="hugo install"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" >Hugo 버전확인</figcaption>
+    
+  </figure>
+
 </p>
 <p>이제 블로그용 소스를 만들 위치에 hugo site파일을 만들어보도록 하자</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">    $ hugo new site C:<span style="color:#ae81ff">\j</span>aprangev<span style="color:#ae81ff">\t</span>estsite
 </code></pre></div><p>해당 메세지가 출력되고 파일이 잘 생성된 것을 확인하였으면 기본적인 블로그 사이트 소스 생성이 된 것이다.</p>
-<figure>
-    <img src="/images/hugo/hugo-3.png"
-         alt="hugo complete"/> <figcaption>
-            <p>간략하게 테마적용법과 구동방법이 나온다</p>
-        </figcaption>
-</figure>
+
+  <figure class="center" >
+    <img src="/images/hugo/hugo-3.png"  alt="hugo complete"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" >간략하게 테마적용법과 구동방법이 나온다</figcaption>
+    
+  </figure>
+
 
 <p>다음으로 Git을 통해 형상관리가 가능하도록 원격 git을 연결하도록 하자
 먼저 <a href="https://github.com">https://github.com</a> 으로 접속하여 저장소를 2개 생성해야한다.</p>

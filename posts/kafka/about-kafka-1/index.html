@@ -5,14 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="jparangdev">
-<meta name="description" content="1. What is Kafka ?   https://www.confluent.io/blog/kafka-fastest-messaging-system
-  Apache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
-2. Kafka Process   Kafka의 기본 구조
-  Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다." />
+<meta name="description" content="1. What is Kafka ? https://www.confluent.io/blog/kafka-fastest-messaging-systemApache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
+2. Kafka Process Kafka의 기본 구조Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다." />
 <meta name="keywords" content=", kafka" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<meta name="google-site-verification" content="WkBcplbdedOjhXiEHjuqFfid29F2BpM8pumnbWc3pkI" />
 <link rel="canonical" href="/posts/kafka/about-kafka-1/" />
 
 
@@ -29,7 +26,7 @@
 
 
 
-<link rel="stylesheet" href="/main.393856bf2c430bb6c01d7af07c6fe966e7cce8073435cfbbc46e590bab7405ef.css">
+<link rel="stylesheet" href="/main.d7bdd8ee18bfbf4c605488a7e5b1b92cd980dfeed2bdaeab4dd5e931a7a78bc0.css">
 
 
 
@@ -37,10 +34,8 @@
 
 
 <meta itemprop="name" content="Kafka 알아보기 - 1">
-<meta itemprop="description" content="1. What is Kafka ?   https://www.confluent.io/blog/kafka-fastest-messaging-system
-  Apache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
-2. Kafka Process   Kafka의 기본 구조
-  Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다.">
+<meta itemprop="description" content="1. What is Kafka ? https://www.confluent.io/blog/kafka-fastest-messaging-systemApache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
+2. Kafka Process Kafka의 기본 구조Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다.">
 <meta itemprop="datePublished" content="2021-01-02T21:43:00+09:00" />
 <meta itemprop="dateModified" content="2021-01-02T21:43:00+09:00" />
 <meta itemprop="wordCount" content="373">
@@ -54,18 +49,15 @@
 <meta name="twitter:image" content=""/>
 
 <meta name="twitter:title" content="Kafka 알아보기 - 1"/>
-<meta name="twitter:description" content="1. What is Kafka ?   https://www.confluent.io/blog/kafka-fastest-messaging-system
-  Apache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
-2. Kafka Process   Kafka의 기본 구조
-  Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다."/>
+<meta name="twitter:description" content="1. What is Kafka ? https://www.confluent.io/blog/kafka-fastest-messaging-systemApache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
+2. Kafka Process Kafka의 기본 구조Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다."/>
+
 
 
 
     <meta property="og:title" content="Kafka 알아보기 - 1" />
-<meta property="og:description" content="1. What is Kafka ?   https://www.confluent.io/blog/kafka-fastest-messaging-system
-  Apache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
-2. Kafka Process   Kafka의 기본 구조
-  Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다." />
+<meta property="og:description" content="1. What is Kafka ? https://www.confluent.io/blog/kafka-fastest-messaging-systemApache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
+2. Kafka Process Kafka의 기본 구조Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/kafka/about-kafka-1/" />
 <meta property="og:image" content=""/>
@@ -91,7 +83,10 @@
 
     </head>
 
-    <body class="dark-theme">
+    
+        <body>
+    
+    
         <div class="container">
             <header class="header">
     <span class="header__inner">
@@ -124,13 +119,6 @@
                     </svg>
                 </span>
             
-
-            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
-</svg>
-</span>
         </span>
     </span>
 </header>
@@ -159,14 +147,18 @@
 
       
 
+      
+
       <div class="post-content">
         <h2 id="1-what-is-kafka-">1. What is Kafka ?</h2>
-<figure>
-    <img src="/images/kafka/about-kafka-fastest.png"
-         alt="kafka process - 1"/> <figcaption>
-            <p><a href="https://www.confluent.io/blog/kafka-fastest-messaging-system">https://www.confluent.io/blog/kafka-fastest-messaging-system</a></p>
-        </figcaption>
-</figure>
+
+  <figure class="center" >
+    <img src="/images/kafka/about-kafka-fastest.png"  alt="kafka process - 1"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" ><a href="https://www.confluent.io/blog/kafka-fastest-messaging-system">https://www.confluent.io/blog/kafka-fastest-messaging-system</a></figcaption>
+    
+  </figure>
+
 
 <h4 id="apache-kafka-is-an-evnet-streaming-platform">Apache Kafka is an evnet streaming platform</h4>
 <p>Kafka는 오픈소스 분산메세지 플랫폼이다.
@@ -174,12 +166,14 @@
 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다.
 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.</p>
 <h2 id="2-kafka-process">2. Kafka Process</h2>
-<figure>
-    <img src="/images/kafka/about-kafka-process.png"
-         alt="kafka process - 1"/> <figcaption>
-            <p>Kafka의 기본 구조</p>
-        </figcaption>
-</figure>
+
+  <figure class="center" >
+    <img src="/images/kafka/about-kafka-process.png"  alt="kafka process - 1"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" >Kafka의 기본 구조</figcaption>
+    
+  </figure>
+
 
 <p>Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다.
 Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조
@@ -187,12 +181,14 @@ Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 
 이렇게 각각 독립적으로 기능을 수행하며 서로 연결되어 있는 구성을 느슨한 결합(Loosely Coupled)이라 한다.</p>
 <p>다수의 Producer가 데이터를 메세지화 하여 전송하면 Kafka가 <a href="/posts/programming/event-driven/">Event-Driven</a> 방식으로 대량의 메세지를 병렬적으로 처리하며 해당 Topic을 구독하고있는 Consumer에게 전송하게 된다.</p>
 <h2 id="3-kafka-component">3. Kafka Component</h2>
-<figure>
-    <img src="/images/kafka/about-kafka-component.png"
-         alt="kafka Component - 1"/> <figcaption>
-            <p><em>Kafka의 구성요소</em></p>
-        </figcaption>
-</figure>
+
+  <figure class="center" >
+    <img src="/images/kafka/about-kafka-component.png"  alt="kafka Component - 1"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" ><em>Kafka의 구성요소</em></figcaption>
+    
+  </figure>
+
 
 <p>Kafak의 기본적인 구성요소들을 하나씩 살펴보면</p>
 <ul>
@@ -218,22 +214,26 @@ Kafka의 메타정보를 관리하는 프로그램 Zookeeper가 실행되어야 
 </li>
 </ul>
 <h2 id="4-topic--partition">4. Topic &amp; Partition</h2>
-<figure>
-    <img src="/images/kafka/about-kafka-partition.png"
-         alt="kafka partiton"/> <figcaption>
-            <p><em>이미치 출처 : <a href="https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2">https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2</a></em></p>
-        </figcaption>
-</figure>
+
+  <figure class="center" >
+    <img src="/images/kafka/about-kafka-partition.png"  alt="kafka partiton"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" ><em>이미치 출처 : <a href="https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2">https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2</a></em></figcaption>
+    
+  </figure>
+
 
 <p>Producer와 Consumer는 하나의 Topic으로 메세지를 주고 받게 된다.
 Topic은 하나 이상의 Partition으로 이루어지게 되는데 이는 많은 메세지를 처리하기 위해 비동기적으로 작동한다.
 다수의 Producer는 각각의 Partition에 순차적으로 데이터를 쌓게 되며 Consumer (ConsumerGroup)은 각각의 partition의 offset에 따라 데이터를 구독한다.</p>
-<figure>
-    <img src="/images/kafka/about-kafka-partition-2.png"
-         alt="kafka partiton-2"/> <figcaption>
-            <p><em>이미치 출처 : <a href="https://engkimbs.tistory.com/691">https://engkimbs.tistory.com/691</a></em></p>
-        </figcaption>
-</figure>
+
+  <figure class="center" >
+    <img src="/images/kafka/about-kafka-partition-2.png"  alt="kafka partiton-2"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" ><em>이미치 출처 : <a href="https://engkimbs.tistory.com/691">https://engkimbs.tistory.com/691</a></em></figcaption>
+    
+  </figure>
+
 
 <h2 id="5-consumergroup">5. ConsumerGroup</h2>
 <p>Consumer Group은 Consumer서버의 모임이라 할 수 있다.
@@ -243,18 +243,22 @@ Topic은 여러개의 Consumer Group과 연결되며 Consumer Group은 Consumer 
 <p>Consumer Group의 각 Consumer의 숫자에 따라 Partition에 접근하는 방법도 다르다.
 Consumer Group안의 Consumer수와 Partition 수가 같은 경우 1:1로 매칭되어 각 Partition의 데이터를 가져오지만 
 Consumer가 더 많은 경우 남은 Consumer는 Partition이 늘어날 때까지 대기하게 되며 Partition 숫자가 더 많아지는 경우는 Consumer가 여러개의 partition의 Message를 소비하게 된다.</p>
-<figure>
-    <img src="/images/kafka/kafak-counsumer-group.png"
-         alt="kafka consumer group"/> <figcaption>
-            <p><em>이미치 출처 : <a href="https://www.popit.kr/kafka-consumer-group">https://www.popit.kr/kafka-consumer-group</a></em></p>
-        </figcaption>
-</figure>
+
+  <figure class="center" >
+    <img src="/images/kafka/kafak-counsumer-group.png"  alt="kafka consumer group"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" ><em>이미치 출처 : <a href="https://www.popit.kr/kafka-consumer-group">https://www.popit.kr/kafka-consumer-group</a></em></figcaption>
+    
+  </figure>
+
 
 <p>하나의 서버가 장애가 생긴경우 ConsumerGroup 에 포함된 다른서버에서는 메세지를 동일 하게 소모 할 수 있다.</p>
-<figure>
-    <img src="/images/kafka/kafak-counsumer-group-2.png"
-         alt="kafka consumer group - 2"/> 
-</figure>
+
+  <figure class="center" >
+    <img src="/images/kafka/kafak-counsumer-group-2.png"  alt="kafka consumer group - 2"   style="border-radius: 8px;"  />
+    
+  </figure>
+
 
 <p>참고<br>
 <a href="https://kafka.apache.org/intro">https://kafka.apache.org/intro</a><br>
@@ -315,34 +319,35 @@ Consumer가 더 많은 경우 남은 Consumer는 Partition이 늘어날 때까�
     </div>
 
     
-      <div class="pagination">
+    <div class="pagination">
         <div class="pagination__title">
-          <span class="pagination__title-h">Read other posts</span>
-          <hr />
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
         </div>
 
         <div class="pagination__buttons">
-          
+            
             <span class="button previous">
-              <a href="/posts/kafka/about-kafka-2/">
-                <span class="button__icon">←</span>
-                <span class="button__text">Kafka 알아보기 - 2</span>
-              </a>
+                <a href="/posts/kafka/about-kafka-2/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Kafka 알아보기 - 2</span>
+                </a>
             </span>
-          
+            
 
-          
+            
             <span class="button next">
-              <a href="/posts/blog/hugo-2/">
-                <span class="button__text">github.io 블로그 만들기 - 2</span>
-                <span class="button__icon">→</span>
-              </a>
+                <a href="/posts/blog/hugo-2/">
+                    <span class="button__text">github.io 블로그 만들기 - 2</span>
+                    <span class="button__icon">→</span>
+                </a>
             </span>
-          
+            
         </div>
-      </div>
-    
+    </div>
 
+
+    
 
     
 
@@ -374,8 +379,7 @@ Consumer가 더 많은 경우 남은 Consumer는 Partition이 늘어날 때까�
 
 
 
-
-<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+<script type="text/javascript" src="/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
 
 
 
