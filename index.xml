@@ -21,21 +21,9 @@ Event-driven architecture (EDA) is a software architecture paradigm promoting th
     </item>
     
     <item>
-      <title>콩(Bean) 이야기</title>
-      <link>/posts/spring/bean/</link>
-      <pubDate>Mon, 01 Feb 2021 21:23:00 +0900</pubDate>
-      
-      <guid>/posts/spring/bean/</guid>
-      <description>Spring의 콩(bean)에 대해 알아보자
-물론 이 콩이 아니다.그럼.. Bean이 뭔데? 간단히 말하면 스프링프레임워크에서 사용하는 자바의 객체를 Bean이라 할 수 있다. 다만 Spring IoC Container(컨테이너)에서 관리되기 때문에 자바객체와 다르게 Bean(빈)이라 말한다. Xml이나 어노테이션을 이용해 메타데이터를 설정하면 컨테이너는 이를 확인해서 빈을 생성하고 해당 빈의 라이프 사이클을 관리하며 필요한 부분에 주입하여 의존성을 관리한다.
-이 콩도 아니다 이 콩도 아니다그럼 왜 굳이 Bean을 사용하는가?
-스프링에서 개발자는 의존성 주입과 객채의 생성과 소멸은 컨테이너가 해줄테니 개발에 집중할 수 해주는 것이 목적이다.</description>
-    </item>
-    
-    <item>
       <title>Kafka 알아보기 - 2</title>
       <link>/posts/kafka/about-kafka-2/</link>
-      <pubDate>Sun, 10 Jan 2021 14:22:00 +0900</pubDate>
+      <pubDate>Sat, 23 Jan 2021 14:22:00 +0900</pubDate>
       
       <guid>/posts/kafka/about-kafka-2/</guid>
       <description>그럼 이제 실제로 카프카를 한번 설치해보자
@@ -49,11 +37,23 @@ $ cd kafka_2.12-2.6.0 $ mkdir data $ echo 1 &amp;gt; myid $ vi myid 미리 zooke
     <item>
       <title>Kafka 알아보기 - 1</title>
       <link>/posts/kafka/about-kafka-1/</link>
-      <pubDate>Sat, 02 Jan 2021 21:43:00 +0900</pubDate>
+      <pubDate>Fri, 15 Jan 2021 21:43:00 +0900</pubDate>
       
       <guid>/posts/kafka/about-kafka-1/</guid>
       <description>1. What is Kafka ? https://www.confluent.io/blog/kafka-fastest-messaging-systemApache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
 2. Kafka Process Kafka의 기본 구조Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다.</description>
+    </item>
+    
+    <item>
+      <title>콩(Bean) 이야기</title>
+      <link>/posts/spring/bean/</link>
+      <pubDate>Sat, 02 Jan 2021 21:23:00 +0900</pubDate>
+      
+      <guid>/posts/spring/bean/</guid>
+      <description>Spring의 콩(bean)에 대해 알아보자
+물론 이 콩이 아니다.그럼.. Bean이 뭔데? 간단히 말하면 스프링프레임워크에서 사용하는 자바의 객체를 Bean이라 할 수 있다. 다만 Spring IoC Container(컨테이너)에서 관리되기 때문에 자바객체와 다르게 Bean(빈)이라 말한다. Xml이나 어노테이션을 이용해 메타데이터를 설정하면 컨테이너는 이를 확인해서 빈을 생성하고 해당 빈의 라이프 사이클을 관리하며 필요한 부분에 주입하여 의존성을 관리한다.
+이 콩도 아니다 이 콩도 아니다그럼 왜 굳이 Bean을 사용하는가?
+스프링에서 개발자는 의존성 주입과 객채의 생성과 소멸은 컨테이너가 해줄테니 개발에 집중할 수 해주는 것이 목적이다.</description>
     </item>
     
     <item>

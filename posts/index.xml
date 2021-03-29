@@ -69,9 +69,229 @@ Event-Driven Programming 도 동일하게 하나의 이벤트 리스너를 두�
         </item>
         
         <item>
+            <title>Kafka 알아보기 - 2</title>
+            <link>/posts/kafka/about-kafka-2/</link>
+            <pubDate>Sat, 23 Jan 2021 14:22:00 +0900</pubDate>
+            
+            <guid>/posts/kafka/about-kafka-2/</guid>
+            <description>그럼 이제 실제로 카프카를 한번 설치해보자
+Kafka Download URL : https://kafka.apache.org/downloads
+$ mkdir kafka $ cd kafka $ wget https://downloads.apache.org/kafka/2.6.0/kafka_2.12-2.6.0.tgz $ tar -zxvf kafka_2.12-2.6.0.tgz Kafka를 다운로드 받고 압축을 해제.
+압축을 해제한 폴더의 Config폴더로 들어가면 zookeeper.properties 파일이 있다.
+Kafka의 메타데이터 관리는 zookeeper가 관리하기 때문에 해당 파일을 통해 설정을 변경 할 수 있다.
+$ cd kafka_2.12-2.6.0 $ mkdir data $ echo 1 &amp;gt; myid $ vi myid 미리 zookeeper의 데이터(각 ID)가 저장될 폴더를 생성하자</description>
+            <content type="html"><![CDATA[<p>그럼 이제 실제로 카프카를 한번 설치해보자</p>
+<p>Kafka Download URL : <a href="https://kafka.apache.org/downloads">https://kafka.apache.org/downloads</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mkdir kafka
+$ cd kafka
+$ wget https://downloads.apache.org/kafka/2.6.0/kafka_2.12-2.6.0.tgz
+$ tar -zxvf kafka_2.12-2.6.0.tgz
+</code></pre></div><p>Kafka를 다운로드 받고 압축을 해제.<br>
+압축을 해제한 폴더의 Config폴더로 들어가면 zookeeper.properties 파일이 있다.<br>
+Kafka의 메타데이터 관리는 zookeeper가 관리하기 때문에 해당 파일을 통해 설정을 변경 할 수 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cd kafka_2.12-2.6.0
+$ mkdir data
+$ echo <span style="color:#ae81ff">1</span> &gt; myid
+$ vi myid
+</code></pre></div><p>미리 zookeeper의 데이터(각 ID)가 저장될 폴더를 생성하자<br>
+/app/kafka/kafka-2.6.0-src/data 에 생성</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># Licensed to the Apache Software Foundation (ASF) under one or more</span>
+<span style="color:#75715e"># contributor license agreements.  See the NOTICE file distributed with</span>
+<span style="color:#75715e"># this work for additional information regarding copyright ownership.</span>
+<span style="color:#75715e"># The ASF licenses this file to You under the Apache License, Version 2.0</span>
+<span style="color:#75715e"># (the &#34;License&#34;); you may not use this file except in compliance with</span>
+<span style="color:#75715e"># the License.  You may obtain a copy of the License at</span>
+<span style="color:#75715e">#</span>
+<span style="color:#75715e">#    http://www.apache.org/licenses/LICENSE-2.0</span>
+<span style="color:#75715e">#</span>
+<span style="color:#75715e"># Unless required by applicable law or agreed to in writing, software</span>
+<span style="color:#75715e"># distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span>
+<span style="color:#75715e"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span style="color:#75715e"># See the License for the specific language governing permissions and</span>
+<span style="color:#75715e"># limitations under the License.</span>
+<span style="color:#75715e"># the directory where the snapshot is stored.</span>
+<span style="color:#75715e"># 각 서버별 아이디가 저장될 위치를 지정해줍니다.</span>
+dataDir<span style="color:#f92672">=</span>/app/kafka/kafka_2.12-2.6.0/data 
+<span style="color:#75715e"># the port at which the clients will connect</span>
+clientPort<span style="color:#f92672">=</span><span style="color:#ae81ff">2181</span>
+<span style="color:#75715e"># disable the per-ip limit on the number of connections since this is a non-production config</span>
+maxClientCnxns<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+<span style="color:#75715e"># Disable the adminserver by default to avoid port conflicts.</span>
+<span style="color:#75715e"># Set the port to something non-conflicting if choosing to enable this</span>
+admin.enableServer<span style="color:#f92672">=</span>false
+<span style="color:#75715e"># admin.serverPort=808</span>
+
+<span style="color:#75715e"># 팔로워 파티션과 리더 파티션이 초기 연결되는 시간제한 설정 </span>
+initLimit<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span> 
+
+<span style="color:#75715e"># 팔로워 파티션과 리더 파티션이 동기화 되는 시간의 타임아웃</span>
+<span style="color:#75715e"># 해당시간내에 동기화 되지 않으면 해제된다.</span>
+syncLimmit<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>
+
+<span style="color:#75715e"># 각각의 Kafka Broker 서버정보</span>
+juvis-kafka.1<span style="color:#f92672">=(</span>첫번째서버 IP<span style="color:#f92672">)</span>:2888:3888
+juvis-kafka.2<span style="color:#f92672">=(</span>두번째서버 IP<span style="color:#f92672">)</span>:2888:3888
+</code></pre></div><p>dataDir에 생성한 폴더 주소를 입력하고 initLimit,syncLimmit를 입력한 뒤 각 서버 정보를 입력<br>
+자세한 내용은 <a href="https://zookeeper.apache.org/">https://zookeeper.apache.org/</a> 페이지를 참고하자.</p>
+<p>각각의 서버에서 아까 만들었던 Data폴더 위치에 myid 파일을 만들고 여기에는 각각 아이디의 번호인 1, 2를 입력하자<br>
+myid 파일에 쓰인 번호는 <a href="http://zookeeper.properties">zookeeper.properties</a> 파일에 쓰인 .1 .2의 아이디와 연결되는 역할을 한다</p>
+<p>이번엔 server.properties 파일을 설정해보자.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">listeners<span style="color:#f92672">=</span>PLAINTEXT://:9092
+
+advertised.listeners<span style="color:#f92672">=</span>PLAINTEXT://192.168.137.101:9092
+
+zookeeper.connect<span style="color:#f92672">=(</span>첫번째 서버 IP<span style="color:#f92672">)</span>:2181, <span style="color:#f92672">(</span>두번째 서버 IP<span style="color:#f92672">)</span>:2181, 
+</code></pre></div><p>방화벽도 해재한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">## 주키퍼 포트 </span>
+firewall-cmd --permanent --zone<span style="color:#f92672">=</span>public --add-port<span style="color:#f92672">=</span>2181/tcp
+firewall-cmd --permanent --zone<span style="color:#f92672">=</span>public --add-port<span style="color:#f92672">=</span>2888/tcp
+firewall-cmd --permanent --zone<span style="color:#f92672">=</span>public --add-port<span style="color:#f92672">=</span>3888/tcp
+
+<span style="color:#75715e">## 카프카 포트</span>
+firewall-cmd --permanent --zone<span style="color:#f92672">=</span>public --add-port<span style="color:#f92672">=</span>9092/tcp
+</code></pre></div><p>앞서 진행한 작업들은 각 서버마다 연동을 해주기 위한 기본적인 작업이다.
+이제 Zookeeper를 먼저 구동후 Kafka를 구동해보자</p>
+<p>기동하려는데 에러 발생.. 원인은 소스파일이아니라 바이너리 파일을 받았어야함..ㅠ
+다시 수정해서 위에 진행사항과 동일하게 진행했다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Classpath is empty. Please build the project first e.g. by running <span style="color:#e6db74">&#39;./gradlew jar -PscalaVersion=2.13.2&#39;</span>
+</code></pre></div><p>이런 오류가 뜬다&hellip;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ bin/zookeeper-server-start.sh config/zookeeper.properties
+$ bin/kafka-server-start.sh config/server.properties
+</code></pre></div><p>zookeeper를 먼저 기동하고 kafka를 기동해야 한다.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Kafka 알아보기 - 1</title>
+            <link>/posts/kafka/about-kafka-1/</link>
+            <pubDate>Fri, 15 Jan 2021 21:43:00 +0900</pubDate>
+            
+            <guid>/posts/kafka/about-kafka-1/</guid>
+            <description>1. What is Kafka ? https://www.confluent.io/blog/kafka-fastest-messaging-systemApache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
+2. Kafka Process Kafka의 기본 구조Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다.</description>
+            <content type="html"><![CDATA[<h2 id="1-what-is-kafka-">1. What is Kafka ?</h2>
+
+  <figure class="center" >
+    <img src="/images/kafka/about-kafka-fastest.png"  alt="kafka process - 1"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" ><a href="https://www.confluent.io/blog/kafka-fastest-messaging-system">https://www.confluent.io/blog/kafka-fastest-messaging-system</a></figcaption>
+    
+  </figure>
+
+
+<h4 id="apache-kafka-is-an-evnet-streaming-platform">Apache Kafka is an evnet streaming platform</h4>
+<p>Kafka는 오픈소스 분산메세지 플랫폼이다.
+실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종
+Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다.
+다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.</p>
+<h2 id="2-kafka-process">2. Kafka Process</h2>
+
+  <figure class="center" >
+    <img src="/images/kafka/about-kafka-process.png"  alt="kafka process - 1"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" >Kafka의 기본 구조</figcaption>
+    
+  </figure>
+
+
+<p>Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다.
+Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조
+거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다.
+이렇게 각각 독립적으로 기능을 수행하며 서로 연결되어 있는 구성을 느슨한 결합(Loosely Coupled)이라 한다.</p>
+<p>다수의 Producer가 데이터를 메세지화 하여 전송하면 Kafka가 <a href="/posts/programming/event-driven/">Event-Driven</a> 방식으로 대량의 메세지를 병렬적으로 처리하며 해당 Topic을 구독하고있는 Consumer에게 전송하게 된다.</p>
+<h2 id="3-kafka-component">3. Kafka Component</h2>
+
+  <figure class="center" >
+    <img src="/images/kafka/about-kafka-component.png"  alt="kafka Component - 1"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" ><em>Kafka의 구성요소</em></figcaption>
+    
+  </figure>
+
+
+<p>Kafak의 기본적인 구성요소들을 하나씩 살펴보면</p>
+<ul>
+<li>
+<p><strong>Topic</strong>
+메세지의 종류 또는 카테고리이다. Producer가 특정 Topic으로 메세지를 생성하면, 이 Topic을 구독하고 있는 Consumer는 메세지를 소비한다.</p>
+</li>
+<li>
+<p><strong>Partition</strong><br>
+Topic 내에서 메세지가 분산되어 저장되는 Queue. 하나의 Topic에 단일 Partition인 경우 순서가 보장 될 수 있으나, 다중 Partition인 경우 각 Partition의 끝에서 Round-Robin 방식으로 쓰여지기 때문에 읽어 올 때 그 순서를 보장 할 수 없다.  Topic내 Partition 수는 설정이 가능하며은 한번 늘리면 다시 줄일 수 없음.</p>
+</li>
+<li>
+<p><strong>Log</strong><br>
+Partition의 한 메세지 부분</p>
+</li>
+<li>
+<p><strong>Broker</strong><br>
+Kafka의 서버를 의미한다. Broker 여러개가 Cluster를 구성하며, Zookeeper를 통해 메타데이터를 공유</p>
+</li>
+<li>
+<p><strong>Zookeeper</strong><br>
+Kafka의 메타정보를 관리하는 프로그램 Zookeeper가 실행되어야 Kafka가 실행 될 수 있다.</p>
+</li>
+</ul>
+<h2 id="4-topic--partition">4. Topic &amp; Partition</h2>
+
+  <figure class="center" >
+    <img src="/images/kafka/about-kafka-partition.png"  alt="kafka partiton"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" ><em>이미치 출처 : <a href="https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2">https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2</a></em></figcaption>
+    
+  </figure>
+
+
+<p>Producer와 Consumer는 하나의 Topic으로 메세지를 주고 받게 된다.
+Topic은 하나 이상의 Partition으로 이루어지게 되는데 이는 많은 메세지를 처리하기 위해 비동기적으로 작동한다.
+다수의 Producer는 각각의 Partition에 순차적으로 데이터를 쌓게 되며 Consumer (ConsumerGroup)은 각각의 partition의 offset에 따라 데이터를 구독한다.</p>
+
+  <figure class="center" >
+    <img src="/images/kafka/about-kafka-partition-2.png"  alt="kafka partiton-2"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" ><em>이미치 출처 : <a href="https://engkimbs.tistory.com/691">https://engkimbs.tistory.com/691</a></em></figcaption>
+    
+  </figure>
+
+
+<h2 id="5-consumergroup">5. ConsumerGroup</h2>
+<p>Consumer Group은 Consumer서버의 모임이라 할 수 있다.
+각 ConsumerGroup은 하나의 Topic만 구독한다.
+Topic은 여러개의 Consumer Group과 연결되며 Consumer Group은 Consumer 끼리 Topic의 최종 offset을 공유하는 그룹이다.
+하나의 Consumer가 이상이 생겼을 경우 나머지 Consumer가 동일하게 메세지를 소비한다.</p>
+<p>Consumer Group의 각 Consumer의 숫자에 따라 Partition에 접근하는 방법도 다르다.
+Consumer Group안의 Consumer수와 Partition 수가 같은 경우 1:1로 매칭되어 각 Partition의 데이터를 가져오지만 
+Consumer가 더 많은 경우 남은 Consumer는 Partition이 늘어날 때까지 대기하게 되며 Partition 숫자가 더 많아지는 경우는 Consumer가 여러개의 partition의 Message를 소비하게 된다.</p>
+
+  <figure class="center" >
+    <img src="/images/kafka/kafak-counsumer-group.png"  alt="kafka consumer group"   style="border-radius: 8px;"  />
+    
+      <figcaption class="center"  style="color: gray;" ><em>이미치 출처 : <a href="https://www.popit.kr/kafka-consumer-group">https://www.popit.kr/kafka-consumer-group</a></em></figcaption>
+    
+  </figure>
+
+
+<p>하나의 서버가 장애가 생긴경우 ConsumerGroup 에 포함된 다른서버에서는 메세지를 동일 하게 소모 할 수 있다.</p>
+
+  <figure class="center" >
+    <img src="/images/kafka/kafak-counsumer-group-2.png"  alt="kafka consumer group - 2"   style="border-radius: 8px;"  />
+    
+  </figure>
+
+
+<p>참고<br>
+<a href="https://kafka.apache.org/intro">https://kafka.apache.org/intro</a><br>
+<a href="https://victorydntmd.tistory.com/344">https://victorydntmd.tistory.com/344</a><br>
+<a href="https://taetaetae.github.io/2017/11/02/what-is-kafka/">https://taetaetae.github.io/2017/11/02/what-is-kafka/</a><br>
+<a href="https://epicdevs.com/17">https://epicdevs.com/17</a><br>
+<a href="https://engkimbs.tistory.com/691">https://engkimbs.tistory.com/691</a></p>
+]]></content>
+        </item>
+        
+        <item>
             <title>콩(Bean) 이야기</title>
             <link>/posts/spring/bean/</link>
-            <pubDate>Mon, 01 Feb 2021 21:23:00 +0900</pubDate>
+            <pubDate>Sat, 02 Jan 2021 21:23:00 +0900</pubDate>
             
             <guid>/posts/spring/bean/</guid>
             <description>Spring의 콩(bean)에 대해 알아보자
@@ -429,226 +649,6 @@ Spring boot의 경우 @Configuration을 지정한 객체 안에 @Bean으로 생�
 <h3 id="결론">결론</h3>
 <p>SpringFramwork를 이해하기 위해선 Bean자체의 이해도 필수적이라 생각된다. 스프링 컨테이너는 기동시 필요한 모든 싱글톤빈을 로드 한 후 지연없이 사용가능하도록 알아서해준다.<br>
 이로인해 개발자는 비즈니스로직에 좀더 집중이 가능하도록 해준다. 스프링에는 여러가지 장점이 있으나 이러한 내가 사용하고자 하는 객체를 관리해주는 기능도도 굉장히 유용하다 생각된다.</p>
-]]></content>
-        </item>
-        
-        <item>
-            <title>Kafka 알아보기 - 2</title>
-            <link>/posts/kafka/about-kafka-2/</link>
-            <pubDate>Sun, 10 Jan 2021 14:22:00 +0900</pubDate>
-            
-            <guid>/posts/kafka/about-kafka-2/</guid>
-            <description>그럼 이제 실제로 카프카를 한번 설치해보자
-Kafka Download URL : https://kafka.apache.org/downloads
-$ mkdir kafka $ cd kafka $ wget https://downloads.apache.org/kafka/2.6.0/kafka_2.12-2.6.0.tgz $ tar -zxvf kafka_2.12-2.6.0.tgz Kafka를 다운로드 받고 압축을 해제.
-압축을 해제한 폴더의 Config폴더로 들어가면 zookeeper.properties 파일이 있다.
-Kafka의 메타데이터 관리는 zookeeper가 관리하기 때문에 해당 파일을 통해 설정을 변경 할 수 있다.
-$ cd kafka_2.12-2.6.0 $ mkdir data $ echo 1 &amp;gt; myid $ vi myid 미리 zookeeper의 데이터(각 ID)가 저장될 폴더를 생성하자</description>
-            <content type="html"><![CDATA[<p>그럼 이제 실제로 카프카를 한번 설치해보자</p>
-<p>Kafka Download URL : <a href="https://kafka.apache.org/downloads">https://kafka.apache.org/downloads</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mkdir kafka
-$ cd kafka
-$ wget https://downloads.apache.org/kafka/2.6.0/kafka_2.12-2.6.0.tgz
-$ tar -zxvf kafka_2.12-2.6.0.tgz
-</code></pre></div><p>Kafka를 다운로드 받고 압축을 해제.<br>
-압축을 해제한 폴더의 Config폴더로 들어가면 zookeeper.properties 파일이 있다.<br>
-Kafka의 메타데이터 관리는 zookeeper가 관리하기 때문에 해당 파일을 통해 설정을 변경 할 수 있다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cd kafka_2.12-2.6.0
-$ mkdir data
-$ echo <span style="color:#ae81ff">1</span> &gt; myid
-$ vi myid
-</code></pre></div><p>미리 zookeeper의 데이터(각 ID)가 저장될 폴더를 생성하자<br>
-/app/kafka/kafka-2.6.0-src/data 에 생성</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># Licensed to the Apache Software Foundation (ASF) under one or more</span>
-<span style="color:#75715e"># contributor license agreements.  See the NOTICE file distributed with</span>
-<span style="color:#75715e"># this work for additional information regarding copyright ownership.</span>
-<span style="color:#75715e"># The ASF licenses this file to You under the Apache License, Version 2.0</span>
-<span style="color:#75715e"># (the &#34;License&#34;); you may not use this file except in compliance with</span>
-<span style="color:#75715e"># the License.  You may obtain a copy of the License at</span>
-<span style="color:#75715e">#</span>
-<span style="color:#75715e">#    http://www.apache.org/licenses/LICENSE-2.0</span>
-<span style="color:#75715e">#</span>
-<span style="color:#75715e"># Unless required by applicable law or agreed to in writing, software</span>
-<span style="color:#75715e"># distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span>
-<span style="color:#75715e"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
-<span style="color:#75715e"># See the License for the specific language governing permissions and</span>
-<span style="color:#75715e"># limitations under the License.</span>
-<span style="color:#75715e"># the directory where the snapshot is stored.</span>
-<span style="color:#75715e"># 각 서버별 아이디가 저장될 위치를 지정해줍니다.</span>
-dataDir<span style="color:#f92672">=</span>/app/kafka/kafka_2.12-2.6.0/data 
-<span style="color:#75715e"># the port at which the clients will connect</span>
-clientPort<span style="color:#f92672">=</span><span style="color:#ae81ff">2181</span>
-<span style="color:#75715e"># disable the per-ip limit on the number of connections since this is a non-production config</span>
-maxClientCnxns<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
-<span style="color:#75715e"># Disable the adminserver by default to avoid port conflicts.</span>
-<span style="color:#75715e"># Set the port to something non-conflicting if choosing to enable this</span>
-admin.enableServer<span style="color:#f92672">=</span>false
-<span style="color:#75715e"># admin.serverPort=808</span>
-
-<span style="color:#75715e"># 팔로워 파티션과 리더 파티션이 초기 연결되는 시간제한 설정 </span>
-initLimit<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span> 
-
-<span style="color:#75715e"># 팔로워 파티션과 리더 파티션이 동기화 되는 시간의 타임아웃</span>
-<span style="color:#75715e"># 해당시간내에 동기화 되지 않으면 해제된다.</span>
-syncLimmit<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>
-
-<span style="color:#75715e"># 각각의 Kafka Broker 서버정보</span>
-juvis-kafka.1<span style="color:#f92672">=(</span>첫번째서버 IP<span style="color:#f92672">)</span>:2888:3888
-juvis-kafka.2<span style="color:#f92672">=(</span>두번째서버 IP<span style="color:#f92672">)</span>:2888:3888
-</code></pre></div><p>dataDir에 생성한 폴더 주소를 입력하고 initLimit,syncLimmit를 입력한 뒤 각 서버 정보를 입력<br>
-자세한 내용은 <a href="https://zookeeper.apache.org/">https://zookeeper.apache.org/</a> 페이지를 참고하자.</p>
-<p>각각의 서버에서 아까 만들었던 Data폴더 위치에 myid 파일을 만들고 여기에는 각각 아이디의 번호인 1, 2를 입력하자<br>
-myid 파일에 쓰인 번호는 <a href="http://zookeeper.properties">zookeeper.properties</a> 파일에 쓰인 .1 .2의 아이디와 연결되는 역할을 한다</p>
-<p>이번엔 server.properties 파일을 설정해보자.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">listeners<span style="color:#f92672">=</span>PLAINTEXT://:9092
-
-advertised.listeners<span style="color:#f92672">=</span>PLAINTEXT://192.168.137.101:9092
-
-zookeeper.connect<span style="color:#f92672">=(</span>첫번째 서버 IP<span style="color:#f92672">)</span>:2181, <span style="color:#f92672">(</span>두번째 서버 IP<span style="color:#f92672">)</span>:2181, 
-</code></pre></div><p>방화벽도 해재한다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">## 주키퍼 포트 </span>
-firewall-cmd --permanent --zone<span style="color:#f92672">=</span>public --add-port<span style="color:#f92672">=</span>2181/tcp
-firewall-cmd --permanent --zone<span style="color:#f92672">=</span>public --add-port<span style="color:#f92672">=</span>2888/tcp
-firewall-cmd --permanent --zone<span style="color:#f92672">=</span>public --add-port<span style="color:#f92672">=</span>3888/tcp
-
-<span style="color:#75715e">## 카프카 포트</span>
-firewall-cmd --permanent --zone<span style="color:#f92672">=</span>public --add-port<span style="color:#f92672">=</span>9092/tcp
-</code></pre></div><p>앞서 진행한 작업들은 각 서버마다 연동을 해주기 위한 기본적인 작업이다.
-이제 Zookeeper를 먼저 구동후 Kafka를 구동해보자</p>
-<p>기동하려는데 에러 발생.. 원인은 소스파일이아니라 바이너리 파일을 받았어야함..ㅠ
-다시 수정해서 위에 진행사항과 동일하게 진행했다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Classpath is empty. Please build the project first e.g. by running <span style="color:#e6db74">&#39;./gradlew jar -PscalaVersion=2.13.2&#39;</span>
-</code></pre></div><p>이런 오류가 뜬다&hellip;</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ bin/zookeeper-server-start.sh config/zookeeper.properties
-$ bin/kafka-server-start.sh config/server.properties
-</code></pre></div><p>zookeeper를 먼저 기동하고 kafka를 기동해야 한다.</p>
-]]></content>
-        </item>
-        
-        <item>
-            <title>Kafka 알아보기 - 1</title>
-            <link>/posts/kafka/about-kafka-1/</link>
-            <pubDate>Sat, 02 Jan 2021 21:43:00 +0900</pubDate>
-            
-            <guid>/posts/kafka/about-kafka-1/</guid>
-            <description>1. What is Kafka ? https://www.confluent.io/blog/kafka-fastest-messaging-systemApache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
-2. Kafka Process Kafka의 기본 구조Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다.</description>
-            <content type="html"><![CDATA[<h2 id="1-what-is-kafka-">1. What is Kafka ?</h2>
-
-  <figure class="center" >
-    <img src="/images/kafka/about-kafka-fastest.png"  alt="kafka process - 1"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" ><a href="https://www.confluent.io/blog/kafka-fastest-messaging-system">https://www.confluent.io/blog/kafka-fastest-messaging-system</a></figcaption>
-    
-  </figure>
-
-
-<h4 id="apache-kafka-is-an-evnet-streaming-platform">Apache Kafka is an evnet streaming platform</h4>
-<p>Kafka는 오픈소스 분산메세지 플랫폼이다.
-실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종
-Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다.
-다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.</p>
-<h2 id="2-kafka-process">2. Kafka Process</h2>
-
-  <figure class="center" >
-    <img src="/images/kafka/about-kafka-process.png"  alt="kafka process - 1"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" >Kafka의 기본 구조</figcaption>
-    
-  </figure>
-
-
-<p>Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다.
-Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조
-거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다.
-이렇게 각각 독립적으로 기능을 수행하며 서로 연결되어 있는 구성을 느슨한 결합(Loosely Coupled)이라 한다.</p>
-<p>다수의 Producer가 데이터를 메세지화 하여 전송하면 Kafka가 <a href="/posts/programming/event-driven/">Event-Driven</a> 방식으로 대량의 메세지를 병렬적으로 처리하며 해당 Topic을 구독하고있는 Consumer에게 전송하게 된다.</p>
-<h2 id="3-kafka-component">3. Kafka Component</h2>
-
-  <figure class="center" >
-    <img src="/images/kafka/about-kafka-component.png"  alt="kafka Component - 1"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" ><em>Kafka의 구성요소</em></figcaption>
-    
-  </figure>
-
-
-<p>Kafak의 기본적인 구성요소들을 하나씩 살펴보면</p>
-<ul>
-<li>
-<p><strong>Topic</strong>
-메세지의 종류 또는 카테고리이다. Producer가 특정 Topic으로 메세지를 생성하면, 이 Topic을 구독하고 있는 Consumer는 메세지를 소비한다.</p>
-</li>
-<li>
-<p><strong>Partition</strong><br>
-Topic 내에서 메세지가 분산되어 저장되는 Queue. 하나의 Topic에 단일 Partition인 경우 순서가 보장 될 수 있으나, 다중 Partition인 경우 각 Partition의 끝에서 Round-Robin 방식으로 쓰여지기 때문에 읽어 올 때 그 순서를 보장 할 수 없다.  Topic내 Partition 수는 설정이 가능하며은 한번 늘리면 다시 줄일 수 없음.</p>
-</li>
-<li>
-<p><strong>Log</strong><br>
-Partition의 한 메세지 부분</p>
-</li>
-<li>
-<p><strong>Broker</strong><br>
-Kafka의 서버를 의미한다. Broker 여러개가 Cluster를 구성하며, Zookeeper를 통해 메타데이터를 공유</p>
-</li>
-<li>
-<p><strong>Zookeeper</strong><br>
-Kafka의 메타정보를 관리하는 프로그램 Zookeeper가 실행되어야 Kafka가 실행 될 수 있다.</p>
-</li>
-</ul>
-<h2 id="4-topic--partition">4. Topic &amp; Partition</h2>
-
-  <figure class="center" >
-    <img src="/images/kafka/about-kafka-partition.png"  alt="kafka partiton"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" ><em>이미치 출처 : <a href="https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2">https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2</a></em></figcaption>
-    
-  </figure>
-
-
-<p>Producer와 Consumer는 하나의 Topic으로 메세지를 주고 받게 된다.
-Topic은 하나 이상의 Partition으로 이루어지게 되는데 이는 많은 메세지를 처리하기 위해 비동기적으로 작동한다.
-다수의 Producer는 각각의 Partition에 순차적으로 데이터를 쌓게 되며 Consumer (ConsumerGroup)은 각각의 partition의 offset에 따라 데이터를 구독한다.</p>
-
-  <figure class="center" >
-    <img src="/images/kafka/about-kafka-partition-2.png"  alt="kafka partiton-2"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" ><em>이미치 출처 : <a href="https://engkimbs.tistory.com/691">https://engkimbs.tistory.com/691</a></em></figcaption>
-    
-  </figure>
-
-
-<h2 id="5-consumergroup">5. ConsumerGroup</h2>
-<p>Consumer Group은 Consumer서버의 모임이라 할 수 있다.
-각 ConsumerGroup은 하나의 Topic만 구독한다.
-Topic은 여러개의 Consumer Group과 연결되며 Consumer Group은 Consumer 끼리 Topic의 최종 offset을 공유하는 그룹이다.
-하나의 Consumer가 이상이 생겼을 경우 나머지 Consumer가 동일하게 메세지를 소비한다.</p>
-<p>Consumer Group의 각 Consumer의 숫자에 따라 Partition에 접근하는 방법도 다르다.
-Consumer Group안의 Consumer수와 Partition 수가 같은 경우 1:1로 매칭되어 각 Partition의 데이터를 가져오지만 
-Consumer가 더 많은 경우 남은 Consumer는 Partition이 늘어날 때까지 대기하게 되며 Partition 숫자가 더 많아지는 경우는 Consumer가 여러개의 partition의 Message를 소비하게 된다.</p>
-
-  <figure class="center" >
-    <img src="/images/kafka/kafak-counsumer-group.png"  alt="kafka consumer group"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" ><em>이미치 출처 : <a href="https://www.popit.kr/kafka-consumer-group">https://www.popit.kr/kafka-consumer-group</a></em></figcaption>
-    
-  </figure>
-
-
-<p>하나의 서버가 장애가 생긴경우 ConsumerGroup 에 포함된 다른서버에서는 메세지를 동일 하게 소모 할 수 있다.</p>
-
-  <figure class="center" >
-    <img src="/images/kafka/kafak-counsumer-group-2.png"  alt="kafka consumer group - 2"   style="border-radius: 8px;"  />
-    
-  </figure>
-
-
-<p>참고<br>
-<a href="https://kafka.apache.org/intro">https://kafka.apache.org/intro</a><br>
-<a href="https://victorydntmd.tistory.com/344">https://victorydntmd.tistory.com/344</a><br>
-<a href="https://taetaetae.github.io/2017/11/02/what-is-kafka/">https://taetaetae.github.io/2017/11/02/what-is-kafka/</a><br>
-<a href="https://epicdevs.com/17">https://epicdevs.com/17</a><br>
-<a href="https://engkimbs.tistory.com/691">https://engkimbs.tistory.com/691</a></p>
 ]]></content>
         </item>
         

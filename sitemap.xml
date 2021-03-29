@@ -18,11 +18,6 @@
   </url>
   
   <url>
-    <loc>/tags/java/</loc>
-    <lastmod>2021-02-01T21:23:00+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/</loc>
     <lastmod>2021-02-01T21:23:00+09:00</lastmod>
   </url>
@@ -43,58 +38,63 @@
   </url>
   
   <url>
-    <loc>/categories/spring/</loc>
-    <lastmod>2021-02-01T21:23:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/spring-boot/</loc>
-    <lastmod>2021-02-01T21:23:00+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/spring-framework/</loc>
-    <lastmod>2021-02-01T21:23:00+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/</loc>
     <lastmod>2021-02-01T21:23:00+09:00</lastmod>
   </url>
   
   <url>
-    <loc>/posts/spring/bean/</loc>
-    <lastmod>2021-02-01T21:23:00+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/kafka/</loc>
-    <lastmod>2021-01-10T14:22:00+09:00</lastmod>
+    <lastmod>2021-01-23T14:22:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>/series/kafka/</loc>
-    <lastmod>2021-01-10T14:22:00+09:00</lastmod>
+    <lastmod>2021-01-23T14:22:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/kafka/</loc>
-    <lastmod>2021-01-10T14:22:00+09:00</lastmod>
+    <lastmod>2021-01-23T14:22:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>/posts/kafka/about-kafka-2/</loc>
-    <lastmod>2021-01-10T14:22:00+09:00</lastmod>
+    <lastmod>2021-01-23T14:22:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>/series/</loc>
-    <lastmod>2021-01-10T14:22:00+09:00</lastmod>
+    <lastmod>2021-01-23T14:22:00+09:00</lastmod>
   </url>
   
   <url>
     <loc>/posts/kafka/about-kafka-1/</loc>
-    <lastmod>2021-01-02T21:43:00+09:00</lastmod>
+    <lastmod>2021-01-15T21:43:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/java/</loc>
+    <lastmod>2021-01-02T21:23:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/spring/</loc>
+    <lastmod>2021-01-02T21:23:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/spring-boot/</loc>
+    <lastmod>2021-01-02T21:23:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/spring-framework/</loc>
+    <lastmod>2021-01-02T21:23:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/spring/bean/</loc>
+    <lastmod>2021-01-02T21:23:00+09:00</lastmod>
   </url>
   
   <url>
