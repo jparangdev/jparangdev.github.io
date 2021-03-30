@@ -190,14 +190,12 @@ In computer programming, event-driven programming is a programming paradigm in w
 아마 통신환경과 컴퓨팅기술의 발전에 따라 다양하고 복잡한 이벤트가 동시에 일어나는 경우가 많아지고 트래픽이 증가하여 이에 대응하는 방법으로 비동기 처리에 유리한 이벤트 드리븐 방식이 주목받지 않았나 싶다.</p>
 <p>그럼 이러한 이벤트 드리븐 방식이 어떻게 구현되어 사용되고 있는지 알아보자
 먼저 이벤트 드리븐 아키텍쳐의 예로 NodeJs가 대표적이다.</p>
-
-  <figure class="center" >
-    <img src="/images/programming/event-driven.png"  alt="hugo complete"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" ><a href="https://diophant.com/blog/mitigating-node-js-event-loop-saturation">https://diophant.com/blog/mitigating-node-js-event-loop-saturation</a></figcaption>
-    
-  </figure>
-
+<figure>
+    <img src="/images/programming/event-driven.png"
+         alt="hugo complete"/> <figcaption>
+            <p><a href="https://diophant.com/blog/mitigating-node-js-event-loop-saturation">https://diophant.com/blog/mitigating-node-js-event-loop-saturation</a></p>
+        </figcaption>
+</figure>
 
 <p>Node Js는 위와 같이 발생하는 이벤트들을 이벤트 루프를 돌며 스레드에 각각 분배하여 이벤트를 처리하는 방식으로 구성되어 있다. (I/O 등 커널을 사용해야하는 이벤트는 제외)<br>
 Event-Driven Programming 도 동일하게 하나의 이벤트 리스너를 두고 멀티스레드에 분배하는 방식인 듯하나 나중에 자신이 코딩하게 되거나 좋은 코드를 보게 되면 이 글에 추가하도록 하겠다</p>
@@ -268,6 +266,13 @@ Event-Driven Programming 도 동일하게 하나의 이벤트 리스너를 두�
         </div>
 
         <div class="pagination__buttons">
+            
+            <span class="button previous">
+                <a href="/posts/programming/msa/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">2021년엔 M.S.A로</span>
+                </a>
+            </span>
             
 
             

@@ -5,8 +5,82 @@
         <description>Recent content in Posts on Jparangdev&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 01 Feb 2021 21:23:00 +0900</lastBuildDate>
+        <lastBuildDate>Sun, 14 Feb 2021 14:06:00 +0900</lastBuildDate>
         <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>2021년엔 M.S.A로</title>
+            <link>/posts/programming/msa/</link>
+            <pubDate>Sun, 14 Feb 2021 14:06:00 +0900</pubDate>
+            
+            <guid>/posts/programming/msa/</guid>
+            <description>MSA ( Micro Service Architecture ) 이미 많은 유명한 기업에선 MSA를 많이 채택하고 있다.
+거기에 따라 MSA에 대하여 자세하고 이해하기 쉽게 정리해둔 포스팅도 많으나 이번에도 역시 스스로의 생각을 정리하고 기록하자는 의미에서 포스팅을 남겨본다.잘못된 내용이나 주관적인 생각이 들어갈 수 있음을 미리 양해를 구한다.
+일단 정말 잘 정리해둔 몇개의 포스팅을 링크해본다. 이미 구글 상위권 검색을 차지하고 있지만..
+참조
+https://velog.io/@tedigom/MSA-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-1-MSA%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90-3sk28yrv0e
+https://www.samsungsds.com/kr/insights/msa.html
+The term &amp;ldquo;Microservice Architecture&amp;rdquo; has sprung up over the last few years to describe a particular way of designing software applications as suites of independently deployable services.</description>
+            <content type="html"><![CDATA[<h2 id="msa--micro-service-architecture-">MSA ( Micro Service Architecture )</h2>
+<p>이미 많은 유명한 기업에선 MSA를 많이 채택하고 있다.<br>
+거기에 따라 MSA에 대하여 자세하고 이해하기 쉽게 정리해둔 포스팅도 많으나 이번에도 
+역시 스스로의 생각을 정리하고 기록하자는 의미에서 포스팅을 남겨본다.잘못된 내용이나 주관적인 생각이 들어갈 수 있음을 미리 양해를 구한다.</p>
+<p>일단 정말 잘 정리해둔 몇개의 포스팅을 링크해본다. 이미 구글 상위권 검색을 차지하고 있지만..</p>
+<p>참조</p>
+<p><a href="https://velog.io/@tedigom/MSA-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-1-MSA%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90-3sk28yrv0e">https://velog.io/@tedigom/MSA-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-1-MSA%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90-3sk28yrv0e</a></p>
+<p><a href="https://www.samsungsds.com/kr/insights/msa.html">https://www.samsungsds.com/kr/insights/msa.html</a></p>
+<p>The term &ldquo;Microservice Architecture&rdquo; has sprung up over the last few years to describe a particular way of designing software applications as suites of independently deployable services. While there is no precise definition of this architectural style, there are certain common characteristics around organization around business capability, automated deployment, intelligence in the endpoints, and decentralized control of languages and data.</p>
+<p>이분의 말을 꽤 많이 인용한다.</p>
+<p>독립적으로 배포가능한 서비스들로 구성된 소프트웨어 설계방식을 말하는 것이며 해당 설계스타일에 확실한 정의는 없지만 비즈니스 수행에 관련된 조직, 배포 자동화, 앤드포인트의 지능, 그리고 언어와 데이터의 탈중앙화가 공통된 특징이라 한다..</p>
+<p>가장 중요한건 탈중앙화, 즉 하나의 서비스가 어플리케이션 전체의 중심이 되는 것이 아니라 다양한 서비스이 자신만의 기능를 중시하며 다른 서비스들과 상호작용을 통해 어플리케이션을 구성한다는 말인듯 하다.
+MSA를 이용한 대표적인 기업인 Netflex가 있다. 넷플릭스는 7년에 걸쳐 MSA를 도입했다고 한다. 과연 MSA는 무슨매력이 있을까?</p>
+<p>MSA를 이야기 할 때 흔히 Monolithic 아키텍쳐와 비교하여 이야기를 많이한다. 모놀리식은 어플리케이션 전체를 하나의 서비스로 구성하는 방법이다.
+예를 들어 쇼핑몰의 경우 기본적으로 상품을 조회하는 서비스, 주문을 등록하는 서비스, 결제 서비스, 관리자 서비스 등등 이 하나의 서비스에 단일 데이터베이스로 연결되어 있는 방식이 모놀리식의 예가 된다.</p>
+<figure>
+    <img src="https://drive.google.com/uc?export=view&amp;id=1tZWd1gHLY9RYVvAKoK-YgifoIH05TWpo"
+         alt="Monolithic"/> <figcaption>
+            <p>하나의 서비스로 엮긴 어플리케이션</p>
+        </figcaption>
+</figure>
+
+<p>반대로 마이크로서비스는 각각의 서비스들이 분리되어 있으며 고객의 요청에 따라 해당서비스만 호출하는 방식으로 구성되어 있고 데이터베이스 또한 분리되어 작동하는 방식을 예로 들 수 있다</p>
+<figure>
+    <img src="https://drive.google.com/uc?export=view&amp;id=1zFFNRp-wpTjz_Z4sOmicKjPkz1SO83JL"
+         alt="Monolithic"/> <figcaption>
+            <p>서로를 호출하는 방식</p>
+        </figcaption>
+</figure>
+
+<p>그림이 도움이 될 지 모르겠다. 다만 이런느낌임을 알아두자 :)
+이러한 구조적 차이 때문에 장단점이 확실하다.</p>
+<h3 id="모놀리식">모놀리식</h3>
+<pre><code> + 개발 초기엔 구조가 단순하고 직관적이여 상대적으로 개발하기 쉽다.
+ + 하나의 서버환경이서 빌드 및 배포가 번거롭지 않고 쉽다. 
+ + 테스트 및 모니터링이 용이하다.
+
+ - 하나의 문제가 전제적인 서비스에 영향을 줄 수 있다.
+ - 서비스 규모가 커짐에 따라  복잡성이 늘어나게 되어 개발이 어려워지고 1번 단점이 다발적으로 일어 날 수 있다. 
+ - 초반 기술스택을 변경하기 어려워진다.
+</code></pre>
+<h3 id="마이크로서비스">마이크로서비스</h3>
+<pre><code> + 하나의 서비스에 문제가 발생시 다른 서비스까지의 영향도가 적다
+ + 각 모듈간의 스케일 아웃이 용이하다.
+ + 다양한 언어 또는 기술 스택으로 구성 할 수 있다.
+
+ - 서비스가 여러개여서 모니터링이 어렵다.
+ - 개발간에 다른 모듈과의 통신이 필수적이기 때문에 초기 설계 및 개발난이도가 높다. 
+ - 전체적인 테스트를 구성하기 어렵다.
+</code></pre>
+<p>내가 경험한 모놀리식의 장단점을 생각해보면, 일단 데이터베이스에 문제가 발생시 어플리케이션 전체가 중단된다거나 서버의 메모리 또는 디스크용량문제로 서버가 멈춘다는 문제가 있었다. 
+또한 다중화 되지않은 서버구성이라면 빌드 후 배포시 서버 재기동이 필요한 경우도 있다. 물론 서버의 스케일업이나, 이중화 서버를 구성하는 문제로 해결 할 수도 있다.
+마이크로서비스는 경험해보진 못했지만 각 서비스간의 스케일 아웃이 가능하고 문제발생시 문제되는 서비스에만 집중 할 수 있는면이 장점으로 보인다. 추후 마이크로서비스를 경험하게 되면,
+장단점을 다시 정리해보도록 하자.</p>
+<p>시간이 지나갈 수록 외부에서 어플리케이션에게 요구하는 데이터양과 복잡성은 커져간다. 이에 유연하게 대응하기위해 MSA는 좋은 선택일 것 같다. 
+넷플릭스뿐만아니라 우리나라의 각 IT기업들도 MSA를 도입해가고 있다. 
+이러한 과정안에서도 많은 시간과 노력이 필요하겠지만 그럼에도 선두기업들이 MSA를 도입하는 이유가 있을 것이다. 
+조금 더 많은 글을 읽어보고 생각을 넓혀가야겠다.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Event-driven이 뭐지?</title>
@@ -48,14 +122,12 @@ In computer programming, event-driven programming is a programming paradigm in w
 아마 통신환경과 컴퓨팅기술의 발전에 따라 다양하고 복잡한 이벤트가 동시에 일어나는 경우가 많아지고 트래픽이 증가하여 이에 대응하는 방법으로 비동기 처리에 유리한 이벤트 드리븐 방식이 주목받지 않았나 싶다.</p>
 <p>그럼 이러한 이벤트 드리븐 방식이 어떻게 구현되어 사용되고 있는지 알아보자
 먼저 이벤트 드리븐 아키텍쳐의 예로 NodeJs가 대표적이다.</p>
-
-  <figure class="center" >
-    <img src="/images/programming/event-driven.png"  alt="hugo complete"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" ><a href="https://diophant.com/blog/mitigating-node-js-event-loop-saturation">https://diophant.com/blog/mitigating-node-js-event-loop-saturation</a></figcaption>
-    
-  </figure>
-
+<figure>
+    <img src="/images/programming/event-driven.png"
+         alt="hugo complete"/> <figcaption>
+            <p><a href="https://diophant.com/blog/mitigating-node-js-event-loop-saturation">https://diophant.com/blog/mitigating-node-js-event-loop-saturation</a></p>
+        </figcaption>
+</figure>
 
 <p>Node Js는 위와 같이 발생하는 이벤트들을 이벤트 루프를 돌며 스레드에 각각 분배하여 이벤트를 처리하는 방식으로 구성되어 있다. (I/O 등 커널을 사용해야하는 이벤트는 제외)<br>
 Event-Driven Programming 도 동일하게 하나의 이벤트 리스너를 두고 멀티스레드에 분배하는 방식인 듯하나 나중에 자신이 코딩하게 되거나 좋은 코드를 보게 되면 이 글에 추가하도록 하겠다</p>
@@ -167,17 +239,17 @@ $ bin/kafka-server-start.sh config/server.properties
             <pubDate>Fri, 15 Jan 2021 21:43:00 +0900</pubDate>
             
             <guid>/posts/kafka/about-kafka-1/</guid>
-            <description>1. What is Kafka ? https://www.confluent.io/blog/kafka-fastest-messaging-systemApache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
-2. Kafka Process Kafka의 기본 구조Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다.</description>
+            <description>1. What is Kafka ?   https://www.confluent.io/blog/kafka-fastest-messaging-system
+  Apache Kafka is an evnet streaming platform Kafka는 오픈소스 분산메세지 플랫폼이다. 실시간으로 대량의 스트림(메세지)를 처리하는데 적합한 Messaging Queue(MQ)의 일종 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다. 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.
+2. Kafka Process   Kafka의 기본 구조
+  Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다. Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조 거기에 Broker(Kafka)가 둘 사이를 중계하며 메세지를 효율적으로 전달하는 역할을 한다.</description>
             <content type="html"><![CDATA[<h2 id="1-what-is-kafka-">1. What is Kafka ?</h2>
-
-  <figure class="center" >
-    <img src="/images/kafka/about-kafka-fastest.png"  alt="kafka process - 1"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" ><a href="https://www.confluent.io/blog/kafka-fastest-messaging-system">https://www.confluent.io/blog/kafka-fastest-messaging-system</a></figcaption>
-    
-  </figure>
-
+<figure>
+    <img src="/images/kafka/about-kafka-fastest.png"
+         alt="kafka process - 1"/> <figcaption>
+            <p><a href="https://www.confluent.io/blog/kafka-fastest-messaging-system">https://www.confluent.io/blog/kafka-fastest-messaging-system</a></p>
+        </figcaption>
+</figure>
 
 <h4 id="apache-kafka-is-an-evnet-streaming-platform">Apache Kafka is an evnet streaming platform</h4>
 <p>Kafka는 오픈소스 분산메세지 플랫폼이다.
@@ -185,14 +257,12 @@ $ bin/kafka-server-start.sh config/server.properties
 Kafka는 대용량의 메세지 처리가 필요한 링크드인에서 개발해 2011년 아파치의 공식 오픈소스로 공개되었다.
 다른 분산 메세징 시스템에 비해 비교적 우수한 성능을 보여주어, 현재 많은 기업에서 사용중이라고 한다.</p>
 <h2 id="2-kafka-process">2. Kafka Process</h2>
-
-  <figure class="center" >
-    <img src="/images/kafka/about-kafka-process.png"  alt="kafka process - 1"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" >Kafka의 기본 구조</figcaption>
-    
-  </figure>
-
+<figure>
+    <img src="/images/kafka/about-kafka-process.png"
+         alt="kafka process - 1"/> <figcaption>
+            <p>Kafka의 기본 구조</p>
+        </figcaption>
+</figure>
 
 <p>Kafka는 기본적으로 Publish/Subscribe 구조를 사용한다.
 Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 Consumer가 메세지를 소비하는 구조
@@ -200,14 +270,12 @@ Producer가 메세지를 발행(Publish)하면 Topic을 구독(Subscribe)하는 
 이렇게 각각 독립적으로 기능을 수행하며 서로 연결되어 있는 구성을 느슨한 결합(Loosely Coupled)이라 한다.</p>
 <p>다수의 Producer가 데이터를 메세지화 하여 전송하면 Kafka가 <a href="/posts/programming/event-driven/">Event-Driven</a> 방식으로 대량의 메세지를 병렬적으로 처리하며 해당 Topic을 구독하고있는 Consumer에게 전송하게 된다.</p>
 <h2 id="3-kafka-component">3. Kafka Component</h2>
-
-  <figure class="center" >
-    <img src="/images/kafka/about-kafka-component.png"  alt="kafka Component - 1"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" ><em>Kafka의 구성요소</em></figcaption>
-    
-  </figure>
-
+<figure>
+    <img src="/images/kafka/about-kafka-component.png"
+         alt="kafka Component - 1"/> <figcaption>
+            <p><em>Kafka의 구성요소</em></p>
+        </figcaption>
+</figure>
 
 <p>Kafak의 기본적인 구성요소들을 하나씩 살펴보면</p>
 <ul>
@@ -233,26 +301,22 @@ Kafka의 메타정보를 관리하는 프로그램 Zookeeper가 실행되어야 
 </li>
 </ul>
 <h2 id="4-topic--partition">4. Topic &amp; Partition</h2>
-
-  <figure class="center" >
-    <img src="/images/kafka/about-kafka-partition.png"  alt="kafka partiton"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" ><em>이미치 출처 : <a href="https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2">https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2</a></em></figcaption>
-    
-  </figure>
-
+<figure>
+    <img src="/images/kafka/about-kafka-partition.png"
+         alt="kafka partiton"/> <figcaption>
+            <p><em>이미치 출처 : <a href="https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2">https://medium.com/@umanking/%EC%B9%B4%ED%94%84%EC%B9%B4%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0-%ED%95%98%EA%B8%B0%EC%A0%84%EC%97%90-%EB%A8%BC%EC%A0%80-data%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0%ED%95%B4%EB%B3%B4%EC%9E%90-d2e3ca2f3c2</a></em></p>
+        </figcaption>
+</figure>
 
 <p>Producer와 Consumer는 하나의 Topic으로 메세지를 주고 받게 된다.
 Topic은 하나 이상의 Partition으로 이루어지게 되는데 이는 많은 메세지를 처리하기 위해 비동기적으로 작동한다.
 다수의 Producer는 각각의 Partition에 순차적으로 데이터를 쌓게 되며 Consumer (ConsumerGroup)은 각각의 partition의 offset에 따라 데이터를 구독한다.</p>
-
-  <figure class="center" >
-    <img src="/images/kafka/about-kafka-partition-2.png"  alt="kafka partiton-2"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" ><em>이미치 출처 : <a href="https://engkimbs.tistory.com/691">https://engkimbs.tistory.com/691</a></em></figcaption>
-    
-  </figure>
-
+<figure>
+    <img src="/images/kafka/about-kafka-partition-2.png"
+         alt="kafka partiton-2"/> <figcaption>
+            <p><em>이미치 출처 : <a href="https://engkimbs.tistory.com/691">https://engkimbs.tistory.com/691</a></em></p>
+        </figcaption>
+</figure>
 
 <h2 id="5-consumergroup">5. ConsumerGroup</h2>
 <p>Consumer Group은 Consumer서버의 모임이라 할 수 있다.
@@ -262,22 +326,18 @@ Topic은 여러개의 Consumer Group과 연결되며 Consumer Group은 Consumer 
 <p>Consumer Group의 각 Consumer의 숫자에 따라 Partition에 접근하는 방법도 다르다.
 Consumer Group안의 Consumer수와 Partition 수가 같은 경우 1:1로 매칭되어 각 Partition의 데이터를 가져오지만 
 Consumer가 더 많은 경우 남은 Consumer는 Partition이 늘어날 때까지 대기하게 되며 Partition 숫자가 더 많아지는 경우는 Consumer가 여러개의 partition의 Message를 소비하게 된다.</p>
-
-  <figure class="center" >
-    <img src="/images/kafka/kafak-counsumer-group.png"  alt="kafka consumer group"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" ><em>이미치 출처 : <a href="https://www.popit.kr/kafka-consumer-group">https://www.popit.kr/kafka-consumer-group</a></em></figcaption>
-    
-  </figure>
-
+<figure>
+    <img src="/images/kafka/kafak-counsumer-group.png"
+         alt="kafka consumer group"/> <figcaption>
+            <p><em>이미치 출처 : <a href="https://www.popit.kr/kafka-consumer-group">https://www.popit.kr/kafka-consumer-group</a></em></p>
+        </figcaption>
+</figure>
 
 <p>하나의 서버가 장애가 생긴경우 ConsumerGroup 에 포함된 다른서버에서는 메세지를 동일 하게 소모 할 수 있다.</p>
-
-  <figure class="center" >
-    <img src="/images/kafka/kafak-counsumer-group-2.png"  alt="kafka consumer group - 2"   style="border-radius: 8px;"  />
-    
-  </figure>
-
+<figure>
+    <img src="/images/kafka/kafak-counsumer-group-2.png"
+         alt="kafka consumer group - 2"/> 
+</figure>
 
 <p>참고<br>
 <a href="https://kafka.apache.org/intro">https://kafka.apache.org/intro</a><br>
@@ -295,40 +355,35 @@ Consumer가 더 많은 경우 남은 Consumer는 Partition이 늘어날 때까�
             
             <guid>/posts/spring/bean/</guid>
             <description>Spring의 콩(bean)에 대해 알아보자
-물론 이 콩이 아니다.그럼.. Bean이 뭔데? 간단히 말하면 스프링프레임워크에서 사용하는 자바의 객체를 Bean이라 할 수 있다. 다만 Spring IoC Container(컨테이너)에서 관리되기 때문에 자바객체와 다르게 Bean(빈)이라 말한다. Xml이나 어노테이션을 이용해 메타데이터를 설정하면 컨테이너는 이를 확인해서 빈을 생성하고 해당 빈의 라이프 사이클을 관리하며 필요한 부분에 주입하여 의존성을 관리한다.
-이 콩도 아니다 이 콩도 아니다그럼 왜 굳이 Bean을 사용하는가?
-스프링에서 개발자는 의존성 주입과 객채의 생성과 소멸은 컨테이너가 해줄테니 개발에 집중할 수 해주는 것이 목적이다.</description>
+  물론 이 콩이 아니다.
+  그럼.. Bean이 뭔데? 간단히 말하면 스프링프레임워크에서 사용하는 자바의 객체를 Bean이라 할 수 있다. 다만 Spring IoC Container(컨테이너)에서 관리되기 때문에 자바객체와 다르게 Bean(빈)이라 말한다. Xml이나 어노테이션을 이용해 메타데이터를 설정하면 컨테이너는 이를 확인해서 빈을 생성하고 해당 빈의 라이프 사이클을 관리하며 필요한 부분에 주입하여 의존성을 관리한다.
+  이 콩도 아니다 이 콩도 아니다
+  그럼 왜 굳이 Bean을 사용하는가?</description>
             <content type="html"><![CDATA[<p>Spring의 콩(bean)에 대해 알아보자</p>
-
-  <figure class="center" >
-    <img src="https://drive.google.com/uc?export=view&amp;id=10PKsiqX5O0rXqSFMLokk-W5TkX3r_Lke"  alt="spring"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" >물론 이 콩이 아니다.</figcaption>
-    
-  </figure>
-
+<figure>
+    <img src="https://drive.google.com/uc?export=view&amp;id=10PKsiqX5O0rXqSFMLokk-W5TkX3r_Lke"
+         alt="spring"/> <figcaption>
+            <p>물론 이 콩이 아니다.</p>
+        </figcaption>
+</figure>
 
 <h2 id="그럼-bean이-뭔데">그럼.. Bean이 뭔데?</h2>
 <p>간단히 말하면 스프링프레임워크에서 사용하는 자바의 객체를 Bean이라 할 수 있다. 다만 Spring IoC Container(컨테이너)에서 관리되기 때문에
 자바객체와 다르게 Bean(빈)이라 말한다. Xml이나 어노테이션을 이용해 메타데이터를 설정하면 컨테이너는 이를 확인해서 빈을 생성하고 해당 빈의
 라이프 사이클을 관리하며 필요한 부분에 주입하여 의존성을 관리한다.</p>
-
-  <figure class="center" >
-    <img src="https://drive.google.com/uc?export=view&amp;id=1A9aOfWAN-6M0nBpsBJQThfWMylVVckTX"  alt="spring"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" >이 콩도 아니다 이 콩도 아니다</figcaption>
-    
-  </figure>
-
+<figure>
+    <img src="https://drive.google.com/uc?export=view&amp;id=1A9aOfWAN-6M0nBpsBJQThfWMylVVckTX"
+         alt="spring"/> <figcaption>
+            <p>이 콩도 아니다 이 콩도 아니다</p>
+        </figcaption>
+</figure>
 
 <p>그럼 왜 굳이 Bean을 사용하는가?<br>
 스프링에서 개발자는 의존성 주입과 객채의 생성과 소멸은 컨테이너가 해줄테니 개발에 집중할 수 해주는 것이 목적이다.</p>
-
-  <figure class="center" >
-    <img src="https://drive.google.com/uc?export=view&amp;id=1QxKmTIKypqEqZWO7tiy1Y0gq764by_3z"  alt="spring"   style="border-radius: 8px;"  />
-    
-  </figure>
-
+<figure>
+    <img src="https://drive.google.com/uc?export=view&amp;id=1QxKmTIKypqEqZWO7tiy1Y0gq764by_3z"
+         alt="spring"/> 
+</figure>
 
 <p>그럼 빈을 생성하는 예시를 보며 실제로 빈이 스프링상에서 어떻게 작용하는지 알아보자 (Spring Boot)<br>
 빈을 만드는 방법은 여러가지가 있지만 대표적으로 쓰이는 방법을 예시들어 본다.</p>
@@ -415,14 +470,12 @@ Spring boot의 경우 @Configuration을 지정한 객체 안에 @Bean으로 생�
 
 <span style="color:#f92672">}</span>
 </code></pre></div><p>결과 화면으로 등록된 Bean의 Name들을 확인 할 수 있다. 
-
-  <figure class="center" >
-    <img src="https://drive.google.com/uc?export=view&amp;id=1Axx6JbPZgFPwBSomfmtIjsQbOclslu0u"  alt="spring"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" >Test메소드도 Bean으로 등록되었다.</figcaption>
-    
-  </figure>
-
+<figure>
+    <img src="https://drive.google.com/uc?export=view&amp;id=1Axx6JbPZgFPwBSomfmtIjsQbOclslu0u"
+         alt="spring"/> <figcaption>
+            <p>Test메소드도 Bean으로 등록되었다.</p>
+        </figcaption>
+</figure>
 </p>
 <p>이런 식으로 컨테이너에 등록된 빈들을 여러 방법으로 의존관계를 가지며 상호작용이 가능하다. 
 그럼 의존관계는 어떻게 설정 할 수 있을까?</p>
@@ -435,36 +488,30 @@ Spring boot의 경우 @Configuration을 지정한 객체 안에 @Bean으로 생�
 <span style="color:#f92672">}</span>
 </code></pre></div><p>다른 주입방법과 빈생성시 DI의 원리에 대해선 좀더 뒤에 알아 보도록 하겠다.<br>
 또한 컨테이너에선 빈의 Scope를 관리하기도 한다.</p>
-
-  <figure class="center" >
-    <img src="https://drive.google.com/uc?export=view&amp;id=1lmHcVtsQU4tcNPDwUwxCUg2BVTK8jFGH"  alt="bean scope"   style="border-radius: 8px;"  />
-    
-  </figure>
-
+<figure>
+    <img src="https://drive.google.com/uc?export=view&amp;id=1lmHcVtsQU4tcNPDwUwxCUg2BVTK8jFGH"
+         alt="bean scope"/> 
+</figure>
 
 <p>여기서 web spring에서 사용하는 것은 제외하고 singleton과 prototype만 좀더 자세히 알아보자</p>
 <p><!-- raw HTML omitted -->Singleton Scope<!-- raw HTML omitted --><br>
 스프링 컨테이너는 빈에 관하여 하나의 인스턴스만 관리하며 빈에 대한 요청에 하나의 인스턴스만 반환하게 된다. 컨테이너는 빈을 생성하며 캐시에 저장하여 해당 빈을 참조하는 경우 캐시된 인스턴스를 반환한다.
 우리가 알고 있는 Singleton Disign Pattern 과는 조금 다르게 작용한다고 한다. 일반적인 싱글톤 패턴은 하나의 시스템 내부에서 하나의 클래스에 하나의 인스턴스만 존재하지만 빈의 싱글톤은 컨테이너내의 하나의 빈의 정의에 대해 하나의 인스턴스를 가지는 걸 말한다.
-
-  <figure class="center" >
-    <img src="https://drive.google.com/uc?export=view&amp;id=1EiFDxsYs_RNOPlt3AzFuuKn8F_rf5_cf"  alt="singleton"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" >출처 : <a href="https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/reference/html/core.html#beans-factory-scopes-singleton">https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/reference/html/core.html#beans-factory-scopes-singleton</a></figcaption>
-    
-  </figure>
-
+<figure>
+    <img src="https://drive.google.com/uc?export=view&amp;id=1EiFDxsYs_RNOPlt3AzFuuKn8F_rf5_cf"
+         alt="singleton"/> <figcaption>
+            <p>출처 : <a href="https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/reference/html/core.html#beans-factory-scopes-singleton">https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/reference/html/core.html#beans-factory-scopes-singleton</a></p>
+        </figcaption>
+</figure>
 </p>
 <p><!-- raw HTML omitted -->Prototype Scope<!-- raw HTML omitted --> <br>
 프로토 타입은 싱글톤 패턴과 반대로 컨테이너는 모든 빈의 요청에 하나하나의 인스턴스를 만들어 준다.  일반적으로 상태값을 사용해야 하는 빈은 프로토타입을 사용하고 상태를 고려 안하는 경우는 싱글톤을 사용한다. 
-
-  <figure class="center" >
-    <img src="https://drive.google.com/uc?export=view&amp;id=1XUUTc_y2eKSc98nI19wa3W-xTxXfmiHN"  alt="protoType"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" >출처 : <a href="https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/reference/html/core.html#beans-factory-scopes-singleton">https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/reference/html/core.html#beans-factory-scopes-singleton</a></figcaption>
-    
-  </figure>
-
+<figure>
+    <img src="https://drive.google.com/uc?export=view&amp;id=1XUUTc_y2eKSc98nI19wa3W-xTxXfmiHN"
+         alt="protoType"/> <figcaption>
+            <p>출처 : <a href="https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/reference/html/core.html#beans-factory-scopes-singleton">https://docs.spring.io/spring-framework/docs/5.3.5-SNAPSHOT/reference/html/core.html#beans-factory-scopes-singleton</a></p>
+        </figcaption>
+</figure>
 </p>
 <p>빈의 Scope를 지정하는 방법은 빈의 생성방법과 맞물려 있다.</p>
 <ol>
@@ -495,23 +542,19 @@ Spring boot의 경우 @Configuration을 지정한 객체 안에 @Bean으로 생�
         System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;second bean : &#34;</span><span style="color:#f92672">+</span>anno2<span style="color:#f92672">);</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-</code></pre></div>
-  <figure class="center" >
-    <img src="https://drive.google.com/uc?export=view&amp;id=1x-1-B00LCp-cBwOTrdKQae4jJvrV8cwv"  alt="singleton"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" >singleton</figcaption>
-    
-  </figure>
+</code></pre></div><figure>
+    <img src="https://drive.google.com/uc?export=view&amp;id=1x-1-B00LCp-cBwOTrdKQae4jJvrV8cwv"
+         alt="singleton"/> <figcaption>
+            <p>singleton</p>
+        </figcaption>
+</figure>
 
-
-
-  <figure class="center" >
-    <img src="https://drive.google.com/uc?export=view&amp;id=1z6qCXtUZxgoXX7YxU1O4BCs9OD38wCHr"  alt="protoType"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" >protoType</figcaption>
-    
-  </figure>
-
+<figure>
+    <img src="https://drive.google.com/uc?export=view&amp;id=1z6qCXtUZxgoXX7YxU1O4BCs9OD38wCHr"
+         alt="protoType"/> <figcaption>
+            <p>protoType</p>
+        </figcaption>
+</figure>
 
 <p>이렇게 오브젝트에 할당된 값이 바뀐걸 알 수 있다.</p>
 <h2 id="bean-life-cycle-callback">Bean Life Cycle Callback</h2>
@@ -568,14 +611,12 @@ Spring boot의 경우 @Configuration을 지정한 객체 안에 @Bean으로 생�
         <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> AnnotationBeanTest<span style="color:#f92672">();</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-</code></pre></div>
-  <figure class="center" >
-    <img src="https://drive.google.com/uc?export=view&amp;id=1ZmNfukGenyghVL4knuX5Zh0AUeBEpwuw"  alt="protoType"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" >메소드가 적용되는 순서도 알 수 있다.</figcaption>
-    
-  </figure>
-
+</code></pre></div><figure>
+    <img src="https://drive.google.com/uc?export=view&amp;id=1ZmNfukGenyghVL4knuX5Zh0AUeBEpwuw"
+         alt="protoType"/> <figcaption>
+            <p>메소드가 적용되는 순서도 알 수 있다.</p>
+        </figcaption>
+</figure>
 
 <p>XML로는 이렇게 지정 할 수 있다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;xmlBeanTest&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;co.kr.jparangdev.spring_test1.model.XmlBeanTest&#34;</span> <span style="color:#a6e22e">init-method=</span><span style="color:#e6db74">&#34;init&#34;</span><span style="color:#f92672">/&gt;</span>
@@ -639,12 +680,10 @@ Spring boot의 경우 @Configuration을 지정한 객체 안에 @Bean으로 생�
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p>빈 소멸과 동시에 프린트가 시작된다.
-
-  <figure class="center" >
-    <img src="https://drive.google.com/uc?export=view&amp;id=1_hDpZGBwfcqOscKZg_cw4NGOa7IWgszq"  alt="distroy bean"   style="border-radius: 8px;"  />
-    
-  </figure>
-
+<figure>
+    <img src="https://drive.google.com/uc?export=view&amp;id=1_hDpZGBwfcqOscKZg_cw4NGOa7IWgszq"
+         alt="distroy bean"/> 
+</figure>
 </p>
 <h3 id="결론">결론</h3>
 <p>SpringFramwork를 이해하기 위해선 Bean자체의 이해도 필수적이라 생각된다. 스프링 컨테이너는 기동시 필요한 모든 싱글톤빈을 로드 한 후 지연없이 사용가능하도록 알아서해준다.<br>
@@ -682,14 +721,12 @@ $ git submodule add &lt;테마 Git주소&gt; themes/&lt;테마이름&gt;
 <p>테마도 적용되었는지 확인하고 글도 잘올라갔는지 확인하려면 먼저 내컴퓨터에서 홈페이지를 기동해봐야한다. 
 Intellij같은 툴을 쓰는경우 환경 설정을 통해 쉽게 본인 PC에 서버를 올릴 수 있고 shell을 통해 기동도 가능하다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ hugo server -D
-</code></pre></div>
-  <figure class="center" >
-    <img src="/images/hugo/hugo-4.png"  alt="hugo server"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" >해당화면처럼 빌드가 되면 가능</figcaption>
-    
-  </figure>
-
+</code></pre></div><figure>
+    <img src="/images/hugo/hugo-4.png"
+         alt="hugo server"/> <figcaption>
+            <p>해당화면처럼 빌드가 되면 가능</p>
+        </figcaption>
+</figure>
 
 <p>이제 localhost:1313번에 접속해서 자신의 블로그를 확인해보도록 하자</p>
 ]]></content>
@@ -722,38 +759,32 @@ Hugo에 마음에 드는 테마가 있던 것도 한 몫했다.</p>
 <p>먼저 Hugo는 <a href="https://gohugo.io/getting-started/installing/">https://gohugo.io/getting-started/installing/</a> 에서 OS별 설치 방법을 알 수 있고 
 Git (<a href="https://github.com/gohugoio/hugo">https://github.com/gohugoio/hugo</a>) 에서 최신 Hugo를 다운받아 사용이 가능하다. OS는 Window 10에서 진행하였다.</p>
 <p>Hugo를 다운받았다면 원하는 위치에서 압축을 풀고 bin폴더 안의 hugo.exe의 환경변수를 설정해주도록 한다.
-
-  <figure class="center" >
-    <img src="/images/hugo/hugo-1.png"  alt="hugo setting path"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" >윈도우의 시스템 환경설정</figcaption>
-    
-  </figure>
-
+<figure>
+    <img src="/images/hugo/hugo-1.png"
+         alt="hugo setting path"/> <figcaption>
+            <p>윈도우의 시스템 환경설정</p>
+        </figcaption>
+</figure>
 </p>
 <p>이후 cmd를 통해 Hugo가 제대로 작동하는 지 확인한다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">    $ hugo version
 </code></pre></div><p>다음과 같은 화면이 나온다면 정상적으로 작동 된 것
-
-  <figure class="center" >
-    <img src="/images/hugo/hugo-2.png"  alt="hugo install"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" >Hugo 버전확인</figcaption>
-    
-  </figure>
-
+<figure>
+    <img src="/images/hugo/hugo-2.png"
+         alt="hugo install"/> <figcaption>
+            <p>Hugo 버전확인</p>
+        </figcaption>
+</figure>
 </p>
 <p>이제 블로그용 소스를 만들 위치에 hugo site파일을 만들어보도록 하자</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">    $ hugo new site C:<span style="color:#ae81ff">\j</span>aprangev<span style="color:#ae81ff">\t</span>estsite
 </code></pre></div><p>해당 메세지가 출력되고 파일이 잘 생성된 것을 확인하였으면 기본적인 블로그 사이트 소스 생성이 된 것이다.</p>
-
-  <figure class="center" >
-    <img src="/images/hugo/hugo-3.png"  alt="hugo complete"   style="border-radius: 8px;"  />
-    
-      <figcaption class="center"  style="color: gray;" >간략하게 테마적용법과 구동방법이 나온다</figcaption>
-    
-  </figure>
-
+<figure>
+    <img src="/images/hugo/hugo-3.png"
+         alt="hugo complete"/> <figcaption>
+            <p>간략하게 테마적용법과 구동방법이 나온다</p>
+        </figcaption>
+</figure>
 
 <p>다음으로 Git을 통해 형상관리가 가능하도록 원격 git을 연결하도록 하자
 먼저 <a href="https://github.com">https://github.com</a> 으로 접속하여 저장소를 2개 생성해야한다.</p>
