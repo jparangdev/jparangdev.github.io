@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="jparangdev">
+<meta name="description" content="@@@@@@@@@ Spring으로 작업하다 보면 너무 많이 보게 되는 @들.. Annotation이라 불리는 것들은 정확히 무엇이고 어떻게 쓰이며 커스텀 어노테이션을 만들어 보자
+어노테이션의 사전적 의미는 주석이다. 즉 뜻을 알기 쉽게 하기 위해 덧붙이는 글을 말한다. 스프링 또는 자바에서 사용하는 어노테이션의 의미도 비슷하다. 해당 메소드나, 필드, 클래스 등에 부가적인 설명 또는 기능을 위해 표시하는 마크라고 할 수 있다.
+너무 기본적인 @Overide라는 어노테이션부터 예를 들어 보자. 부모 클래스로부터 오버 라이딩받는 메소드라는걸 표시해주는 어노테이션이라는 건 알고 있을 것이다." />
+<meta name="keywords" content=", spring-framework, spring-boot, java" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="/posts/spring/annotation/" />
+
+
+    <title>
+        
+            @Annotation :: Jparangdev&#39;s blog  — develop and record
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.d7bdd8ee18bfbf4c605488a7e5b1b92cd980dfeed2bdaeab4dd5e931a7a78bc0.css">
+
+
+
+
+
+
+<meta itemprop="name" content="@Annotation">
+<meta itemprop="description" content="@@@@@@@@@ Spring으로 작업하다 보면 너무 많이 보게 되는 @들.. Annotation이라 불리는 것들은 정확히 무엇이고 어떻게 쓰이며 커스텀 어노테이션을 만들어 보자
+어노테이션의 사전적 의미는 주석이다. 즉 뜻을 알기 쉽게 하기 위해 덧붙이는 글을 말한다. 스프링 또는 자바에서 사용하는 어노테이션의 의미도 비슷하다. 해당 메소드나, 필드, 클래스 등에 부가적인 설명 또는 기능을 위해 표시하는 마크라고 할 수 있다.
+너무 기본적인 @Overide라는 어노테이션부터 예를 들어 보자. 부모 클래스로부터 오버 라이딩받는 메소드라는걸 표시해주는 어노테이션이라는 건 알고 있을 것이다.">
+<meta itemprop="datePublished" content="2021-02-23T21:27:00+09:00" />
+<meta itemprop="dateModified" content="2021-02-23T21:27:00+09:00" />
+<meta itemprop="wordCount" content="574">
+<meta itemprop="image" content=""/>
+
+
+
+<meta itemprop="keywords" content="spring-framework,spring-boot,java," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content=""/>
+
+<meta name="twitter:title" content="@Annotation"/>
+<meta name="twitter:description" content="@@@@@@@@@ Spring으로 작업하다 보면 너무 많이 보게 되는 @들.. Annotation이라 불리는 것들은 정확히 무엇이고 어떻게 쓰이며 커스텀 어노테이션을 만들어 보자
+어노테이션의 사전적 의미는 주석이다. 즉 뜻을 알기 쉽게 하기 위해 덧붙이는 글을 말한다. 스프링 또는 자바에서 사용하는 어노테이션의 의미도 비슷하다. 해당 메소드나, 필드, 클래스 등에 부가적인 설명 또는 기능을 위해 표시하는 마크라고 할 수 있다.
+너무 기본적인 @Overide라는 어노테이션부터 예를 들어 보자. 부모 클래스로부터 오버 라이딩받는 메소드라는걸 표시해주는 어노테이션이라는 건 알고 있을 것이다."/>
+
+
+
+
+    <meta property="og:title" content="@Annotation" />
+<meta property="og:description" content="@@@@@@@@@ Spring으로 작업하다 보면 너무 많이 보게 되는 @들.. Annotation이라 불리는 것들은 정확히 무엇이고 어떻게 쓰이며 커스텀 어노테이션을 만들어 보자
+어노테이션의 사전적 의미는 주석이다. 즉 뜻을 알기 쉽게 하기 위해 덧붙이는 글을 말한다. 스프링 또는 자바에서 사용하는 어노테이션의 의미도 비슷하다. 해당 메소드나, 필드, 클래스 등에 부가적인 설명 또는 기능을 위해 표시하는 마크라고 할 수 있다.
+너무 기본적인 @Overide라는 어노테이션부터 예를 들어 보자. 부모 클래스로부터 오버 라이딩받는 메소드라는걸 표시해주는 어노테이션이라는 건 알고 있을 것이다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/spring/annotation/" />
+<meta property="og:image" content=""/>
+<meta property="article:published_time" content="2021-02-23T21:27:00+09:00" />
+<meta property="article:modified_time" content="2021-02-23T21:27:00+09:00" /><meta property="og:site_name" content="Jparangdev&#39;s blog" />
+
+
+
+
+    <meta property="article:section" content="spring" />
+
+
+
+    <meta property="article:published_time" content="2021-02-23 21:27:00 &#43;0900 KST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">Jparangdev </span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/posts">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        3 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="/posts/spring/annotation/">@Annotation</a>
+      </h1>
+
+      
+
+      
+
+      <div class="post-content">
+        <h1 id="heading">@@@@@@@@@</h1>
+<p>Spring으로 작업하다 보면 너무 많이 보게 되는 @들..
+Annotation이라 불리는 것들은 정확히 무엇이고 어떻게 쓰이며 커스텀 어노테이션을 만들어 보자</p>
+<p>어노테이션의 사전적 의미는 주석이다. 즉 뜻을 알기 쉽게 하기 위해 덧붙이는 글을 말한다. 스프링 또는 자바에서 사용하는 어노테이션의 의미도 비슷하다. 해당 메소드나, 필드, 클래스 등에 부가적인 설명 또는 기능을 위해 표시하는 마크라고 할 수 있다.</p>
+<p>너무 기본적인 @Overide라는 어노테이션부터 예를 들어 보자. 부모 클래스로부터 오버 라이딩받는 메소드라는걸 표시해주는 어노테이션이라는 건 알고 있을 것이다. 실제로 사용 시에도 부모를 상속받은 메소드는 어노테이션을 표기해주는 걸 권장한다. 하지만 굳이 표기를 하지 않아도 컴파일에선 오류가 나지 않는다. 하지만 표기한 메소드가 상위 메소드에 없는 경우는 컴파일 시 오류를 발생하게 해 준다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">error: method does not override or implement a method from a supertype
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#f92672">^</span>
+</code></pre></div><p>요런 오류가 발생한다. 이것을 보면 오버라이드라는 어노테이션은 개발자가 메소드를 잘못 쓰는 경우를 알아차리게 해 준다. (IDE에서도 알려주기도 한다.)
+이번엔 Spring에서 의존성 주입에 관한 어노테이션인 @Autowired를 보자
+@Autowired의 작동 방식을 간단히 알아보면 Spring에서 Bean을 주입하기 전 BeanPostProcessor를 상속받는 AutowiredAnnotationBeanPostProcessor 클래스에서 빈 생성전에 @Autuwired된 빈들의 의존성 주입을 결정해준다.</p>
+<p>이렇게 어노테이션은 어노테이션 자체의 작용보다 어떤 기능을 위해 부가적으로 참고할 만한 정보를 표시해주는 역할을 한다.
+이번엔 Custom Annotation을 만들어보면서 어노테이션에 대해 좀 더 이해해보도록 하자 간단히 메소 드위에 @TimeCheck라는 어노테이션을 걸어두면 메소드의 실행시간을 로그로 보여주는 기능을 해보자 먼저 어노테이션을 정의 하기 위해선 @Interface를 이용해 인터페이스를 만들어준다.</p>
+<h2 id="예제">예제</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> kr.co.jparangdev.springbootdemo.common.annotation<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.lang.annotation.*<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Target</span><span style="color:#f92672">({</span>ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">METHOD</span><span style="color:#f92672">})</span>
+<span style="color:#a6e22e">@Retention</span><span style="color:#f92672">(</span>RetentionPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">RUNTIME</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> TimeCheck <span style="color:#f92672">{</span>
+    String <span style="color:#a6e22e">unit</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">default</span> <span style="color:#e6db74">&#34;SECOND&#34;</span><span style="color:#f92672">;</span> <span style="color:#75715e">// 실행시간을 표기해줄 시간단위
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div><p>심지어 어노테이션에서도 위에도 선언되어있는 어노테이션은 Meta Annotation이라 한다 어노테이션을 설명해주는 어노테이션이다. 간략히 살펴보면.
+@Target은 어노테이션을 사용할 수 있는 단위이며 메소드, 생성자, 필드 등등 다중 설정이 가능하다.
+@Rentention은 어노테이션의 유효 범위라고 할 수 있다.
+메타 어노테이션에 관한 부분은 나중에 좀 더 자세히 알아보겠다.</p>
+<p>이렇게 커스텀 어노테이션을 설정해주고 이제 시간 측정을 할 메소드에 AOP를 통해 시간을 측정하도록 하자</p>
+<p>먼저 Aspect를 하나 만들어서 어노테이션이 적용된 메소드는 실행시간을 체크할 수 있도록 설정하자</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#a6e22e">@Aspect</span>
+<span style="color:#a6e22e">@Component</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MethodTimeCheckAspect</span> <span style="color:#f92672">{</span>
+
+    Logger log <span style="color:#f92672">=</span> LoggerFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">());</span>
+
+    <span style="color:#a6e22e">@Pointcut</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;@annotation(kr.co.jparangdev.springbootdemo.common.annotation.TimeCheck)&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">timeCheckAnnotation</span><span style="color:#f92672">(){};</span>
+
+    <span style="color:#a6e22e">@Around</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;timeCheckAnnotation()&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">methodRunningTimeCheck</span><span style="color:#f92672">(</span>ProceedingJoinPoint pjp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Throwable <span style="color:#f92672">{</span>
+        StopWatch stopWatch <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StopWatch<span style="color:#f92672">();</span>
+        stopWatch<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+        MethodSignature sig <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>MethodSignature<span style="color:#f92672">)</span> pjp<span style="color:#f92672">.</span><span style="color:#a6e22e">getSignature</span><span style="color:#f92672">();</span>
+        Method method <span style="color:#f92672">=</span> sig<span style="color:#f92672">.</span><span style="color:#a6e22e">getMethod</span><span style="color:#f92672">();</span>
+        TimeCheck timeCheck <span style="color:#f92672">=</span> method<span style="color:#f92672">.</span><span style="color:#a6e22e">getAnnotation</span><span style="color:#f92672">(</span>TimeCheck<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+        TimeEnum unit <span style="color:#f92672">=</span> timeCheck<span style="color:#f92672">.</span><span style="color:#a6e22e">unit</span><span style="color:#f92672">();</span>
+
+        pjp<span style="color:#f92672">.</span><span style="color:#a6e22e">proceed</span><span style="color:#f92672">();</span>
+        stopWatch<span style="color:#f92672">.</span><span style="color:#a6e22e">stop</span><span style="color:#f92672">();</span>
+
+        <span style="color:#66d9ef">double</span> time<span style="color:#f92672">;</span>
+        String unitStr<span style="color:#f92672">;</span>
+
+        <span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span>unit<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">case</span> NANO<span style="color:#f92672">:</span>
+                time <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">round</span><span style="color:#f92672">(</span>stopWatch<span style="color:#f92672">.</span><span style="color:#a6e22e">getLastTaskTimeNanos</span><span style="color:#f92672">());</span>
+                unitStr <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ns&#34;</span><span style="color:#f92672">;</span>
+                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">case</span> SECOND<span style="color:#f92672">:</span>
+                time <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">round</span><span style="color:#f92672">(</span>stopWatch<span style="color:#f92672">.</span><span style="color:#a6e22e">getLastTaskTimeMillis</span><span style="color:#f92672">()/</span>60<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">*</span>100<span style="color:#f92672">)/</span>100<span style="color:#f92672">;</span>
+                unitStr <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sec&#34;</span><span style="color:#f92672">;</span>
+                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">case</span> MINUTE<span style="color:#f92672">:</span>
+                time <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">round</span><span style="color:#f92672">(</span>stopWatch<span style="color:#f92672">.</span><span style="color:#a6e22e">getLastTaskTimeMillis</span><span style="color:#f92672">()/</span>60<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">/</span>60<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">*</span>100<span style="color:#f92672">)/</span>100<span style="color:#f92672">;</span>
+                unitStr <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;min&#34;</span><span style="color:#f92672">;</span>
+                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+                time <span style="color:#f92672">=</span> stopWatch<span style="color:#f92672">.</span><span style="color:#a6e22e">getLastTaskTimeMillis</span><span style="color:#f92672">();</span>
+                unitStr <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ms&#34;</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        String str <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Method RunningTime is : &#34;</span><span style="color:#f92672">+</span>time<span style="color:#f92672">+</span><span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">+</span>unitStr<span style="color:#f92672">;</span>
+        log<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span>str<span style="color:#f92672">);</span>
+
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>포인트컷으로 어노테이션을 설정하고, 실제로 AOP에선 어노테이션 위에 설정된 unit값에 따라 실행시간 표기를 다르게 하는 메소드이다. 
+다음은 테스트로 사용할 메소드, Enum</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Service</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MethodTestService</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@TimeCheck</span><span style="color:#f92672">(</span>unit <span style="color:#f92672">=</span> TimeEnum<span style="color:#f92672">.</span><span style="color:#a6e22e">NANO</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">randomAdd</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+        Random random <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Random<span style="color:#f92672">();</span>
+        random<span style="color:#f92672">.</span><span style="color:#a6e22e">setSeed</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">currentTimeMillis</span><span style="color:#f92672">());</span>
+
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span>0<span style="color:#f92672">;</span> i<span style="color:#f92672">&lt;</span>10000<span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+            list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>random<span style="color:#f92672">.</span><span style="color:#a6e22e">nextInt</span><span style="color:#f92672">(</span>10000<span style="color:#f92672">));</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> TimeEnum <span style="color:#f92672">{</span>
+    NANO<span style="color:#f92672">,</span> MILLISECOND<span style="color:#f92672">,</span> SECOND<span style="color:#f92672">,</span> MINUTE
+<span style="color:#f92672">}</span>
+</code></pre></div><p>테이스 케이스를 만들고 실행</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@SpringBootTest</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringbootdemoApplicationTests</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    MethodTestService methodTestService<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">timeCheckTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        methodTestService<span style="color:#f92672">.</span><span style="color:#a6e22e">randomAdd</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>로깅부분을 확인하자</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">2021-04-13 15:48:23.464  INFO <span style="color:#ae81ff">8776</span> --- <span style="color:#f92672">[</span>    Test worker<span style="color:#f92672">]</span> k.c.j.s.c.aspect.MethodTimeCheckAspect   : Method RunningTime is : 1.20617E7 ns
+</code></pre></div><p>위 예제를 통해 알려주고자 하는 부분은 이부분이다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">TimeCheck timeCheck <span style="color:#f92672">=</span> method<span style="color:#f92672">.</span><span style="color:#a6e22e">getAnnotation</span><span style="color:#f92672">(</span>TimeCheck<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+TimeEnum unit <span style="color:#f92672">=</span> timeCheck<span style="color:#f92672">.</span><span style="color:#a6e22e">unit</span><span style="color:#f92672">();</span>
+</code></pre></div><p>이런식으로 AOP나 비즈니스 로직이던 간에 선언되어 있다면 해당 어노테이션 정보를 가져와서 녹일 수 있다는 것!</p>
+<p>어노테이션을 이해하기 위해선 어노테이션을 한번 만들어보는 것도 좋은 방법이다.</p>
+<h2 id="결론">결론</h2>
+<p>어노테이션은 자체에 기능이 있다기보다 부가정보를 표시함으로써 사용자에게 편의를 제공하고 기능 구현에 도움을 주는 역할을 해준다. 너무 무분별하게 사용하는 경우 디버깅이나 다른 사람이 알아보기 어려운 코드가 될 수 있기때문에 어노테이션을 중심으로 로직을 구성하기보다는 부가적인 기능으로 사용하도록 하자.</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="tags/spring-framework/">spring-framework</a></span>
+        <span class="tag"><a href="tags/spring-boot/">spring-boot</a></span>
+        <span class="tag"><a href="tags/java/">java</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="categories/spring/">spring</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        574 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2021-02-23 21:27
+        
+
+         
+          
+        
+      </p>
+    </div>
+
+    
+    <div class="pagination">
+        <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+        </div>
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="/posts/programming/msa/">
+                    <span class="button__text">2021년엔 M.S.A로</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2021</span>
+            
+            <span><a href="posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+          </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.af435e44374f1e99a669ea8cd5bb9a2fceed80588941a451bfddb66b86a67c9f40b0f417e9543a763f809aa7e9300d7b1d69bf99615810ba02ac70396d50fad5.js" integrity="sha512-r0NeRDdPHpmmaeqM1buaL87tgFiJQaRRv922a4amfJ9AsPQX6VQ6dj&#43;AmqfpMA17HWm/mWFYELoCrHA5bVD61Q=="></script>
+
+
+
+    </body>
+</html>

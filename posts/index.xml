@@ -5,8 +5,136 @@
         <description>Recent content in Posts on Jparangdev&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 14 Feb 2021 14:06:00 +0900</lastBuildDate>
+        <lastBuildDate>Tue, 23 Feb 2021 21:27:00 +0900</lastBuildDate>
         <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>@Annotation</title>
+            <link>/posts/spring/annotation/</link>
+            <pubDate>Tue, 23 Feb 2021 21:27:00 +0900</pubDate>
+            
+            <guid>/posts/spring/annotation/</guid>
+            <description>@@@@@@@@@ Spring으로 작업하다 보면 너무 많이 보게 되는 @들.. Annotation이라 불리는 것들은 정확히 무엇이고 어떻게 쓰이며 커스텀 어노테이션을 만들어 보자
+어노테이션의 사전적 의미는 주석이다. 즉 뜻을 알기 쉽게 하기 위해 덧붙이는 글을 말한다. 스프링 또는 자바에서 사용하는 어노테이션의 의미도 비슷하다. 해당 메소드나, 필드, 클래스 등에 부가적인 설명 또는 기능을 위해 표시하는 마크라고 할 수 있다.
+너무 기본적인 @Overide라는 어노테이션부터 예를 들어 보자. 부모 클래스로부터 오버 라이딩받는 메소드라는걸 표시해주는 어노테이션이라는 건 알고 있을 것이다.</description>
+            <content type="html"><![CDATA[<h1 id="heading">@@@@@@@@@</h1>
+<p>Spring으로 작업하다 보면 너무 많이 보게 되는 @들..
+Annotation이라 불리는 것들은 정확히 무엇이고 어떻게 쓰이며 커스텀 어노테이션을 만들어 보자</p>
+<p>어노테이션의 사전적 의미는 주석이다. 즉 뜻을 알기 쉽게 하기 위해 덧붙이는 글을 말한다. 스프링 또는 자바에서 사용하는 어노테이션의 의미도 비슷하다. 해당 메소드나, 필드, 클래스 등에 부가적인 설명 또는 기능을 위해 표시하는 마크라고 할 수 있다.</p>
+<p>너무 기본적인 @Overide라는 어노테이션부터 예를 들어 보자. 부모 클래스로부터 오버 라이딩받는 메소드라는걸 표시해주는 어노테이션이라는 건 알고 있을 것이다. 실제로 사용 시에도 부모를 상속받은 메소드는 어노테이션을 표기해주는 걸 권장한다. 하지만 굳이 표기를 하지 않아도 컴파일에선 오류가 나지 않는다. 하지만 표기한 메소드가 상위 메소드에 없는 경우는 컴파일 시 오류를 발생하게 해 준다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">error: method does not override or implement a method from a supertype
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#f92672">^</span>
+</code></pre></div><p>요런 오류가 발생한다. 이것을 보면 오버라이드라는 어노테이션은 개발자가 메소드를 잘못 쓰는 경우를 알아차리게 해 준다. (IDE에서도 알려주기도 한다.)
+이번엔 Spring에서 의존성 주입에 관한 어노테이션인 @Autowired를 보자
+@Autowired의 작동 방식을 간단히 알아보면 Spring에서 Bean을 주입하기 전 BeanPostProcessor를 상속받는 AutowiredAnnotationBeanPostProcessor 클래스에서 빈 생성전에 @Autuwired된 빈들의 의존성 주입을 결정해준다.</p>
+<p>이렇게 어노테이션은 어노테이션 자체의 작용보다 어떤 기능을 위해 부가적으로 참고할 만한 정보를 표시해주는 역할을 한다.
+이번엔 Custom Annotation을 만들어보면서 어노테이션에 대해 좀 더 이해해보도록 하자 간단히 메소 드위에 @TimeCheck라는 어노테이션을 걸어두면 메소드의 실행시간을 로그로 보여주는 기능을 해보자 먼저 어노테이션을 정의 하기 위해선 @Interface를 이용해 인터페이스를 만들어준다.</p>
+<h2 id="예제">예제</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> kr.co.jparangdev.springbootdemo.common.annotation<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.lang.annotation.*<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Target</span><span style="color:#f92672">({</span>ElementType<span style="color:#f92672">.</span><span style="color:#a6e22e">METHOD</span><span style="color:#f92672">})</span>
+<span style="color:#a6e22e">@Retention</span><span style="color:#f92672">(</span>RetentionPolicy<span style="color:#f92672">.</span><span style="color:#a6e22e">RUNTIME</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">@interface</span> TimeCheck <span style="color:#f92672">{</span>
+    String <span style="color:#a6e22e">unit</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">default</span> <span style="color:#e6db74">&#34;SECOND&#34;</span><span style="color:#f92672">;</span> <span style="color:#75715e">// 실행시간을 표기해줄 시간단위
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div><p>심지어 어노테이션에서도 위에도 선언되어있는 어노테이션은 Meta Annotation이라 한다 어노테이션을 설명해주는 어노테이션이다. 간략히 살펴보면.
+@Target은 어노테이션을 사용할 수 있는 단위이며 메소드, 생성자, 필드 등등 다중 설정이 가능하다.
+@Rentention은 어노테이션의 유효 범위라고 할 수 있다.
+메타 어노테이션에 관한 부분은 나중에 좀 더 자세히 알아보겠다.</p>
+<p>이렇게 커스텀 어노테이션을 설정해주고 이제 시간 측정을 할 메소드에 AOP를 통해 시간을 측정하도록 하자</p>
+<p>먼저 Aspect를 하나 만들어서 어노테이션이 적용된 메소드는 실행시간을 체크할 수 있도록 설정하자</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#a6e22e">@Aspect</span>
+<span style="color:#a6e22e">@Component</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MethodTimeCheckAspect</span> <span style="color:#f92672">{</span>
+
+    Logger log <span style="color:#f92672">=</span> LoggerFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">());</span>
+
+    <span style="color:#a6e22e">@Pointcut</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;@annotation(kr.co.jparangdev.springbootdemo.common.annotation.TimeCheck)&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">timeCheckAnnotation</span><span style="color:#f92672">(){};</span>
+
+    <span style="color:#a6e22e">@Around</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;timeCheckAnnotation()&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">methodRunningTimeCheck</span><span style="color:#f92672">(</span>ProceedingJoinPoint pjp<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Throwable <span style="color:#f92672">{</span>
+        StopWatch stopWatch <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StopWatch<span style="color:#f92672">();</span>
+        stopWatch<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+        MethodSignature sig <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>MethodSignature<span style="color:#f92672">)</span> pjp<span style="color:#f92672">.</span><span style="color:#a6e22e">getSignature</span><span style="color:#f92672">();</span>
+        Method method <span style="color:#f92672">=</span> sig<span style="color:#f92672">.</span><span style="color:#a6e22e">getMethod</span><span style="color:#f92672">();</span>
+        TimeCheck timeCheck <span style="color:#f92672">=</span> method<span style="color:#f92672">.</span><span style="color:#a6e22e">getAnnotation</span><span style="color:#f92672">(</span>TimeCheck<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+        TimeEnum unit <span style="color:#f92672">=</span> timeCheck<span style="color:#f92672">.</span><span style="color:#a6e22e">unit</span><span style="color:#f92672">();</span>
+
+        pjp<span style="color:#f92672">.</span><span style="color:#a6e22e">proceed</span><span style="color:#f92672">();</span>
+        stopWatch<span style="color:#f92672">.</span><span style="color:#a6e22e">stop</span><span style="color:#f92672">();</span>
+
+        <span style="color:#66d9ef">double</span> time<span style="color:#f92672">;</span>
+        String unitStr<span style="color:#f92672">;</span>
+
+        <span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span>unit<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">case</span> NANO<span style="color:#f92672">:</span>
+                time <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">round</span><span style="color:#f92672">(</span>stopWatch<span style="color:#f92672">.</span><span style="color:#a6e22e">getLastTaskTimeNanos</span><span style="color:#f92672">());</span>
+                unitStr <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ns&#34;</span><span style="color:#f92672">;</span>
+                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">case</span> SECOND<span style="color:#f92672">:</span>
+                time <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">round</span><span style="color:#f92672">(</span>stopWatch<span style="color:#f92672">.</span><span style="color:#a6e22e">getLastTaskTimeMillis</span><span style="color:#f92672">()/</span>60<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">*</span>100<span style="color:#f92672">)/</span>100<span style="color:#f92672">;</span>
+                unitStr <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;sec&#34;</span><span style="color:#f92672">;</span>
+                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">case</span> MINUTE<span style="color:#f92672">:</span>
+                time <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">round</span><span style="color:#f92672">(</span>stopWatch<span style="color:#f92672">.</span><span style="color:#a6e22e">getLastTaskTimeMillis</span><span style="color:#f92672">()/</span>60<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">/</span>60<span style="color:#f92672">.</span><span style="color:#a6e22e">0</span><span style="color:#f92672">*</span>100<span style="color:#f92672">)/</span>100<span style="color:#f92672">;</span>
+                unitStr <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;min&#34;</span><span style="color:#f92672">;</span>
+                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+                time <span style="color:#f92672">=</span> stopWatch<span style="color:#f92672">.</span><span style="color:#a6e22e">getLastTaskTimeMillis</span><span style="color:#f92672">();</span>
+                unitStr <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ms&#34;</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        String str <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Method RunningTime is : &#34;</span><span style="color:#f92672">+</span>time<span style="color:#f92672">+</span><span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">+</span>unitStr<span style="color:#f92672">;</span>
+        log<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span>str<span style="color:#f92672">);</span>
+
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>포인트컷으로 어노테이션을 설정하고, 실제로 AOP에선 어노테이션 위에 설정된 unit값에 따라 실행시간 표기를 다르게 하는 메소드이다. 
+다음은 테스트로 사용할 메소드, Enum</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Service</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MethodTestService</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@TimeCheck</span><span style="color:#f92672">(</span>unit <span style="color:#f92672">=</span> TimeEnum<span style="color:#f92672">.</span><span style="color:#a6e22e">NANO</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">randomAdd</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+        Random random <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Random<span style="color:#f92672">();</span>
+        random<span style="color:#f92672">.</span><span style="color:#a6e22e">setSeed</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">currentTimeMillis</span><span style="color:#f92672">());</span>
+
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span>0<span style="color:#f92672">;</span> i<span style="color:#f92672">&lt;</span>10000<span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+            list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>random<span style="color:#f92672">.</span><span style="color:#a6e22e">nextInt</span><span style="color:#f92672">(</span>10000<span style="color:#f92672">));</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> TimeEnum <span style="color:#f92672">{</span>
+    NANO<span style="color:#f92672">,</span> MILLISECOND<span style="color:#f92672">,</span> SECOND<span style="color:#f92672">,</span> MINUTE
+<span style="color:#f92672">}</span>
+</code></pre></div><p>테이스 케이스를 만들고 실행</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@SpringBootTest</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringbootdemoApplicationTests</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    MethodTestService methodTestService<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">timeCheckTest</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        methodTestService<span style="color:#f92672">.</span><span style="color:#a6e22e">randomAdd</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>로깅부분을 확인하자</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">2021-04-13 15:48:23.464  INFO <span style="color:#ae81ff">8776</span> --- <span style="color:#f92672">[</span>    Test worker<span style="color:#f92672">]</span> k.c.j.s.c.aspect.MethodTimeCheckAspect   : Method RunningTime is : 1.20617E7 ns
+</code></pre></div><p>위 예제를 통해 알려주고자 하는 부분은 이부분이다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">TimeCheck timeCheck <span style="color:#f92672">=</span> method<span style="color:#f92672">.</span><span style="color:#a6e22e">getAnnotation</span><span style="color:#f92672">(</span>TimeCheck<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+TimeEnum unit <span style="color:#f92672">=</span> timeCheck<span style="color:#f92672">.</span><span style="color:#a6e22e">unit</span><span style="color:#f92672">();</span>
+</code></pre></div><p>이런식으로 AOP나 비즈니스 로직이던 간에 선언되어 있다면 해당 어노테이션 정보를 가져와서 녹일 수 있다는 것!</p>
+<p>어노테이션을 이해하기 위해선 어노테이션을 한번 만들어보는 것도 좋은 방법이다.</p>
+<h2 id="결론">결론</h2>
+<p>어노테이션은 자체에 기능이 있다기보다 부가정보를 표시함으로써 사용자에게 편의를 제공하고 기능 구현에 도움을 주는 역할을 해준다. 너무 무분별하게 사용하는 경우 디버깅이나 다른 사람이 알아보기 어려운 코드가 될 수 있기때문에 어노테이션을 중심으로 로직을 구성하기보다는 부가적인 기능으로 사용하도록 하자.</p>
+]]></content>
+        </item>
         
         <item>
             <title>2021년엔 M.S.A로</title>

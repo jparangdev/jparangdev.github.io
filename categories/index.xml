@@ -6,7 +6,16 @@
     <description>Recent content in Categories on Jparangdev&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Feb 2021 14:06:00 +0900</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Feb 2021 21:27:00 +0900</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>spring</title>
+      <link>/categories/spring/</link>
+      <pubDate>Tue, 23 Feb 2021 21:27:00 +0900</pubDate>
+      
+      <guid>/categories/spring/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>programming</title>
       <link>/categories/programming/</link>
@@ -22,15 +31,6 @@
       <pubDate>Sat, 23 Jan 2021 14:22:00 +0900</pubDate>
       
       <guid>/categories/kafka/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>spring</title>
-      <link>/categories/spring/</link>
-      <pubDate>Sat, 02 Jan 2021 21:23:00 +0900</pubDate>
-      
-      <guid>/categories/spring/</guid>
       <description></description>
     </item>
     

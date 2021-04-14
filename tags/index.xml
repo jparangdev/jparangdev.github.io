@@ -6,7 +6,34 @@
     <description>Recent content in Tags on Jparangdev&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Feb 2021 14:06:00 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Feb 2021 21:27:00 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>java</title>
+      <link>/tags/java/</link>
+      <pubDate>Tue, 23 Feb 2021 21:27:00 +0900</pubDate>
+      
+      <guid>/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spring-boot</title>
+      <link>/tags/spring-boot/</link>
+      <pubDate>Tue, 23 Feb 2021 21:27:00 +0900</pubDate>
+      
+      <guid>/tags/spring-boot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spring-framework</title>
+      <link>/tags/spring-framework/</link>
+      <pubDate>Tue, 23 Feb 2021 21:27:00 +0900</pubDate>
+      
+      <guid>/tags/spring-framework/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Architecture</title>
       <link>/tags/architecture/</link>
@@ -40,33 +67,6 @@
       <pubDate>Sat, 23 Jan 2021 14:22:00 +0900</pubDate>
       
       <guid>/tags/kafka/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>java</title>
-      <link>/tags/java/</link>
-      <pubDate>Sat, 02 Jan 2021 21:23:00 +0900</pubDate>
-      
-      <guid>/tags/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>spring-boot</title>
-      <link>/tags/spring-boot/</link>
-      <pubDate>Sat, 02 Jan 2021 21:23:00 +0900</pubDate>
-      
-      <guid>/tags/spring-boot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>spring-framework</title>
-      <link>/tags/spring-framework/</link>
-      <pubDate>Sat, 02 Jan 2021 21:23:00 +0900</pubDate>
-      
-      <guid>/tags/spring-framework/</guid>
       <description></description>
     </item>
     
