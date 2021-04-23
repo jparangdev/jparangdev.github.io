@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>architecture on Jparangdev&#39;Blog</title>
-    <link>https://japarangdev.github.io/tags/architecture/</link>
+    <link>https://jparangdev.github.io/tags/architecture/</link>
     <description>Recent content in architecture on Jparangdev&#39;Blog</description>
     <image>
-      <url>https://japarangdev.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://japarangdev.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jparangdev.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jparangdev.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 14 Feb 2021 14:06:00 +0900</lastBuildDate><atom:link href="https://japarangdev.github.io/tags/architecture/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Feb 2021 14:06:00 +0900</lastBuildDate><atom:link href="https://jparangdev.github.io/tags/architecture/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2021년엔 M.S.A로</title>
-      <link>https://japarangdev.github.io/posts/programming/msa/</link>
+      <link>https://jparangdev.github.io/posts/programming/msa/</link>
       <pubDate>Sun, 14 Feb 2021 14:06:00 +0900</pubDate>
       
-      <guid>https://japarangdev.github.io/posts/programming/msa/</guid>
+      <guid>https://jparangdev.github.io/posts/programming/msa/</guid>
       <description>Micro Service Architecture</description>
     </item>
     

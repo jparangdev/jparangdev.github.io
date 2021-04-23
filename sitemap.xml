@@ -2,84 +2,84 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://japarangdev.github.io/posts/blog/hugo-1/</loc>
+    <loc>https://jparangdev.github.io/posts/blog/hugo-1/</loc>
     <lastmod>2020-12-17T20:45:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/posts/blog/hugo-2/</loc>
+    <loc>https://jparangdev.github.io/posts/blog/hugo-2/</loc>
     <lastmod>2020-12-22T21:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/posts/spring/bean/</loc>
+    <loc>https://jparangdev.github.io/posts/spring/bean/</loc>
     <lastmod>2021-01-02T21:23:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/posts/kafka/about-kafka-1/</loc>
+    <loc>https://jparangdev.github.io/posts/kafka/about-kafka-1/</loc>
     <lastmod>2021-01-15T21:43:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/posts/kafka/about-kafka-2/</loc>
+    <loc>https://jparangdev.github.io/posts/kafka/about-kafka-2/</loc>
     <lastmod>2021-01-23T14:22:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/posts/programming/event-driven/</loc>
+    <loc>https://jparangdev.github.io/posts/programming/event-driven/</loc>
     <lastmod>2021-02-01T21:23:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/posts/programming/msa/</loc>
+    <loc>https://jparangdev.github.io/posts/programming/msa/</loc>
     <lastmod>2021-02-14T14:06:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/posts/spring/annotation/</loc>
+    <loc>https://jparangdev.github.io/posts/spring/annotation/</loc>
     <lastmod>2021-02-23T21:27:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/categories/</loc>
+    <loc>https://jparangdev.github.io/categories/</loc>
     <lastmod>2021-02-23T21:27:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/tags/java/</loc>
+    <loc>https://jparangdev.github.io/tags/java/</loc>
     <lastmod>2021-02-23T21:27:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/</loc>
+    <loc>https://jparangdev.github.io/</loc>
     <lastmod>2021-02-23T21:27:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/posts/</loc>
+    <loc>https://jparangdev.github.io/posts/</loc>
     <lastmod>2021-02-23T21:27:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/categories/spring/</loc>
+    <loc>https://jparangdev.github.io/categories/spring/</loc>
     <lastmod>2021-02-23T21:27:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/tags/spring-boot/</loc>
+    <loc>https://jparangdev.github.io/tags/spring-boot/</loc>
     <lastmod>2021-02-23T21:27:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/tags/spring-framework/</loc>
+    <loc>https://jparangdev.github.io/tags/spring-framework/</loc>
     <lastmod>2021-02-23T21:27:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/tags/</loc>
+    <loc>https://jparangdev.github.io/tags/</loc>
     <lastmod>2021-02-23T21:27:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/tags/architecture/</loc>
+    <loc>https://jparangdev.github.io/tags/architecture/</loc>
     <lastmod>2021-02-14T14:06:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/tags/paradigm/</loc>
+    <loc>https://jparangdev.github.io/tags/paradigm/</loc>
     <lastmod>2021-02-14T14:06:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/categories/programming/</loc>
+    <loc>https://jparangdev.github.io/categories/programming/</loc>
     <lastmod>2021-02-14T14:06:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/tags/event-driven/</loc>
+    <loc>https://jparangdev.github.io/tags/event-driven/</loc>
     <lastmod>2021-02-01T21:23:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/tags/kafka/</loc>
+    <loc>https://jparangdev.github.io/tags/kafka/</loc>
     <lastmod>2021-01-23T14:22:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/categories/kafka/</loc>
+    <loc>https://jparangdev.github.io/categories/kafka/</loc>
     <lastmod>2021-01-23T14:22:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/categories/blog/</loc>
+    <loc>https://jparangdev.github.io/categories/blog/</loc>
     <lastmod>2020-12-22T21:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/tags/git/</loc>
+    <loc>https://jparangdev.github.io/tags/git/</loc>
     <lastmod>2020-12-22T21:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/tags/hugo/</loc>
+    <loc>https://jparangdev.github.io/tags/hugo/</loc>
     <lastmod>2020-12-22T21:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/tags/markdown/</loc>
+    <loc>https://jparangdev.github.io/tags/markdown/</loc>
     <lastmod>2020-12-22T21:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://japarangdev.github.io/archives/</loc>
+    <loc>https://jparangdev.github.io/archives/</loc>
   </url>
 </urlset>

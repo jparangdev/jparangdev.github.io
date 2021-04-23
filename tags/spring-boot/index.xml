@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>spring-boot on Jparangdev&#39;Blog</title>
-    <link>https://japarangdev.github.io/tags/spring-boot/</link>
+    <link>https://jparangdev.github.io/tags/spring-boot/</link>
     <description>Recent content in spring-boot on Jparangdev&#39;Blog</description>
     <image>
-      <url>https://japarangdev.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://japarangdev.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jparangdev.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jparangdev.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 23 Feb 2021 21:27:00 +0900</lastBuildDate><atom:link href="https://japarangdev.github.io/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Feb 2021 21:27:00 +0900</lastBuildDate><atom:link href="https://jparangdev.github.io/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>콩(Bean) 이야기</title>
-      <link>https://japarangdev.github.io/posts/spring/bean/</link>
+      <link>https://jparangdev.github.io/posts/spring/bean/</link>
       <pubDate>Sat, 02 Jan 2021 21:23:00 +0900</pubDate>
       
-      <guid>https://japarangdev.github.io/posts/spring/bean/</guid>
+      <guid>https://jparangdev.github.io/posts/spring/bean/</guid>
       <description>Spring Bean</description>
     </item>
     
     <item>
       <title>@Annotation</title>
-      <link>https://japarangdev.github.io/posts/spring/annotation/</link>
+      <link>https://jparangdev.github.io/posts/spring/annotation/</link>
       <pubDate>Tue, 23 Feb 2021 21:27:00 +0900</pubDate>
       
-      <guid>https://japarangdev.github.io/posts/spring/annotation/</guid>
+      <guid>https://jparangdev.github.io/posts/spring/annotation/</guid>
       <description>Spring Annotation</description>
     </item>
     

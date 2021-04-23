@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>git on Jparangdev&#39;Blog</title>
-    <link>https://japarangdev.github.io/tags/git/</link>
+    <link>https://jparangdev.github.io/tags/git/</link>
     <description>Recent content in git on Jparangdev&#39;Blog</description>
     <image>
-      <url>https://japarangdev.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://japarangdev.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jparangdev.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jparangdev.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 22 Dec 2020 21:00:00 +0900</lastBuildDate><atom:link href="https://japarangdev.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Dec 2020 21:00:00 +0900</lastBuildDate><atom:link href="https://jparangdev.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>github.io 블로그 만들기 - 1</title>
-      <link>https://japarangdev.github.io/posts/blog/hugo-1/</link>
+      <link>https://jparangdev.github.io/posts/blog/hugo-1/</link>
       <pubDate>Thu, 17 Dec 2020 20:45:00 +0900</pubDate>
       
-      <guid>https://japarangdev.github.io/posts/blog/hugo-1/</guid>
+      <guid>https://jparangdev.github.io/posts/blog/hugo-1/</guid>
       <description>Hugo를 이용한 블로그 만들기</description>
     </item>
     
     <item>
       <title>github.io 블로그 만들기 - 2</title>
-      <link>https://japarangdev.github.io/posts/blog/hugo-2/</link>
+      <link>https://jparangdev.github.io/posts/blog/hugo-2/</link>
       <pubDate>Tue, 22 Dec 2020 21:00:00 +0900</pubDate>
       
-      <guid>https://japarangdev.github.io/posts/blog/hugo-2/</guid>
+      <guid>https://jparangdev.github.io/posts/blog/hugo-2/</guid>
       <description>github &#43; hugo</description>
     </item>
     
