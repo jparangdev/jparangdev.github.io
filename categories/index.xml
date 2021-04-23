@@ -2,47 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Jparangdev&#39;Blog</title>
-    <link>https://japarangdev.gitio.com/categories/</link>
+    <link>https://japarangdev.github.io/categories/</link>
     <description>Recent content in Categories on Jparangdev&#39;Blog</description>
     <image>
-      <url>https://japarangdev.gitio.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://japarangdev.gitio.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://japarangdev.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://japarangdev.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 23 Feb 2021 21:27:00 +0900</lastBuildDate><atom:link href="https://japarangdev.gitio.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Feb 2021 21:27:00 +0900</lastBuildDate><atom:link href="https://japarangdev.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>spring</title>
-      <link>https://japarangdev.gitio.com/categories/spring/</link>
+      <link>https://japarangdev.github.io/categories/spring/</link>
       <pubDate>Tue, 23 Feb 2021 21:27:00 +0900</pubDate>
       
-      <guid>https://japarangdev.gitio.com/categories/spring/</guid>
+      <guid>https://japarangdev.github.io/categories/spring/</guid>
       <description></description>
     </item>
     
     <item>
       <title>programming</title>
-      <link>https://japarangdev.gitio.com/categories/programming/</link>
+      <link>https://japarangdev.github.io/categories/programming/</link>
       <pubDate>Sun, 14 Feb 2021 14:06:00 +0900</pubDate>
       
-      <guid>https://japarangdev.gitio.com/categories/programming/</guid>
+      <guid>https://japarangdev.github.io/categories/programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kafka</title>
-      <link>https://japarangdev.gitio.com/categories/kafka/</link>
+      <link>https://japarangdev.github.io/categories/kafka/</link>
       <pubDate>Sat, 23 Jan 2021 14:22:00 +0900</pubDate>
       
-      <guid>https://japarangdev.gitio.com/categories/kafka/</guid>
+      <guid>https://japarangdev.github.io/categories/kafka/</guid>
       <description></description>
     </item>
     
     <item>
       <title>blog</title>
-      <link>https://japarangdev.gitio.com/categories/blog/</link>
+      <link>https://japarangdev.github.io/categories/blog/</link>
       <pubDate>Tue, 22 Dec 2020 21:00:00 +0900</pubDate>
       
-      <guid>https://japarangdev.gitio.com/categories/blog/</guid>
+      <guid>https://japarangdev.github.io/categories/blog/</guid>
       <description></description>
     </item>
     

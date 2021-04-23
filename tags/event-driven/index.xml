@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>event-driven on Jparangdev&#39;Blog</title>
-    <link>https://japarangdev.gitio.com/tags/event-driven/</link>
+    <link>https://japarangdev.github.io/tags/event-driven/</link>
     <description>Recent content in event-driven on Jparangdev&#39;Blog</description>
     <image>
-      <url>https://japarangdev.gitio.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://japarangdev.gitio.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://japarangdev.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://japarangdev.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 01 Feb 2021 21:23:00 +0900</lastBuildDate><atom:link href="https://japarangdev.gitio.com/tags/event-driven/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Feb 2021 21:23:00 +0900</lastBuildDate><atom:link href="https://japarangdev.github.io/tags/event-driven/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Event-driven이 뭐지?</title>
-      <link>https://japarangdev.gitio.com/posts/programming/event-driven/</link>
+      <link>https://japarangdev.github.io/posts/programming/event-driven/</link>
       <pubDate>Mon, 01 Feb 2021 21:23:00 +0900</pubDate>
       
-      <guid>https://japarangdev.gitio.com/posts/programming/event-driven/</guid>
+      <guid>https://japarangdev.github.io/posts/programming/event-driven/</guid>
       <description>Event-driven</description>
     </item>
     
