@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>spring on Jparangdev&#39;s blog</title>
-    <link>/categories/spring/</link>
-    <description>Recent content in spring on Jparangdev&#39;s blog</description>
+    <title>spring on Jparangdev&#39;Blog</title>
+    <link>https://japarangdev.gitio.com/categories/spring/</link>
+    <description>Recent content in spring on Jparangdev&#39;Blog</description>
+    <image>
+      <url>https://japarangdev.gitio.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://japarangdev.gitio.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 23 Feb 2021 21:27:00 +0900</lastBuildDate><atom:link href="/categories/spring/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Feb 2021 21:27:00 +0900</lastBuildDate><atom:link href="https://japarangdev.gitio.com/categories/spring/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>@Annotation</title>
-      <link>/posts/spring/annotation/</link>
-      <pubDate>Tue, 23 Feb 2021 21:27:00 +0900</pubDate>
+      <title>콩(Bean) 이야기</title>
+      <link>https://japarangdev.gitio.com/posts/spring/bean/</link>
+      <pubDate>Sat, 02 Jan 2021 21:23:00 +0900</pubDate>
       
-      <guid>/posts/spring/annotation/</guid>
-      <description>@@@@@@@@@ Spring으로 작업하다 보면 너무 많이 보게 되는 @들.. Annotation이라 불리는 것들은 정확히 무엇이고 어떻게 쓰이며 커스텀 어노테이션을 만들어 보자
-어노테이션의 사전적 의미는 주석이다. 즉 뜻을 알기 쉽게 하기 위해 덧붙이는 글을 말한다. 스프링 또는 자바에서 사용하는 어노테이션의 의미도 비슷하다. 해당 메소드나, 필드, 클래스 등에 부가적인 설명 또는 기능을 위해 표시하는 마크라고 할 수 있다.
-너무 기본적인 @Overide라는 어노테이션부터 예를 들어 보자. 부모 클래스로부터 오버 라이딩받는 메소드라는걸 표시해주는 어노테이션이라는 건 알고 있을 것이다.</description>
+      <guid>https://japarangdev.gitio.com/posts/spring/bean/</guid>
+      <description>Spring Bean</description>
     </item>
     
     <item>
-      <title>콩(Bean) 이야기</title>
-      <link>/posts/spring/bean/</link>
-      <pubDate>Sat, 02 Jan 2021 21:23:00 +0900</pubDate>
+      <title>@Annotation</title>
+      <link>https://japarangdev.gitio.com/posts/spring/annotation/</link>
+      <pubDate>Tue, 23 Feb 2021 21:27:00 +0900</pubDate>
       
-      <guid>/posts/spring/bean/</guid>
-      <description>Spring의 콩(bean)에 대해 알아보자
-  물론 이 콩이 아니다.
-  그럼.. Bean이 뭔데? 간단히 말하면 스프링프레임워크에서 사용하는 자바의 객체를 Bean이라 할 수 있다. 다만 Spring IoC Container(컨테이너)에서 관리되기 때문에 자바객체와 다르게 Bean(빈)이라 말한다. Xml이나 어노테이션을 이용해 메타데이터를 설정하면 컨테이너는 이를 확인해서 빈을 생성하고 해당 빈의 라이프 사이클을 관리하며 필요한 부분에 주입하여 의존성을 관리한다.
-  이 콩도 아니다 이 콩도 아니다
-  그럼 왜 굳이 Bean을 사용하는가?</description>
+      <guid>https://japarangdev.gitio.com/posts/spring/annotation/</guid>
+      <description>Spring Annotation</description>
     </item>
     
   </channel>

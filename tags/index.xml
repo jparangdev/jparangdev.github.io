@@ -1,99 +1,102 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Jparangdev&#39;s blog</title>
-    <link>/tags/</link>
-    <description>Recent content in Tags on Jparangdev&#39;s blog</description>
+    <title>Tags on Jparangdev&#39;Blog</title>
+    <link>https://japarangdev.gitio.com/tags/</link>
+    <description>Recent content in Tags on Jparangdev&#39;Blog</description>
+    <image>
+      <url>https://japarangdev.gitio.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://japarangdev.gitio.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 23 Feb 2021 21:27:00 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Feb 2021 21:27:00 +0900</lastBuildDate><atom:link href="https://japarangdev.gitio.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>java</title>
-      <link>/tags/java/</link>
+      <link>https://japarangdev.gitio.com/tags/java/</link>
       <pubDate>Tue, 23 Feb 2021 21:27:00 +0900</pubDate>
       
-      <guid>/tags/java/</guid>
+      <guid>https://japarangdev.gitio.com/tags/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>spring-boot</title>
-      <link>/tags/spring-boot/</link>
+      <link>https://japarangdev.gitio.com/tags/spring-boot/</link>
       <pubDate>Tue, 23 Feb 2021 21:27:00 +0900</pubDate>
       
-      <guid>/tags/spring-boot/</guid>
+      <guid>https://japarangdev.gitio.com/tags/spring-boot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>spring-framework</title>
-      <link>/tags/spring-framework/</link>
+      <link>https://japarangdev.gitio.com/tags/spring-framework/</link>
       <pubDate>Tue, 23 Feb 2021 21:27:00 +0900</pubDate>
       
-      <guid>/tags/spring-framework/</guid>
+      <guid>https://japarangdev.gitio.com/tags/spring-framework/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Architecture</title>
-      <link>/tags/architecture/</link>
+      <title>architecture</title>
+      <link>https://japarangdev.gitio.com/tags/architecture/</link>
       <pubDate>Sun, 14 Feb 2021 14:06:00 +0900</pubDate>
       
-      <guid>/tags/architecture/</guid>
+      <guid>https://japarangdev.gitio.com/tags/architecture/</guid>
       <description></description>
     </item>
     
     <item>
       <title>paradigm</title>
-      <link>/tags/paradigm/</link>
+      <link>https://japarangdev.gitio.com/tags/paradigm/</link>
       <pubDate>Sun, 14 Feb 2021 14:06:00 +0900</pubDate>
       
-      <guid>/tags/paradigm/</guid>
+      <guid>https://japarangdev.gitio.com/tags/paradigm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>event-driven</title>
-      <link>/tags/event-driven/</link>
+      <link>https://japarangdev.gitio.com/tags/event-driven/</link>
       <pubDate>Mon, 01 Feb 2021 21:23:00 +0900</pubDate>
       
-      <guid>/tags/event-driven/</guid>
+      <guid>https://japarangdev.gitio.com/tags/event-driven/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kafka</title>
-      <link>/tags/kafka/</link>
+      <link>https://japarangdev.gitio.com/tags/kafka/</link>
       <pubDate>Sat, 23 Jan 2021 14:22:00 +0900</pubDate>
       
-      <guid>/tags/kafka/</guid>
+      <guid>https://japarangdev.gitio.com/tags/kafka/</guid>
       <description></description>
     </item>
     
     <item>
       <title>git</title>
-      <link>/tags/git/</link>
+      <link>https://japarangdev.gitio.com/tags/git/</link>
       <pubDate>Tue, 22 Dec 2020 21:00:00 +0900</pubDate>
       
-      <guid>/tags/git/</guid>
+      <guid>https://japarangdev.gitio.com/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hugo</title>
-      <link>/tags/hugo/</link>
+      <link>https://japarangdev.gitio.com/tags/hugo/</link>
       <pubDate>Tue, 22 Dec 2020 21:00:00 +0900</pubDate>
       
-      <guid>/tags/hugo/</guid>
+      <guid>https://japarangdev.gitio.com/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>markdown</title>
-      <link>/tags/markdown/</link>
+      <link>https://japarangdev.gitio.com/tags/markdown/</link>
       <pubDate>Tue, 22 Dec 2020 21:00:00 +0900</pubDate>
       
-      <guid>/tags/markdown/</guid>
+      <guid>https://japarangdev.gitio.com/tags/markdown/</guid>
       <description></description>
     </item>
     
